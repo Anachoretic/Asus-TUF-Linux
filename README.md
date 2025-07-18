@@ -6,7 +6,7 @@
 - [Debian](Linux-Installation/Debian.md)
 
 ## Distro Setup:
-- [Fedora](Distro-Setup/Setup-Fedora.md)
+- [Fedora](Distro-Setup/Fedora.md)
 - [Arch and Derivatives](Distro-Setup/arch-and-derivatives.md)
 - [Debian and Derivatives](Distro-Setup/debian-and-derivatives.md)
 
