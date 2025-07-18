@@ -1,7 +1,3 @@
----
-
-## description: Written by Zenith Zephyr
-
 # Post-Installation Configuration for Fedora-Based Systems
 
 {% stepper %} {% step %}
