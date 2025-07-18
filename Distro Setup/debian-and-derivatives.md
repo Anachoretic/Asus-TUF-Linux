@@ -3,7 +3,7 @@
 ## Post-Installation Configuration for Debian-Based Systems
 
 {% hint style="danger" %}
-**Note:** Debian and its derivatives (Ubuntu, Mint, Pop!\\\_OS, etc.) are considered **unsupported** on the official \[Asus Linux]\(https://asus-linux.org/) site. Software such as \`asusctl\` and \`supergfxctl\` must be compiled from source. Fedora is the recommended distribution for full support. If you still wish to proceed with Debian, follow this guide carefully. Some features may not function as expected.
+**Note:** Debian and its derivatives (Ubuntu, Mint, Pop! OS, etc.) are considered **unsupported** on the official [Asus Linux](https://asus-linux.org/) site. Software such as **asusctl** and **supergfxctl** must be compiled from source. Fedora is the recommended distribution for full support. If you still wish to proceed with Debian, follow this guide carefully. Some features may not function as expected.
 {% endhint %}
 
 {% stepper %}
