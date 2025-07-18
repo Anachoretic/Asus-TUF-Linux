@@ -28,7 +28,7 @@ Ubuntu and Linux Mint are user-friendly alternatives, though they may require mo
 {% endhint %}
 
 {% hint style="warning" %}
-**Secure Boot can prevent Fedora and some other distros from booting. Disable it in BIOS.**
+**Secure Boot can prevent some distros from booting. Disable it in BIOS.**
 {% endhint %}
 
 {% hint style="warning" %}
