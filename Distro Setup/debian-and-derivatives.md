@@ -1,9 +1,5 @@
 # Setup (Debian)
 
-***
-
-### description: Written by by Zenith Zephyr
-
 ## Post-Installation Configuration for Debian-Based Systems
 
 {% hint style="danger" %}
@@ -12,7 +8,7 @@
 
 {% stepper %}
 {% step %}
-### 1. System Update
+#### 1. System Update
 
 After installation, it’s crucial to update the system to ensure all packages are up-to-date.
 
@@ -24,7 +20,7 @@ This command updates the package list and upgrades all installed packages.
 {% endstep %}
 
 {% step %}
-### 2. Driver Installation
+#### 2. Driver Installation
 
 By default, most drivers (e.g., for Intel, AMD, and other hardware) are included in the Linux kernel. However, **Nvidia dGPU drivers must be installed separately.**
 
@@ -39,7 +35,7 @@ By default, most drivers (e.g., for Intel, AMD, and other hardware) are included
 {% endstep %}
 
 {% step %}
-### 3. Flatpak Installation (Ubuntu Only)
+#### 3. Flatpak Installation (Ubuntu Only)
 
 Most Debian-based distributions ship with Flatpak, but Ubuntu defaults to Snap. To install Flatpak on Ubuntu:
 
@@ -56,13 +52,13 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 {% endstep %}
 
 {% step %}
-### 4. Asus Software Installation (Manual Compilation)
+#### 4. Asus Software Installation (Manual Compilation)
 
 {% hint style="warning" %}
 **Note:** These tools need to be built from source. Follow steps carefully.
 {% endhint %}
 
-#### 4.1 Install Build Dependencies
+**4.1 Install Build Dependencies**
 
 Install required development tools and libraries:
 
@@ -82,7 +78,7 @@ Configure the environment:
 . "$HOME/.cargo/env"
 ```
 
-#### 4.2 Installing `asusctl`
+**4.2 Installing `asusctl`**
 
 1. Clone the repository or download the latest release.
 2. Extract it and open a terminal inside the `asusctl` folder.
@@ -92,12 +88,12 @@ Configure the environment:
 </strong></code></pre>
 
 {% hint style="info" %}
-This software requires **Wayland.** It may not work under X11.&#x20;
+This software requires **Wayland.** It may not work under X11.
 
 Icons may appear missing for the first few reboots, this is expected.
 {% endhint %}
 
-#### 4.3 Installing `supergfxctl`
+**4.3 Installing `supergfxctl`**
 
 1. Clone the repository:
 
@@ -119,12 +115,12 @@ sudo systemctl enable supergfxd
 sudo systemctl start supergfxd
 ```
 
-#### 4.4 Optional GUI Support
+**4.4 Optional GUI Support**
 
 * **GNOME:** Install the [`supergfxctl-gex`](https://extensions.gnome.org/extension/5344/supergfxctl-gex) extension.
 * **Other DEs (e.g., Cinnamon, MATE,XFCE):** Use CLI commands.
 
-#### 4.5 Switching GPU Modes via CLI
+**4.5 Switching GPU Modes via CLI**
 
 ```bash
 supergfxctl --mode Integrated   # Use integrated GPU only
@@ -140,18 +136,18 @@ supergfxctl --help
 {% endstep %}
 
 {% step %}
-### 5. Fixing Hotkeys
+#### 5. Fixing Hotkeys
 
 {% hint style="info" %}
 Some hotkey functions are controlled at the BIOS level and cannot be remapped. To check if a hotkey can be remapped, try creating a shortcut. If the input is detected, remapping is possible.
 {% endhint %}
 
-#### 5.1 GNOME
+**5.1 GNOME**
 
 * Go to **Settings > Keyboard > Keyboard Shortcuts**
 * Click “+” to add a new shortcut
 
-#### 5.2 KDE
+**5.2 KDE**
 
 * Go to **System Settings > Shortcuts > Custom Shortcuts**
 * Create a new **Global Shortcut → Command/URL**
