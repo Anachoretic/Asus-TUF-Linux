@@ -2,7 +2,7 @@
 
 {% stepper %} {% step %}
 
-## 1. Post Install Configuration
+## 1. Post Install Configuration:
 
 - If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
 - AMD users can skip this,Mesa drivers are built into the kernel and just work out of the box.
