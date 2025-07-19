@@ -10,9 +10,9 @@ This guide includes links to video tutorials for visual learners.
 
 # 2. Distro Selection
 
-Fedora is the preferred distribution for Asus laptops. However, for those familiar with Debian-based systems:
+Fedora is the preferred distribution for ASUS laptops. However, for those who prefer to stick with Debian-based systems:
 
-Ubuntu and Linux Mint are user-friendly alternatives, though they may require more manual setup or lack certain hardware support out of the box.
+Ubuntu and Linux Mint are among the most user-friendly distributions. I recommend using one of these, as the rest of this guide is based on these two specific distros , though it is also applicable to other Debian-based distributions.
 
 # 3. Prerequisites
 
@@ -20,7 +20,7 @@ Ubuntu and Linux Mint are user-friendly alternatives, though they may require mo
 ### Required Before You Begin
 
 • USB drive with at least 8 GB of storage  
-• Bootable media tool: **Rufus**, **Ventoy**, **Balena Etcher**, or **Fedora Media Writer**  
+• Bootable media tool: **Rufus**, **Ventoy**, or **Balena Etcher**
 • **Secure Boot** must be disabled in BIOS  
 • **BitLocker** must be disabled in Windows  
 • **Fast Boot** should be disabled (for dual-boot users)  
