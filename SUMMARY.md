@@ -1,18 +1,21 @@
-# Summary
+# Table of contents
 
-- [Introduction](README.md)
+* [Introduction](README.md)
 
 ## Linux Installation:
-- [Debian](Linux-Installation/Debian.md)
-- [Arch](Linux-Installation/Arch.md)
+
+* [Debian](Linux-Installation/Debian.md)
+* [Arch](Linux-Installation/Arch.md)
 
 ## Distro Setup:
-- [Fedora](Distro%20Setup/Fedora.md)
-- [Arch and Derivatives](Distro%20Setup/arch-and-derivatives.md)
-- [Debian and Derivatives](Distro%20Setup/debian-and-derivatives.md)
+
+* [Fedora](<Distro Setup/Fedora.md>)
+* [Arch and Derivatives](<Distro Setup/arch-and-derivatives.md>)
+* [Debian and Derivatives](<Distro Setup/debian-and-derivatives.md>)
 
 ## Optimization and Troubleshooting:
-- [Gaming on Linux](Optimization-and-Usage/gaming.md)
-- [Undervolting](Optimization-and-Usage/undervolting.md)
-- [Maintenance](Optimization-and-Usage/maintenance.md)
-- [Troubleshooting](Optimization-and-Usage/troubleshooting.md)
+
+* [Gaming on Linux](optimization-and-troubleshooting/gaming-on-linux.md)
+* [Undervolting](optimization-and-troubleshooting/undervolting.md)
+* [Maintenance](optimization-and-troubleshooting/maintenance.md)
+* [Troubleshooting](optimization-and-troubleshooting/troubleshooting.md)
