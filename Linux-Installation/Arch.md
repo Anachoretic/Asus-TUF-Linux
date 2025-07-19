@@ -1,3 +1,7 @@
+{% stepper %}
+{% step %}
+
+
 # 1. Distro Selection
 
 If you’re interested in trying an Arch-based system but want something easier to get started with, I’d suggest EndeavourOS. It gives you the Arch experience with just a few helpful extras , like a graphical installer and a helpful community.
@@ -6,7 +10,13 @@ If you’re interested in trying an Arch-based system but want something easier 
 If you’ve never used Linux before and aren’t willing to read documentation or troubleshoot issues, Arch or Arch-based distributions may not be the best starting point.
 {% endhint %}
 
+{% endstep %}
+
+
 # 2. Prerequisites
+
+{% step %}
+
 
 {% hint style="info" %}
 Before starting the installation, make sure you have:
@@ -27,7 +37,12 @@ Secure Boot may prevent the system from booting. Be sure to disable it in BIOS.
 If BitLocker is not turned off, it can lead to data loss or prevent access to your drive during installation.
 {% endhint %}
 
+{% endstep %}
+
+
 # 3. Installation Process
+
+{% step %}
 
 ## 3.1 Download the ISO
 
@@ -65,7 +80,7 @@ Download the latest EndeavourOS ISO from the official website:
 
 ## 3.4 BIOS Setup
 
-1. Reboot your system and press `F2`, `DEL`, or your BIOS key.  
+1. Reboot your system and press `F2`.
 2. Disable **Secure Boot**.  
 3. Set your USB drive as the first boot device.  
 4. Save changes and exit BIOS.
@@ -117,7 +132,11 @@ Once you're in the live session:
 2. Remove the USB drive.  
 3. Your system should now boot into Linux or display a bootloader menu if dual booting.
 
+{% endstep %}
+
 # 4. Uninstalling Linux
+
+{% step %}
 
 ## 4.1 For Dual Boot Systems
 
@@ -166,3 +185,5 @@ exit
 {% hint style="info" %}
 If the Windows installer doesn’t detect your disk on Intel systems, disable **VMD (Volume Management Device)** in BIOS.
 {% endhint %}
+
+{% endstep %}
