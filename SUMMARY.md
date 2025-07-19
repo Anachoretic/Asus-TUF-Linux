@@ -4,6 +4,7 @@
 
 ## Linux Installation:
 - [Debian](Linux-Installation/Debian.md)
+- [Arch](Linux-Installation/Arch.md)
 
 ## Distro Setup:
 - [Fedora](Distro%20Setup/Fedora.md)
