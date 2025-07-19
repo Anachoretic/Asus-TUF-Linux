@@ -1,4 +1,5 @@
 {% stepper %}
+
 {% step %}
 # 1. Distro Selection
 
@@ -9,9 +10,9 @@ If you’ve never used Linux before and aren’t willing to read documentation o
 {% endhint %}
 {% endstep %}
 
-
-# 2. Prerequisites
 {% step %}
+# 2. Prerequisites
+
 {% hint style="info" %}
 Before starting the installation, make sure you have:
 
@@ -32,8 +33,8 @@ If BitLocker is not turned off, it can lead to data loss or prevent access to yo
 {% endhint %}
 {% endstep %}
 
-# 3. Installation Process
 {% step %}
+# 3. Installation Process
 
 ## 3.1 Download the ISO
 
@@ -71,7 +72,7 @@ Download the latest EndeavourOS ISO from the official website:
 
 ## 3.4 BIOS Setup
 
-1. Reboot your system and press `F2`.
+1. Reboot your system and press `F2`.  
 2. Disable **Secure Boot**.  
 3. Set your USB drive as the first boot device.  
 4. Save changes and exit BIOS.
@@ -124,8 +125,8 @@ Once you're in the live session:
 3. Your system should now boot into Linux or display a bootloader menu if dual booting.
 {% endstep %}
 
-# 4. Uninstalling Linux
 {% step %}
+# 4. Uninstalling Linux
 
 ## 4.1 For Dual Boot Systems
 
@@ -175,3 +176,5 @@ exit
 If the Windows installer doesn’t detect your disk on Intel systems, disable **VMD (Volume Management Device)** in BIOS.
 {% endhint %}
 {% endstep %}
+
+{% endstepper %}
