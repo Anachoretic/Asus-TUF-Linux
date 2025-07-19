@@ -5,27 +5,28 @@
 
 ## Linux Installation:
 
+
+* [**Arch**](Linux-Installation/Arch.md)  
+  For users who want more control. Covers installing Arch and Arch-based distros manually or with tools like EndeavourOS.
+
 * [**Debian**](Linux-Installation/Debian.md)  
   Step-by-step install guide for Debian-based distros like Ubuntu and Mint. Simple, stable, and works well for most people.
 
 * [**Fedora**](Linux-Installation/Fedora.md)  
   Recommended if you want good hardware support out of the box , especially for ASUS laptops. This guide walks through the Fedora install process.
 
-* [**Arch**](Linux-Installation/Arch.md)  
-  For users who want more control. Covers installing Arch and Arch-based distros manually or with tools like EndeavourOS.
-
 ## Distro Setup:
 
 Covers post-install essentials , drivers, ASUS-specific tools, system updates, minor tweaks, and basic troubleshooting to get your system running properly.
-
-* [**Fedora**](<Distro Setup/Fedora.md>)  
-  Recommended setup steps for Fedora, including hardware fixes and optimizations for ASUS devices.
 
 * [**Arch and Derivatives**](<Distro Setup/arch-and-derivatives.md>)  
   What to do after installing Arch or an Arch-based distro. Includes driver setup, essential packages, and fixes for common issues.
 
 * [**Debian and Derivatives**](<Distro Setup/debian-and-derivatives.md>)  
   Post-install setup for Ubuntu, Mint, and similar distros  with tweaks to make them work better on ASUS laptops.
+*  [**Fedora**](<Distro Setup/Fedora.md>)  
+  Recommended setup steps for Fedora, including hardware fixes and optimizations for ASUS devices.
+
 
 ## Optimization and Troubleshooting:
 
