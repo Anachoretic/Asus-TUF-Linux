@@ -28,7 +28,7 @@ By default, most drivers (e.g., for Intel, AMD, and other hardware) are included
 * **Ubuntu/Mint/Pop!\_OS users:** Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers**. Ensure that proprietary drivers (not Nouveau) are selected.
 
 {% hint style="warning" %}
-**Important:** If using hybrid graphics, set GPU mode to \*Hybrid\* in the BIOS or through tools, or the Nvidia driver installer might not detect the GPU.
+**Important:** Set GPU mode to \*Hybrid\* or \*Ultimate\* in the Windows or through supergfxctl, or the Driver installer might not detect the GPU.
 {% endhint %}
 
 * **Pop!\_OS:** Offers a dedicated Nvidia ISO. If you have an Nvidia GPU, this is the recommended option.
