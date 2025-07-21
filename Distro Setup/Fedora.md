@@ -139,7 +139,7 @@ TLP is a feature-rich command line utility for Linux, saving laptop battery powe
 Install TLP:
 
 ```bash
-sudo pacman -S tlp
+sudo dnf install tlp
 ```
 
 Then enable tlp with the following commands:
