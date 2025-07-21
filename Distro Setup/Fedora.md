@@ -1,184 +1,175 @@
-# Fedora
+# Fedora Post-Installation Guide
 
-{% stepper %}
+This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, and power management tweaks.
+
+
+
+## Step 1: Post Install Configuration
+
+{% stepper %} {% step %} If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
+
+AMD users can skip this, as Mesa drivers are built into the kernel and work out of the box.
+
+{% hint style="info" %} Note: Unlike Windows, most drivers are included in the kernel, so you don't usually need to install them manually. {% endhint %} {% endstep %}
+
+## Step 2: GPU Driver Installation and Asus Software Setup
+
 {% step %}
-1. Post Install Configuration
 
-If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
+### 2.1 Nvidia Driver Installation (Fedora)
 
-AMD users can skip this,Mesa drivers are built into the kernel and just work out of the box.
+{% hint style="warning" %} Important: Make sure Secure Boot is turned off or the Nvidia driver won’t load. {% endhint %}
 
-{% hint style="info" %}
-Note: Unlike Windows, most drivers are included in the kernel, so you don't usually need to install them manually.
-{% endhint %}
-{% endstep %}
+Start by updating the system:
 
-{% step %}
-2. GPU Driver Installation and Asus Software Setup
-
-2.1 Nvidia Driver Installation (Fedora)
-
-{% hint style="warning" %}
-Important: Make sure Secure Boot is turned off or the Nvidia driver won’t load.
-{% endhint %}
-
-First, update the system. Always a good idea to start fresh:
-
-{% code lineNumbers="true" %}
-```
+```bash
 sudo dnf update
 ```
-{% endcode %}
 
-Enable RPM Fusion, which gives you access to Nvidia drivers and other non-free packages:
+Enable RPM Fusion:
 
-```
+```bash
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-Install the required Nvidia packages:
+Install Nvidia packages:
 
-akmod-nvidia: Automatically builds the kernel module on new kernel updates.
-
-xorg-x11-drv-nvidia-cuda: Adds CUDA support if you're doing compute work.
-
-{% code lineNumbers="true" %}
-```
+```bash
 sudo dnf install akmod-nvidia
 sudo dnf install xorg-x11-drv-nvidia-cuda
 ```
-{% endcode %}
 
-{% hint style="info" %}
-After installing, wait 5–8 minutes for the kernel module to build in the background.
-{% endhint %}
+{% hint style="info" %} After installing, wait 5–8 minutes for the kernel module to build in the background. {% endhint %}
 
-Enable power management for better battery handling and suspend/resume support:
+Enable Nvidia power management:
 
-{% code lineNumbers="true" %}
-```
+```bash
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
-{% endcode %}
 
-Modify GRUB to blacklist Nouveau (the open-source Nvidia driver) and enable Nvidia DRM:
+Blacklist Nouveau and enable Nvidia DRM:
 
-{% code lineNumbers="true" %}
-```
+```bash
 sudo nano /etc/default/grub
 
-Then add this line:
-
+# Add this:
 GRUB_CMDLINE_LINUX="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 rhgb quiet"
 ```
-{% endcode %}
 
-2.2 Asus Software Installation
+{% endstep %}
 
-Add the COPR repo so you don’t have to compile anything manually:
+{% step %}
 
-{% code lineNumbers="true" %}
-```
+### 2.2 Asus Software Installation
+
+Add the COPR repo:
+
+```bash
 sudo dnf copr enable lukenukem/asus-linux
 ```
-{% endcode %}
 
-Install everything you’ll need:
+Install tools:
 
-asusctl: Manages performance profiles, LED effects, and fan control.
-
-supergfxctl: Lets you switch between GPU modes.
-
-rog-control-center: GUI tool for controlling Asus features.
-
-{% code lineNumbers="true" %}
-```
+```bash
 sudo dnf install asusctl supergfxctl rog-control-center
 ```
-{% endcode %}
 
-Enable the GPU switching daemon:
+Enable GPU switching:
 
-```
+```bash
 sudo systemctl enable supergfxd.service
 sudo systemctl start supergfxd.service
 ```
 
-{% hint style="info" %}
-Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe.
-{% endhint %}
+{% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %} {% endstep %}
 
-2.3 Switching GPU Modes with a GUI
+{% step %}
 
-GNOME users: Grab the supergfxctl-gex extension.
+### 2.3 Switching GPU Modes with a GUI
 
-KDE users: Use the supergfxctl-plasmoid.
+GNOME: Use `supergfxctl-gex`
 
-For KDE, install the plasmoid:
+KDE: Use the plasmoid extension:
 
-{% code lineNumbers="true" %}
-```
+```bash
 sudo dnf copr enable jhyub/supergfxctl-plasmoid
 sudo dnf install supergfxctl-plasmoid
 ```
-{% endcode %}
 
-Reload Plasma to apply changes:
+Reload Plasma:
 
-{% code lineNumbers="true" %}
-```
+```bash
 plasmashell --replace &
 ```
-{% endcode %}
 
-Set GPU mode to Hybrid for daily use:
+Set Hybrid GPU mode:
 
-{% code lineNumbers="true" %}
-```
+```bash
 supergfxctl --mode Hybrid
 ```
-{% endcode %}
 
-A GPU icon should now appear in your taskbar, making it easy to switch modes without using the terminal.
+{% hint style="info" %} Note: Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %} {% endstep %}
+
+## Step 3: Fixing Hotkeys
+
+{% step %} Some hotkeys are BIOS-level and can’t be remapped.
+
+{% hint style="info" %} To test remap capability: press the key while adding a shortcut. If nothing registers, it can't be reassigned. {% endhint %}
+
+### GNOME
+
+- Settings → Keyboard → Shortcuts → “+”
+
+### KDE
+
+- System Settings → Shortcuts → Custom Shortcuts → New Global Shortcut → Command/URL
+
+**Commands:**
+
+- `rog-control-center`: Launch GUI
+- `asusctl aura -n`: Toggle Aura lighting
+- `asusctl profile -n`: Change power profile {% endstep %}
+
+## 6. Power Management
+### 6.1 TLP
+
+Install TLP:
+
+```bash
+sudo pacman -S tlp
+sudo systemctl enable tlp
+sudo systemctl start tlp
+```
 
 {% hint style="info" %}
-Note: Changing to/from Hybrid mode requires logging out and back in. Ultimate mode needs a full reboot.
-{% endhint %}
-{% endstep %}
+TLP conflicts with power-profiles-daemon. Remove it or mask its services with:
 
-{% step %}
-3. Fixing Hotkeys
+```bash
+systemctl mask power-profiles-daemon.service
+```
+
+{% endhint %}
+### 6.2 Auto-CPUFreq
+
+Manual Install:
+
+```bash
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
+```
+
 
 {% hint style="info" %}
-Some hotkey actions are managed directly by the BIOS, meaning their input does not reach the operating system and therefore cannot be remapped.
+You'll need to run the following command to disable power-profiles-daemon if it's installed, otherwise cpu-auto-freq may not function correctly:
 
-\
-To verify whether a hotkey can be remapped, press the keys while creating the shortcut.\
-If the input registers, remapping is possible; if not, you will need to assign a different key combination.
+```bash
+systemctl mask power-profiles-daemon.service
+```
+
 {% endhint %}
 
-3.1 GNOME
 
-Head to Settings > Keyboard > Keyboard Shortcuts
 
-Click “+” to add your own shortcut
-
-3.2 KDE
-
-Go to System Settings > Shortcuts > Custom Shortcuts
-
-Create a new Global Shortcut → Command/URL
-
-Handy Commands
-
-Open Armoury Crate: rog-control-center
-
-Toggle Aura lighting: asusctl aura -n
-
-Change performance profile: asusctl profile -n
-{% endstep %}
-{% endstepper %}
-
-{% stepper %}
-{% step %}
+{% hint style="info" %}
+After installation, open the cpu-auto-freq app and verify if it’s working properly.
+{% endhint %}
