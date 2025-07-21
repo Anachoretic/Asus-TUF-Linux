@@ -172,7 +172,6 @@ supergfxctl --mode Hybrid
 
 {% endstep %} 
 
-
 {% step %}
 
 ### 4. Update Mirrors to Use the Fastest Server
@@ -210,6 +209,7 @@ sudo cp /etc/pacman.d/mirrorlist.bak /etc/pacman.d/mirrorlist
 ```
 
 {% endstep %}
+
 {% step %}
 
 
@@ -229,12 +229,11 @@ sudo systemctl start bluetooth
 ```
 
 {% endstep %}
+
 {% step %}
 
-
-### 6. Power Management
-
-#### 6.1 TLP
+## 6. Power Management
+### 6.1 TLP
 
 Install TLP:
 
@@ -244,9 +243,15 @@ sudo systemctl enable tlp
 sudo systemctl start tlp
 ```
 
-> TLP may conflict with `power-profiles-daemon`. Remove it if necessary.
+{% hint style="info" %}
+TLP conflicts with power-profiles-daemon. Remove it or mask its services with:
 
-#### 6.2 Auto-CPUFreq
+```bash
+systemctl mask power-profiles-daemon.service
+```
+
+{% endhint %}
+### 6.2 Auto-CPUFreq
 
 Using AUR:
 
@@ -254,14 +259,27 @@ Using AUR:
 yay -S auto-cpufreq
 ```
 
+{% hint style="info" %}
+Installation from the AUR requires a bit of manual intervention. You'll need to run the following command to disable power-profiles-daemon if it's installed, otherwise cpu-auto-freq may not function correctly:
+
+```bash
+systemctl mask power-profiles-daemon.service
+```
+
+{% endhint %}
+
 Manual Install:
 
 ```bash
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-cd auto-cpufreq && sudo ./auto-cpufreq-installer
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
 
+{% hint style="info" %}
+After installation, open the cpu-auto-freq app and verify if it’s working properly.
+{% endhint %}
+
 {% endstep %}
+
 {% step %}
 
 
