@@ -131,13 +131,19 @@ supergfxctl --mode Hybrid
 - `asusctl aura -n`: Toggle Aura lighting
 - `asusctl profile -n`: Change power profile {% endstep %}
 
-## 6. Power Management
-### 6.1 TLP
+## 3. Power Management
+### 3.1 TLP
+
+TLP is a feature-rich command line utility for Linux, saving laptop battery power without the need to delve deeper into technical details. TLP's default settings are already optimized for battery life and implement Powertop's recommendations out of the box, so additional configuration is not needed. Also, TLP is completely customizable, which means you can get even more power savings or meet your exact requirements.
 
 Install TLP:
 
 ```bash
 sudo pacman -S tlp
+```
+
+Then enable tlp with the following commands:
+```bash
 sudo systemctl enable tlp
 sudo systemctl start tlp
 ```
@@ -150,7 +156,9 @@ systemctl mask power-profiles-daemon.service
 ```
 
 {% endhint %}
-### 6.2 Auto-CPUFreq
+### 3.2 Auto-CPUFreq
+
+Automatic CPU speed & power optimizer for Linux. Actively monitors laptop battery state, CPU usage, CPU temperature, and system load, ultimately allowing you to improve battery life without making any compromises.
 
 Manual Install:
 
