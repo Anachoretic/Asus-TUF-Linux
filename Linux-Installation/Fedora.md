@@ -34,6 +34,7 @@ Download the latest Fedora Workstation ISO from the official website:
 - Recommended: Fedora Workstation (GNOME)
 - Alternative: Fedora Workstation (KDE)
 
+{% endstep %}
 {% step %}
 
 ## Step 2: Create Bootable Media
@@ -56,6 +57,7 @@ Download the latest Fedora Workstation ISO from the official website:
 4. Select your USB drive and click **Install**.
 5. After setup, copy the Fedora ISO file to the **Ventoy** partition. {% endtab %} {% endtabs %} {% endstep %}
 
+{% endstep %}
 {% step %}
 
 ## Step 3: Partitioning (Dual Boot Only)
@@ -65,6 +67,7 @@ Download the latest Fedora Workstation ISO from the official website:
 3. Enter the desired size for Linux (at least 50 GB recommended).
 4. Leave the space unallocated; do **not** format it. {% endstep %}
 
+{% endstep %}
 {% step %}
 
 ## Step 4: BIOS Setup
@@ -76,11 +79,12 @@ Download the latest Fedora Workstation ISO from the official website:
 3. Save changes and exit BIOS.
 4. Boot from the USB. {% endstep %}
 
+{% endstep %}
 {% step %}
 
 ## Step 5: Begin Installation
 
- [Video Tutorial](https://www.youtube.com/watch?v=eHQJMy8Q7Zk)
+Video guide: [https://www.youtube.com/watch?v=eHQJMy8Q7Zk](https://www.youtube.com/watch?v=eHQJMy8Q7Zk)
 
 {% hint style="info" %} If the installer doesn't appear immediately, wait 10–20 seconds. {% endhint %}
 
@@ -96,9 +100,11 @@ Download the latest Fedora Workstation ISO from the official website:
 5. After installation:
    - Exit the Live Environment.
    - Remove the USB drive.
-   - Reboot into Fedora. {% endstep %}
+   - Reboot into Fedora.
 
-{% endstepper %}
+{% endstep %}
+{% step %}
+
 
 ## Uninstalling Fedora
 
@@ -122,3 +128,4 @@ clean
 
 {% hint style="info" %} If you're using an Intel system and the Windows installer doesn't detect your disk, disable **VMD (Volume Management Device)** in BIOS. {% endhint %}
 
+{% endstep %}
