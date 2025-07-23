@@ -142,7 +142,7 @@ For emulators:
    - Point it to the ROM file
 
 {% hint style="warning" %}
-Only use ROMs you legally own. Many developers allow backups of games you’ve purchased.
+Just make sure you only use ROMs you legally own. I don’t condone piracy in any form.
 {% endhint %}
 
    
