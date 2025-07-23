@@ -1,6 +1,11 @@
+
+
 # Fedora Installation Guide for ASUS Laptops
 
 Fedora has excellent compatibility with ASUS laptops in terms of both hardware and software. The ASUS software does not need to be manually compiled from source, making Fedora one of the best distros for newcomers starting out with Linux.
+
+{% stepper %}
+{% step %}
 
 ## Prerequisites
 
@@ -19,11 +24,10 @@ Fedora has excellent compatibility with ASUS laptops in terms of both hardware a
 
 {% hint style="warning" %} **Failure to disable BitLocker may result in data loss or drive access issues.** {% endhint %}
 
-## Installation Steps
-
-{% stepper %}
-
+{% endstep %}
 {% step %}
+
+## Installation Steps
 
 ## Step 1: Download Fedora ISO
 
