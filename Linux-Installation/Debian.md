@@ -205,7 +205,7 @@ exit
 
 4. Continue with the Windows installation process.
 
-{% hint style="info" %} If you are using an Intel system and the Windows installer cannot detect your drive, disable **VMD (Volume Management Device)** in BIOS. {% endhint %}
+{% hint style="info" %} If you are using an Intel system and the Windows installer cannot detect your drive, disable **VMD** (Volume Management Device) in BIOS. {% endhint %}
 
 {% endstep %}
 
