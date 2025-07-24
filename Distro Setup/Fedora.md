@@ -3,14 +3,15 @@
 This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, and power management tweaks.
 
 
-
-## Step 1: Post Install Configuration
+## Step 1: Post-Install Configuration
 
 {% stepper %} {% step %} If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
 
 AMD users can skip this, as Mesa drivers are built into the kernel and work out of the box.
 
 {% hint style="info" %} Note: Unlike Windows, most drivers are included in the kernel, so you don't usually need to install them manually. {% endhint %} {% endstep %}
+
+
 
 ## Step 2: GPU Driver Installation and Asus Software Setup
 
@@ -82,15 +83,17 @@ sudo systemctl enable supergfxd.service
 sudo systemctl start supergfxd.service
 ```
 
-{% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %} {% endstep %}
+{% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
+
+{% endstep %}
 
 {% step %}
 
 ### 2.3 Switching GPU Modes with a GUI
 
-GNOME: Use `supergfxctl-gex`
+GNOME: Use the [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/) extension.
 
-KDE: Use the plasmoid extension:
+KDE: Use the supergfxctl-plasmoid:
 
 ```bash
 sudo dnf copr enable jhyub/supergfxctl-plasmoid
@@ -109,7 +112,11 @@ Set Hybrid GPU mode:
 supergfxctl --mode Hybrid
 ```
 
-{% hint style="info" %} Note: Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %} {% endstep %}
+{% hint style="info" %} Note: Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
+
+{% endstep %}
+
+
 
 ## Step 3: Fixing Hotkeys
 
@@ -129,46 +136,54 @@ supergfxctl --mode Hybrid
 
 - `rog-control-center`: Launch GUI
 - `asusctl aura -n`: Toggle Aura lighting
-- `asusctl profile -n`: Change power profile {% endstep %}
+- `asusctl profile -n`: Change power profile
 
-## 3. Power Management
-### 3.1 TLP
+{% endstep %}
 
-TLP is a feature-rich command line utility for Linux, saving laptop battery power without the need to delve deeper into technical details. TLP's default settings are already optimized for battery life and implement Powertop's recommendations out of the box, so additional configuration is not needed. Also, TLP is completely customizable, which means you can get even more power savings or meet your exact requirements.
 
-Install TLP:
+
+## Step 4: Power Management
+
+If you notice that your battery life on Linux is significantly shorter compared to Windows, you may benefit from additional power management tools. Two of the most commonly recommended options are **TLP** and **CPU AutoFreq**. These tools help optimize power usage, particularly on laptops, by dynamically adjusting CPU frequencies and managing various power-related settings.
+
+{% hint style="warning" %} **Important**: Only install **one** of these tools. Running both simultaneously can cause conflicts and lead to unexpected behavior. {% endhint %}
+
+### 4.1 TLP
+
+TLP is a feature-rich command-line utility for Linux that helps extend battery life without requiring manual tuning. Its default configuration is already optimized and implements many of Powertop’s recommendations.
+
+**Install TLP:**
 
 ```bash
 sudo dnf install tlp
 ```
 
-Then enable tlp with the following commands:
+**Enable TLP:**
+
 ```bash
 sudo systemctl enable tlp
 sudo systemctl start tlp
 ```
 
-{% hint style="info" %}
-TLP conflicts with power-profiles-daemon. Remove it or mask its services with:
+{% hint style="info" %} TLP conflicts with power-profiles-daemon. Remove it or mask its service:
 
 ```bash
 systemctl mask power-profiles-daemon.service
 ```
 
 {% endhint %}
-### 3.2 Auto-CPUFreq
 
-Automatic CPU speed & power optimizer for Linux. Actively monitors laptop battery state, CPU usage, CPU temperature, and system load, ultimately allowing you to improve battery life without making any compromises.
+### 4.2 CPU AutoFreq
 
-Manual Install:
+CPU AutoFreq is a real-time CPU frequency and power optimizer. It monitors your system load, battery level, and temperature to dynamically manage CPU scaling for better battery life.
+
+**Manual Install:**
 
 ```bash
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
 
-
-{% hint style="info" %}
-You'll need to run the following command to disable power-profiles-daemon if it's installed, otherwise cpu-auto-freq may not function correctly:
+{% hint style="info" %} If power-profiles-daemon is installed, disable it:
 
 ```bash
 systemctl mask power-profiles-daemon.service
@@ -176,8 +191,43 @@ systemctl mask power-profiles-daemon.service
 
 {% endhint %}
 
+{% hint style="info" %} After installation, open the cpu-auto-freq app and verify if it’s working properly. {% endhint %}
 
 
-{% hint style="info" %}
-After installation, open the cpu-auto-freq app and verify if it’s working properly.
-{% endhint %}
+
+## Step 5: Enable Flatpak Support
+
+By default, Fedora restricts the set of available Flatpak apps. You can unlock full Flatpak support by enabling third-party repos during the initial setup, or manually with the following command:
+
+```bash
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+
+
+## Step 6: Enable Multimedia Codecs
+
+To add support for common multimedia formats, run:
+
+```bash
+sudo dnf install libavcodec-freeworld
+```
+
+
+
+## Step 7: DNF Configuration
+
+You can configure DNF to increase download speeds by enabling parallel downloads and selecting the fastest mirror.
+
+**Edit the config file:**
+
+```bash
+sudo nano /etc/dnf/dnf.conf
+```
+
+**Add these lines at the end:**
+
+```bash
+max_parallel_downloads=10
+fastestmirror=1
+```
