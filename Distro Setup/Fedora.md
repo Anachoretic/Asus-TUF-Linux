@@ -60,10 +60,6 @@ sudo nano /etc/default/grub
 GRUB_CMDLINE_LINUX="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 rhgb quiet"
 ```
 
-{% endstep %}
-
-{% step %}
-
 ### 2.2 Asus Software Installation
 
 Add the COPR repo:
@@ -86,10 +82,6 @@ sudo systemctl start supergfxd.service
 ```
 
 {% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
-
-{% endstep %}
-
-{% step %}
 
 ### 2.3 Switching GPU Modes with a GUI
 
@@ -117,8 +109,6 @@ supergfxctl --mode Hybrid
 {% hint style="info" %} Note: Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
 
 {% endstep %}
-
-
 {% step %} 
 
 ## Step 3: Fixing Hotkeys
