@@ -2,20 +2,22 @@
 
 This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, and power management tweaks.
 
+{% stepper %} {% step %}
 
 ## Step 1: Post-Install Configuration
 
-{% stepper %} {% step %} If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
+ If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
 
 AMD users can skip this, as Mesa drivers are built into the kernel and work out of the box.
 
-{% hint style="info" %} Note: Unlike Windows, most drivers are included in the kernel, so you don't usually need to install them manually. {% endhint %} {% endstep %}
+{% hint style="info" %} Note: Unlike Windows, most drivers are included in the kernel, so you don't usually need to install them manually. 
 
+{% endhint %} {% endstep %}
 
-
-## Step 2: GPU Driver Installation and Asus Software Setup
 
 {% step %}
+
+## Step 2: GPU Driver Installation and Asus Software Setup
 
 ### 2.1 Nvidia Driver Installation (Fedora)
 
@@ -117,10 +119,11 @@ supergfxctl --mode Hybrid
 {% endstep %}
 
 
+{% step %} 
 
 ## Step 3: Fixing Hotkeys
 
-{% step %} Some hotkeys are BIOS-level and can’t be remapped.
+Some hotkeys are BIOS-level and can’t be remapped.
 
 {% hint style="info" %} To test remap capability: press the key while adding a shortcut. If nothing registers, it can't be reassigned. {% endhint %}
 
@@ -140,7 +143,7 @@ supergfxctl --mode Hybrid
 
 {% endstep %}
 
-
+{% step %} 
 
 ## Step 4: Power Management
 
@@ -193,6 +196,9 @@ systemctl mask power-profiles-daemon.service
 
 {% hint style="info" %} After installation, open the cpu-auto-freq app and verify if it’s working properly. {% endhint %}
 
+{% endstep %}
+
+{% step %}
 
 
 ## Step 5: Enable Flatpak Support
@@ -203,6 +209,9 @@ By default, Fedora restricts the set of available Flatpak apps. You can unlock f
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
+{% endstep %}
+
+{% step %}
 
 
 ## Step 6: Enable Multimedia Codecs
@@ -213,7 +222,9 @@ To add support for common multimedia formats, run:
 sudo dnf install libavcodec-freeworld
 ```
 
+{% endstep %}
 
+{% step %}
 
 ## Step 7: DNF Configuration
 
@@ -231,3 +242,6 @@ sudo nano /etc/dnf/dnf.conf
 max_parallel_downloads=10
 fastestmirror=1
 ```
+
+{% endstep %}
+{% endstepper %}
