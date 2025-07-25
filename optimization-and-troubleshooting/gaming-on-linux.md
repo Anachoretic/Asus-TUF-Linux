@@ -128,9 +128,6 @@ To manually install a Windows game:
 4. If needed, Lutris will prompt to install Wine.
 5. Browse to the `.exe` file and continue the setup.
 
-   <img width="1920" height="1049" alt="Screenshot from 2025-07-25 21-03-35" src="https://github.com/user-attachments/assets/cc400081-2771-4f0c-b1e8-bf2c6c659614" />
-
-
 {% hint style="tip" %}
 Not every game is listed in the app, but many have community installers available at [lutris.net](https://lutris.net).
 {% endhint %}
