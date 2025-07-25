@@ -33,9 +33,6 @@ Covers post-install essentials , drivers, ASUS-specific tools, system updates, m
 * [**Gaming on Linux**](optimization-and-troubleshooting/gaming-on-linux.md)  
   Get Steam and Proton working, improve FPS, fix controller or launch issues , everything to make gaming smooth on Linux.
 
-* [**Undervolting**](optimization-and-troubleshooting/undervolting.md)  
-  Reduce heat and power draw , especially useful for ASUS laptops with Intel CPUs.
-
 * [**Maintenance**](optimization-and-troubleshooting/maintenance.md)  
   Simple ways to keep your system fast, clean, and up-to-date without overcomplicating things.
 
