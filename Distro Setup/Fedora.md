@@ -51,15 +51,6 @@ Enable Nvidia power management:
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
 
-Blacklist Nouveau and enable Nvidia DRM:
-
-```bash
-sudo nano /etc/default/grub
-
-# Add this:
-GRUB_CMDLINE_LINUX="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 rhgb quiet"
-```
-
 ### 2.2 Asus Software Installation
 
 Add the COPR repo:
