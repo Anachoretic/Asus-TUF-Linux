@@ -43,7 +43,7 @@ sudo dnf install akmod-nvidia
 sudo dnf install xorg-x11-drv-nvidia-cuda
 ```
 
-{% hint style="info" %} After installing, wait 5–8 minutes for the kernel module to build in the background. {% endhint %}
+{% hint style="info" %} After installing, wait 3–6 minutes for the kernel module to build in the background. {% endhint %}
 
 Enable Nvidia power management:
 
