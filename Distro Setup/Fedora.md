@@ -224,5 +224,52 @@ max_parallel_downloads=10
 fastestmirror=1
 ```
 
+
+{% endstep %}
+
+{% step %}
+
+## Step 8: Create a Backup
+### 1. System Settings Backup with Timeshift
+
+Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
+
+Installation:
+```bash
+sudo dnf install timeshift
+```
+How to Use Timeshift:
+* Select Snapshot Type
+    Choose between RSYNC and BTRFS based on your file system.
+
+  {% hint style="info" %} If your system is using the BTRFS file system, it is recommended to use the BTRFS snapshot option for better performance. If not, select RSYNC. {% endhint %}
+  
+* Choose Snapshot Location
+    Select the disk or partition where snapshots will be saved.
+
+* Configure Snapshot Schedule
+    Enable periodic snapshots if desired and select a snapshot frequency (daily, weekly, or on boot).
+
+* Create a Snapshot
+    Click Create to manually create a snapshot at any time.
+
+* Restore a Snapshot
+    To undo system changes, select a previous snapshot and click Restore.
+
+Restoring a Broken System Using Timeshift
+* Boot from a Linux ISO with Timeshift installed.
+
+* Select the same snapshot type (BTRFS or RSYNC) as used before.
+
+* Choose the location where your backup is stored.
+
+* Select the desired backup from the list shown.
+
+* Click Restore to revert your system to the previous working state.
+
+
+  {% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
+
+
 {% endstep %}
 {% endstepper %}
