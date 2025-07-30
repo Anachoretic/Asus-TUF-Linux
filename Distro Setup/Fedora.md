@@ -87,9 +87,7 @@ sudo dnf install supergfxctl-plasmoid
 
 Reload Plasma:
 
-```bash
-plasmashell --replace &
-```
+Reboot for the changes to take effect.
 
 Set Hybrid GPU mode:
 
