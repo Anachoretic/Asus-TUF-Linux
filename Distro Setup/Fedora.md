@@ -237,37 +237,58 @@ Installation:
 sudo dnf install timeshift
 ```
 How to Use Timeshift:
-* Select Snapshot Type
-    Choose between RSYNC and BTRFS based on your file system.
+1. Select Snapshot Type: Choose between **RSYNC** and **BTRFS** based on your file system.
 
-  {% hint style="info" %} If your system is using the BTRFS file system, it is recommended to use the BTRFS snapshot option for better performance. If not, select RSYNC. {% endhint %}
+{% hint style="info" %} If your system is using the **BTRFS** file system, it is recommended to use the **BTRFS** snapshot option for better performance. If not, select **RSYNC**. {% endhint %}
   
-* Choose Snapshot Location
-    Select the disk or partition where snapshots will be saved.
+2. Choose Snapshot Location: Select the disk or partition where snapshots will be saved.
 
-* Configure Snapshot Schedule
-    Enable periodic snapshots if desired and select a snapshot frequency (daily, weekly, or on boot).
+3. Configure Snapshot Schedule: Enable periodic snapshots if desired and select a snapshot frequency (daily, weekly, or on boot).
 
-* Create a Snapshot
-    Click Create to manually create a snapshot at any time.
+4. Create a Snapshot: Click Create to manually create a snapshot at any time.
 
-* Restore a Snapshot
-    To undo system changes, select a previous snapshot and click Restore.
+5. Restore a Snapshot: To undo system changes, select a previous snapshot and click Restore.
 
-Restoring a Broken System Using Timeshift
-* Boot from a Linux ISO with Timeshift installed.
+### Restoring a Broken System Using Timeshift:
 
-* Select the same snapshot type (BTRFS or RSYNC) as used before.
+1. Boot from a Linux ISO with Timeshift installed.
 
-* Choose the location where your backup is stored.
+2. Select the same snapshot type (BTRFS or RSYNC) as used before.
 
-* Select the desired backup from the list shown.
+3. Choose the location where your backup is stored.
 
-* Click Restore to revert your system to the previous working state.
+4. Select the desired backup from the list shown.
+
+5. Click Restore to revert your system to the previous working state.
+
+{% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
+
+### 2.Backup Personal Files with Pika Backup
+
+Pika Backup is a user-friendly tool designed for personal data backup. It leverages the BorgBackup engine for secure and efficient backups. Note that Pika Backup does **not** support full system restoration.
+
+#### Installation
+
+Install Pika Backup via Flatpak:
+
+```bash
+flatpak install flathub org.gnome.World.PikaBackup
+```
+#### Creating a Backup
+
+1. Open Pika Backup
+2. Select Storage Location: Choose a **USB drive or external disk** for storing backups. **Using a USB drive is recommended.**
+3. Enable Encryption: Choose to encrypt your backups if you want added security.
+4. Create the Backup:  Click on **" Backup Now"** to create a backup.
 
 
-  {% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
-
+### Restoring Files from a Backup
+1. Go to the **Archives Tab** in Pika Backup.
+2. Select the Preferred Backup you want to restore.
+3. Click the **Drop-down Arrow** next to the archive entry.
+4. Choose **"Browse Saved Files"**.
+5. A file browser will open showing the backed-up contents.
+6. Manually Copy the desired files or folders to your main directory or another location.
 
 {% endstep %}
 {% endstepper %}
