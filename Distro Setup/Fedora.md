@@ -264,7 +264,7 @@ sudo dnf install timeshift
 How to Use Timeshift:
 1. Select Snapshot Type: Choose between **RSYNC** and **BTRFS** based on your file system.
 
-{% hint style="info" %} If your system is using the **BTRFS** file system, it is recommended to use the **BTRFS** snapshot option for better performance. If not, select **RSYNC**. {% endhint %}
+{% hint style="info" %} If your system is using the BTRFS file system, it is recommended to use the BTRFS snapshot option for better performance. If not, select RSYNC. {% endhint %}
   
 2. Choose Snapshot Location: Select the disk or partition where snapshots will be saved.
 
