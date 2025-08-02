@@ -1,39 +1,39 @@
 # Fedora Post-Installation Guide
 
-This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, and power management tweaks.
+This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, power management tweaks, backup solutions, multimedia codecs, DNF configuration, fonts, Steam installation, and more.
 
-{% stepper %} {% step %}
+{% stepper %}
 
-## Step 1: Post-Install Configuration
+{% step %}
 
- If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
+## Step 1: Enable RPM Fusion
 
-AMD users can skip this, as Mesa drivers are built into the kernel and work out of the box.
+Fedora doesn't ship certain stuff like proprietary drivers and codecs out of the box. RPM Fusion adds that in. You’ll need both **free** and **nonfree** versions.
 
-{% hint style="info" %} Note: Unlike Windows, most drivers are included in the kernel, so you don't usually need to install them manually. 
+### Enable RPM Fusion Free and Non-Free repositories
 
-{% endhint %} {% endstep %}
+```bash
 
+sudo dnf install \
+  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+{% endstep %}
 
 {% step %}
 
 ## Step 2: GPU Driver Installation and Asus Software Setup
 
-### 2.1 Nvidia Driver Installation (Fedora)
+### 2.1 NVIDIA Driver Setup
 
-{% hint style="warning" %} Important: Make sure Secure Boot is turned off or the Nvidia driver won’t load. {% endhint %}
+{% hint style="warning" %}Make sure Secure Boot is turned off or the Nvidia driver won’t load. {% endhint %}
+
 
 Start by updating the system:
 
 ```bash
 sudo dnf update
-```
-
-Enable RPM Fusion:
-
-```bash
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 Install Nvidia packages:
@@ -51,34 +51,27 @@ Enable Nvidia power management:
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
 
-### 2.2 Asus Software Installation
+### 2.2 Asus Linux Tools
 
-Add the COPR repo:
+These give you access to GPU modes, fan profiles, and Aura lighting control.
 
 ```bash
+# Enable the ASUS tool repository
 sudo dnf copr enable lukenukem/asus-linux
-```
 
-Install tools:
-
-```bash
+# Install the tools
 sudo dnf install asusctl supergfxctl rog-control-center
-```
 
-Enable GPU switching:
-
-```bash
-sudo systemctl enable supergfxd.service
-sudo systemctl start supergfxd.service
+# Enable the service for GPU switching
+sudo systemctl enable --now supergfxd.service
 ```
 
 {% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
 
-### 2.3 Switching GPU Modes with a GUI
+### 2.3 GPU Switching (Hybrid/Integrated/Discrete)
 
-GNOME: Use the [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/) extension.
-
-KDE: Use the supergfxctl-plasmoid:
+- GNOME users: [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/)
+- KDE users:Install the supergfxctl-plasmoid:
 
 ```bash
 sudo dnf copr enable jhyub/supergfxctl-plasmoid
@@ -95,34 +88,35 @@ Set Hybrid GPU mode:
 supergfxctl --mode Hybrid
 ```
 
-{% hint style="info" %} Note: Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
+
+{% hint style="info" %} Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
 
 {% endstep %}
-{% step %} 
 
-## Step 3: Fixing Hotkeys
+{% step %}
+
+## Step 3: Fix Hotkeys (Asus Only)
 
 Some hotkeys are BIOS-level and can’t be remapped.
 
 {% hint style="info" %} To test remap capability: press the key while adding a shortcut. If nothing registers, it can't be reassigned. {% endhint %}
 
-### GNOME
-
+### For GNOME
 - Settings → Keyboard → Shortcuts → “+”
 
-### KDE
+### For KDE
+- System Settings → Shortcuts → Custom Shortcuts → New Global Shortcut
 
-- System Settings → Shortcuts → Custom Shortcuts → New Global Shortcut → Command/URL
-
-**Commands:**
+Add the following Commands:
 
 - `rog-control-center`: Launch GUI
 - `asusctl aura -n`: Toggle Aura lighting
 - `asusctl profile -n`: Change power profile
 
+
 {% endstep %}
 
-{% step %} 
+{% step %}
 
 ## Step 4: Power Management
 
@@ -180,6 +174,7 @@ systemctl mask power-profiles-daemon.service
 {% step %}
 
 
+
 ## Step 5: Enable Flatpak Support
 
 By default, Fedora restricts the set of available Flatpak apps. You can unlock full Flatpak support by enabling third-party repos during the initial setup, or manually with the following command:
@@ -193,12 +188,42 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 {% step %}
 
 
-## Step 6: Enable Multimedia Codecs
+## Step 6: Multimedia and Hardware Codecs
+Add full multimedia support by installing codecs and tools for playing all common audio and video formats.
 
-To add support for common multimedia formats, run:
-
+### 6.1 Get the Basics
 ```bash
 sudo dnf install libavcodec-freeworld
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf group install -y multimedia sound-and-video
+```
+
+### 6.2 Enable Hardware Acceleration
+
+**Intel:**
+```bash
+sudo dnf install intel-media-driver
+```
+
+**AMD:** 
+Since Fedora 37 and later, hardware acceleration is disabled by default. Use the `*-freeworld` versions.
+
+```bash
+# For 64-bit
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+
+# For 32-bit (Steam, Wine, etc.)
+sudo dnf swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
+sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
+```
+
+**NVIDIA:** 
+NVIDIA doesn't support VAAPI natively, but there's a wrapper available.
+
+```bash
+sudo dnf install libva-nvidia-driver.{i686,x86_64}
 ```
 
 {% endstep %}
@@ -267,7 +292,7 @@ How to Use Timeshift:
 
 Pika Backup is a user-friendly tool designed for personal data backup. It leverages the BorgBackup engine for secure and efficient backups. Note that Pika Backup does **not** support full system restoration.
 
-#### Installation
+### Installation
 
 Install Pika Backup via Flatpak:
 
@@ -291,4 +316,34 @@ flatpak install flathub org.gnome.World.PikaBackup
 6. Manually Copy the desired files or folders to your main directory or another location.
 
 {% endstep %}
+
+{% step %}
+
+## Step 9: Install Steam
+
+Make sure RPM Fusion is enabled first.
+```bash
+sudo dnf install steam
+```
+
+{% endstep %}
+
+{% step %}
+
+## Step 10: Install Fonts (Fix weird web text)
+
+Some websites or apps might look broken without these:
+
+```bash
+# Microsoft and emoji fonts
+sudo dnf install msttcore-fonts-installer
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+sudo dnf install google-noto-emoji-color-fonts
+
+# Rebuild font cache
+fc-cache -f
+```
+
+{% endstep %}
+
 {% endstepper %}
