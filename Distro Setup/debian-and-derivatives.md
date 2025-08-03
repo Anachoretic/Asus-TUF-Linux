@@ -216,4 +216,112 @@ systemctl mask power-profiles-daemon.service
 
 {% endstep %}
 
+{% step %}
+
+## Step 7: Create a Backup
+### 1. System Settings Backup with Timeshift
+
+Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
+
+Installation:
+```bash
+sudo apt install timeshift
+```
+How to Use Timeshift:
+1. Select Snapshot Type: Choose between **RSYNC** and **BTRFS** based on your file system.
+
+{% hint style="info" %} If your system is using the BTRFS file system, it is recommended to use the BTRFS snapshot option for better performance. If not, select RSYNC. {% endhint %}
+  
+2. Choose Snapshot Location: Select the disk or partition where snapshots will be saved.
+
+3. Configure Snapshot Schedule: Enable periodic snapshots if desired and select a snapshot frequency (daily, weekly, or on boot).
+
+4. Create a Snapshot: Click Create to manually create a snapshot at any time.
+
+5. Restore a Snapshot: To undo system changes, select a previous snapshot and click Restore.
+
+### Restoring a Broken System Using Timeshift:
+
+1. Boot from a Linux ISO with Timeshift installed.
+
+2. Select the same snapshot type (BTRFS or RSYNC) as used before.
+
+3. Choose the location where your backup is stored.
+
+4. Select the desired backup from the list shown.
+
+5. Click Restore to revert your system to the previous working state.
+
+{% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
+
+### 2.Backup Personal Files with Pika Backup
+
+Pika Backup is a user-friendly tool designed for personal data backup. It leverages the BorgBackup engine for secure and efficient backups. Note that Pika Backup does **not** support full system restoration.
+
+### Installation
+
+Install Pika Backup via Flatpak:
+
+```bash
+flatpak install flathub org.gnome.World.PikaBackup
+```
+#### Creating a Backup
+
+1. Open Pika Backup
+2. Select Storage Location: Choose a **USB drive or external disk** for storing backups. **Using a USB drive is recommended.**
+3. Enable Encryption: Choose to encrypt your backups if you want added security.
+4. Create the Backup:  Click on **" Backup Now"** to create a backup.
+
+
+### Restoring Files from a Backup
+1. Go to the **Archives Tab** in Pika Backup.
+2. Select the Preferred Backup you want to restore.
+3. Click the **Drop-down Arrow** next to the archive entry.
+4. Choose **"Browse Saved Files"**.
+5. A file browser will open showing the backed-up contents.
+6. Manually Copy the desired files or folders to your main directory or another location.
+
+{% endstep %}
+{% step %}
+
+
+
+## Step 8: Multimedia Support
+
+To enable playback for formats like MP3, MPEG4, AVI, and more, you’ll need to install the necessary media codecs. Ubuntu doesn’t include them out of the box due to licensing restrictions.
+
+```bash
+sudo apt install ubuntu-restricted-extras
+```
+
+{% endstep %}
+
+{% step %}
+
+## Step 9: Install Essential Software (Optional)
+
+Install the software you need for your workflow. Below is a list of apps I typically install along with a brief description of what each does. You can install these either via the terminal or using Flatpak, but I recommend using the terminal for simplicity and speed.
+
+```bash
+sudo apt install <package name> # To install a software.
+sudo apt remove <package name > # To uninstall a sofwtare.
+```
+
+* gedit - Simple text editor for GNOME.
+* VLC	- Plays almost all media formats.
+* htop - Terminal system monitor.
+* GIMP - Powerful image editor(Photoshop alternative).
+* LibreOffice / OnlyOffice - Office suites for documents.
+* GParted - 	Tool to manage disk partitions.
+* VSCodium - VS Code without telemetry.
+* Obsidian - Markdown note-taking app.
+* KDE Connect - Phone integration with your PC.
+* Spotify - Music streaming player.
+* OBS Studio - Screen recording and streaming software.
+* OpenRGB - Control RGB lighting without vendor software.
+* OpenRazer - 	Linux driver for Razer device lighting control.
+
+
+{% endstep %}
+
 {% endstepper %}
