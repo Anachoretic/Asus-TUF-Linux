@@ -304,7 +304,7 @@ Install the software you need for your workflow. Below is a list of apps I typic
 
 ```bash
 sudo apt install <package name> # To install a software.
-sudo apt remove <package name > # To uninstall a sofwtare.
+sudo apt remove <package name > # To uninstall a software.
 ```
 
 * gedit - Simple text editor for GNOME.
