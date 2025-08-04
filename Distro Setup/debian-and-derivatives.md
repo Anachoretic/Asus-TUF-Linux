@@ -176,7 +176,7 @@ TLP is a feature-rich command-line utility for Linux that helps extend battery l
 **Install TLP:**
 
 ```bash
-sudo dnf install tlp
+sudo apt install tlp
 ```
 
 **Enable TLP:**
