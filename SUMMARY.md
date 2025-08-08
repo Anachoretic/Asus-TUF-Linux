@@ -12,8 +12,8 @@
 * [**Debian**](Linux-Installation/Debian.md)  
   Step-by-step install guide for Debian-based distros like Ubuntu and Mint. Simple, stable, and works well for most people.
 
-* [**Fedora**](Linux-Installation/Fedora.md)  
-  Recommended if you want good hardware support out of the box , especially for ASUS laptops. This guide walks through the Fedora install process.
+* [**Fedora**](Linux-Installation/Fedora.md)
+ Recommended if you want good hardware support out of the box , especially for ASUS laptops. This guide walks through the Fedora install process.
 
 ## Distro Setup:
 
