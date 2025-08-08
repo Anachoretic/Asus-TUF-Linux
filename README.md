@@ -38,3 +38,7 @@ Covers post-install essentials , drivers, ASUS-specific tools, system updates, m
 
 * [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)  
   Covers common problems like boot issues, GRUB errors, missing Wi-Fi, and how to solve them without starting over.
+
+  ## Advanced-Configuration
+* [**Monitoring Tools**](Advanced-Configuration/monitoring-tools.md)
+  Linux monitoring tools track resource usage and performance to ensure system stability and reliability.
