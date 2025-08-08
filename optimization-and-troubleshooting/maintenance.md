@@ -55,10 +55,6 @@ SSDs work differently than traditional hard drives. They need to be told which b
 
 You can enable automatic weekly trimming so you don’t have to think about it, or run it manually if you prefer.
 
-{% endstep %}
-
-{% step %}
-
 ### Enable periodic trimming:
 
 
