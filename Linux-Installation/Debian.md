@@ -1,18 +1,16 @@
-{% stepper %}
 
-{% step %}
-
-# 1. Important Note
+# Important Note
 
 I highly recommend using **Fedora** or another up-to-date distro instead of Debian-based ones. They generally offer better hardware and software compatibility with Asus laptops in general. However, if you still want to go with something like Ubuntu or Mint, that’s fine too,just follow this guide. Keep in mind that some Asus-specific features and software might not work as expected. Also, a quick side note: this guide includes links to video tutorials in case you prefer a visual walkthrough.
 
 {% hint style="info" %} This guide includes links to video tutorials for visual learners. {% endhint %}
 
-{% endstep %}
+
+{% stepper %}
 
 {% step %}
 
-# 2. Distro Selection
+# 1. Distro Selection
 
 Fedora is the preferred distribution for ASUS laptops. However, for those who prefer to stick with Debian-based systems:
 
@@ -22,7 +20,7 @@ Ubuntu and Linux Mint are among the most user-friendly distributions. I recommen
 
 {% step %}
 
-# 3. Prerequisites
+# 2. Prerequisites
 
 {% hint style="info" %}
 
@@ -45,29 +43,23 @@ Ubuntu and Linux Mint are among the most user-friendly distributions. I recommen
 
 {% step %}
 
-# 4. Installation Process
+# 3. Installation Process
 
-## 4.1 Video Tutorials
+## Video Tutorials
 
 - [Standalone Linux Installation](https://youtu.be/WiW4KN2rNZY?si)  
 - [Dual Boot Setup with Windows](https://youtu.be/mXyN1aJYefc?si)
 
-{% stepper %}
 
-{% step %}
-
-## Step 1: Download ISO
+## Step 3.1: Download ISO
 
 Download the latest version of your chosen Linux distribution:
 
 [Ubuntu](https://ubuntu.com/download)  
 [Linux Mint](https://linuxmint.com/download.php)
 
-{% endstep %}
 
-{% step %}
-
-## Step 2: Create Bootable USB
+## Step 3.2: Create Bootable USB
 
 {% tabs %} {% tab title="Rufus" %}
 
@@ -93,11 +85,8 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 
 {% endtab %} {% endtabs %}
 
-{% endstep %}
 
-{% step %}
-
-## Step 3: Partitioning (Dual Boot Only)
+## Step 3.3: Partitioning (Dual Boot Only)
 
 1. Open **Disk Management** in Windows.  
 2. Right-click on the **C: drive** and select **Shrink Volume**.  
@@ -158,9 +147,9 @@ Once confirmed, begin the installation process.
 
 {% step %}
 
-# 5. Uninstalling Linux
+# 7. Uninstalling Linux
 
-## 5.1 For Dual Boot Users
+## 7.1 For Dual Boot Users
 
 1. Open **Disk Management** in Windows and delete the Linux partitions.  
 2. Launch **Command Prompt as Administrator**, then run:
@@ -190,7 +179,7 @@ remove letter=Z
 
 5. Restart your system. Windows should boot normally.
 
-## 5.2 For Standalone Linux Users
+## 7.2 For Standalone Linux Users
 
 1. Boot from a Windows installation USB.  
 2. Press `Shift + F10` to open Command Prompt.  
