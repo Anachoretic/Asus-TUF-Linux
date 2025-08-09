@@ -10,7 +10,7 @@ I highly recommend using **Fedora** or another up-to-date distro instead of Debi
 
 {% step %}
 
-# 1. Distro Selection
+# Step 1: Distro Selection
 
 Fedora is the preferred distribution for ASUS laptops. However, for those who prefer to stick with Debian-based systems:
 
@@ -20,7 +20,7 @@ Ubuntu and Linux Mint are among the most user-friendly distributions. I recommen
 
 {% step %}
 
-# 2. Prerequisites
+# Step 2: Prerequisites
 
 {% hint style="info" %}
 
@@ -43,7 +43,7 @@ Ubuntu and Linux Mint are among the most user-friendly distributions. I recommen
 
 {% step %}
 
-# 3. Installation Process
+# Step 3: Bootable USB Creation and Partitioning
 
 ## Video Tutorials
 
