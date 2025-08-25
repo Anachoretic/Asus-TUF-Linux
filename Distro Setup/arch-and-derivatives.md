@@ -1,149 +1,139 @@
 # Arch Linux Post-Install Guide
 
-{% stepper %} {% step %}
+{% stepper %}
 
-### 1. Post Install Configuration
+{% step %}
 
-If you're using an Nvidia dGPU, you'll need to install Nvidia's proprietary drivers manually.
+### 1. Install an AUR Helper
 
-AMD users can skip this , Mesa drivers are built into the kernel and just work out of the box.
+One of the most prominent and enticing features of Arch Linux is the **Arch User Repository (AUR)**. The AUR is a community-driven repository that provides package descriptions (PKGBUILDs). These allow you to compile software from source using `makepkg` and then install it with `pacman`.
 
-{% hint style="info" %} Note: Unlike Windows, most drivers are included in the kernel, so you usually don't need to install them manually. {% endhint %}
+To use the AUR, you’ll need to install an **AUR helper** such as `yay` or `paru`. Most Arch-based distros (like Manjaro or EndeavourOS) already come with one preinstalled, but on pure Arch Linux you’ll need to set it up yourself.
+
+**Yay (Yet Another Yogurt – written in Go):**
+```bash
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+**Paru (a pacman wrapper with extra features):**
+```bash
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+```
+
+An AUR helper isrequired for installing **Asus software** on Arch, and you can also use it to install popular applications like **Visual Studio Code**, **DaVinci Resolve**, and much more.
+
+{% hint style="warning" %}
+The AUR is community-driven. Anyone can upload packages, so there’s always a small risk of malicious code. Always **read the PKGBUILD file** before installing to see exactly what commands will run on your system.
+{% endhint %}
 
 {% endstep %}
 
 {% step %}
 
-### 2. Enable Multilib (Required for Nvidia Drivers and Wine)
+### 2. Enable Multilib (Required for Drivers and Wine)
 
-Open a terminal and type:
-
+Open the pacman configuration file:
 ```bash
 sudo nano /etc/pacman.conf
 ```
 
-Look for the lines:
-
+Uncomment these lines:
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
 
-Uncomment them if they are commented out.
+### 2.1 Driver Installation
 
-### GPU Driver Installation and Asus Software Setup
+If you're using an **Nvidia GPU**, you’ll also need to install proprietary drivers manually. **AMD users can skip this**, since Mesa drivers are included in the kernel and work out of the box.
 
-#### 2.1 Nvidia Driver Installation
+{% hint style="info" %}
+Unlike Windows, most drivers are already included in the Linux kernel. You usually don’t need to install them manually.
+{% endhint %}
 
-{% hint style="warning" %} Important: Make sure Secure Boot is turned off, or the Nvidia driver won’t load. {% endhint %}
+{% hint style="warning" %}
+Make sure **Secure Boot is disabled**, or the Nvidia driver won’t load.
+{% endhint %}
 
-Start by updating the system:
-
+Update system:
 ```bash
 sudo pacman -Syu
 ```
 
-Check if the Nvidia GPU is detected:
-
+Check GPU detection:
 ```bash
 lspci | grep -i nvidia
 ```
 
-If it doesn't show, try switching to Hybrid GPU mode using `supergfxctl` and perform this step again.
+If it doesn’t show, try switching to Hybrid GPU mode using `supergfxctl` and run the command again.
 
-##### For EndeavourOS users:
-
-Install `nvidia-inst` from AUR:
-
+**For EndeavourOS users:**
 ```bash
 yay -S nvidia-inst
-```
-
-Then run 
-```bash
 nvidia-inst
 ```
 
-##### Manual Installation (Other Distros):
-
-Make sure multilib is enabled (see above).
-
-Then install:
-
+**Manual installation (other Arch-based distros):**
 ```bash
 sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 
-##### Optional: Install AMD or Intel Vulkan drivers
-
-For AMD:
-
+**Optional: Vulkan drivers**
+- AMD:
 ```bash
 sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver libva-utils
 ```
-
-For Intel:
-
+- Intel:
 ```bash
 sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-utils
 ```
 
-{% hint style="info" %} After installing, wait 5–8 minutes for the kernel module to build in the background. {% endhint %}
+{% hint style="info" %}
+After installing, wait 5–8 minutes for the kernel module to build in the background.
+{% endhint %}
 
-Enable Nvidia power management:
-
+Enable Nvidia services:
 ```bash
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
 
+### 2.2 Asus Software Installation
 
-
-#### 2.2 Asus Software Installation
-
-Install `yay` if it's not already installed:
-
-```bash
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-```
-
-Install necessary Asus tools:
-
+Install Asus tools:
 ```bash
 yay -S asusctl rog-control-center supergfxctl
 ```
 
-Enable the GPU switching daemon:
-
+Enable GPU switching daemon:
 ```bash
 sudo systemctl enable supergfxd.service
 sudo systemctl start supergfxd.service
 ```
 
-{% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
+{% hint style="info" %}
+Ignore the "Asus kernel isn’t loaded" message in `rog-control-center`. It’s safe.
+{% endhint %}
 
+### 2.3 Switching GPU Modes
 
-#### 2.3 Switching GPU Modes with a GUI
-
-**GNOME**: Use the `supergfxctl-gex` extension.\
-**KDE**: Install the plasmoid:
-
+**GNOME:** Install the `supergfxctl-gex` extension.  
+**KDE:**
 ```bash
 yay -S plasma6-applets-supergfxctl
-```
-
-Reload Plasma:
-
-```bash
 plasmashell --replace &
 ```
 
-Set GPU mode to Hybrid:
-
+Switch to Hybrid mode:
 ```bash
 supergfxctl --mode Hybrid
 ```
 
-{% hint style="info" %} Note: Changing to/from Hybrid mode requires logout. Ultimate mode needs a reboot. {% endhint %}
+{% hint style="info" %}
+Changing to/from Hybrid mode requires logout. Ultimate mode requires a reboot.
+{% endhint %}
 
 {% endstep %}
 
@@ -151,58 +141,51 @@ supergfxctl --mode Hybrid
 
 ### 3. Fixing Hotkeys
 
-{% hint style="info" %} Some hotkeys are handled by BIOS directly and can't be remapped. To test if a key can be remapped, try creating a shortcut and see if it registers. {% endhint %}
+{% hint style="info" %}
+Some hotkeys are handled by the BIOS directly and can’t be remapped. Test by creating a shortcut and see if it registers.
+{% endhint %}
 
-#### 3.1 GNOME
-
-- Go to Settings > Keyboard > Keyboard Shortcuts
+#### GNOME
+- Go to **Settings > Keyboard > Shortcuts**
 - Click “+” to add a new shortcut
 
-#### 3.2 KDE
+#### KDE
+- Go to **System Settings > Shortcuts > Custom Shortcuts**
+- Create a new **Global Shortcut → Command/URL**
 
-- Go to System Settings > Shortcuts > Custom Shortcuts
-- Create a new Global Shortcut → Command/URL
+#### Add the following Commands with their own hotkey:
+- Open Armoury Crate: `rog-control-center`
+- Toggle Aura lighting: `asusctl aura -n`
+- Change performance profile: `asusctl profile -n`
 
-#### Handy Commands
-
-- **Open Armoury Crate**: `rog-control-center`
-- **Toggle Aura lighting**: `asusctl aura -n`
-- **Change performance profile**: `asusctl profile -n`
-
-{% endstep %} 
+{% endstep %}
 
 {% step %}
 
 ### 4. Update Mirrors to Use the Fastest Server
 
 Backup current mirrorlist:
-
 ```bash
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 ```
 
-Increase parallel downloads:
-
+Enable parallel downloads:
 ```bash
 sudo nano /etc/pacman.conf
 ```
-
-Find `ParallelDownloads` and change the value to `10`.
+Set `ParallelDownloads = 10`
 
 Install reflector:
-
 ```bash
 sudo pacman -S reflector
 ```
 
-Update mirrorlist:
-
+Update mirrors:
 ```bash
 sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
-Restore old mirrors if needed:
-
+Restore backup if needed:
 ```bash
 sudo cp /etc/pacman.d/mirrorlist.bak /etc/pacman.d/mirrorlist
 ```
@@ -211,17 +194,14 @@ sudo cp /etc/pacman.d/mirrorlist.bak /etc/pacman.d/mirrorlist
 
 {% step %}
 
+### 5. Enable Bluetooth (If it isn't enabled by default)
 
-### 5. Enable Bluetooth
-
-If Bluetooth isn't working, install required packages:
-
+Install:
 ```bash
 sudo pacman -S bluez bluez-utils
 ```
 
-Enable and start the service:
-
+Enable service:
 ```bash
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
@@ -231,8 +211,9 @@ sudo systemctl start bluetooth
 
 {% step %}
 
-## 6. Power Management
-### 6.1 TLP
+### 6. Power Management
+
+#### 6.1 TLP
 
 TLP is a feature-rich command line utility for Linux, saving laptop battery power without the need to delve deeper into technical details.
 TLP's default settings are already optimized for battery life and implement Powertop's recommendations out of the box, so additional configuration is not needed. Also, TLP is completely customizable, which means you can get even more power savings or meet your exact requirements. 
@@ -251,9 +232,15 @@ TLP conflicts with power-profiles-daemon. Remove it or mask its services with:
 ```bash
 systemctl mask power-profiles-daemon.service
 ```
-
 {% endhint %}
-### 6.2 Auto-CPUFreq
+
+{% endstep %}
+
+{% step %}
+
+
+#### 6.2 Auto-CPUFreq
+
 Automatic CPU speed & power optimizer for Linux. Actively monitors laptop battery state, CPU usage, CPU temperature, and system load, ultimately allowing you to improve battery life without making any compromises.
 
 Using AUR:
@@ -285,33 +272,28 @@ After installation, open the cpu-auto-freq app and verify if it’s working prop
 
 {% step %}
 
-
-
 ### 7. Bonus: Pacman Animation
 
-Edit the pacman config:
-
+Edit pacman config:
 ```bash
 sudo nano /etc/pacman.conf
 ```
 
 Uncomment:
-
 ```
-#Color → Color
+Color
 ```
 
-Add this below:
-
+Add:
 ```
 ILoveCandy
 ```
 
 Update system:
-
 ```bash
 sudo pacman -Syu
 ```
+
 {% endstep %}
 
 {% endstepper %}
