@@ -31,7 +31,6 @@ Include = /etc/pacman.d/mirrorlist
 
 Uncomment them if they are commented out.
 
-
 ### GPU Driver Installation and Asus Software Setup
 
 #### 2.1 Nvidia Driver Installation
@@ -80,13 +79,13 @@ sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd
 For AMD:
 
 ```bash
-sudo pacman -S lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
+sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver libva-utils
 ```
 
 For Intel:
 
 ```bash
-sudo pacman -S lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-utils
 ```
 
 {% hint style="info" %} After installing, wait 5–8 minutes for the kernel module to build in the background. {% endhint %}
