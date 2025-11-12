@@ -6,7 +6,7 @@
 
 This post-install guide aims to simplify running Arch Linux on TUF laptops. While it covers most topics and simplifies the process, it is by no means a replacement for the Arch Wiki. You should still rely primarily on the Arch Wiki for the quality and depth of information it contains. This guide cannot possibly match the Arch Wiki, so if you haven’t gotten used to reading the Wiki yet, now is the time to start.
 
-## 1. Install an AUR Helper
+## 1. AUR Helper
 
 One of the most prominent and enticing features of Arch Linux is the **Arch User Repository (AUR)**. The AUR is a community-driven repository that provides package descriptions (PKGBUILDs). These allow you to compile software from source using `makepkg` and then install it with `pacman`.
 
@@ -269,12 +269,68 @@ sudo systemctl start bluetooth
 
 {% endstep %}
 
-{% step %}
+{% step %} 
 
-### 7. Power Management
+
+### 7.Flatpak
+Flatpak is a Linux tool for installing and managing software. It runs applications in a sandboxed environment, keeping them partially separated from the main system. It is a widely used platform that allows software to work across various Linux distributions.
+
+Most Arch-based distributions come with Flatpak, but if it isn’t installed, you can use the following command to install it and add the Flatpak repository.
+
+```bash
+sudo pacman -S flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+{% endstep %}
+
+{% step %} 
+
+
+### 8.Backups:
+Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
+
+Installation:
+```bash
+sudo pacman -S  timeshift
+```
+
+How to Use Timeshift:
+
+1. Select Snapshot Type: Choose between **RSYNC** and **BTRFS** based on your file system.
+
+{% hint style="info" %} If your system is using the BTRFS file system, it is recommended to use the BTRFS snapshot option for better performance. If not, select RSYNC. {% endhint %}
+  
+2. Choose Snapshot Location: Select the disk or partition where snapshots will be saved.
+
+3. Configure Snapshot Schedule: Enable periodic snapshots if desired and select a snapshot frequency (daily, weekly, or on boot).
+
+4. Create a Snapshot: Click Create to manually create a snapshot at any time.
+
+5. Restore a Snapshot: To undo system changes, select a previous snapshot and click Restore.
+
+#### Restoring a Broken System Using Timeshift:
+
+1. Boot from a Linux ISO with Timeshift installed.
+
+2. Select the same snapshot type (BTRFS or RSYNC) as used before.
+
+3. Choose the location where your backup is stored.
+
+4. Select the desired backup from the list shown.
+
+5. Click Restore to revert your system to the previous working state.
+
+{% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
+
+{% endstep %}
+
+{% step %} 
+
+
+### 9. Power Management
 If you aren’t satisfied with your battery life on Linux while using `power-profiles-daemon`, you may want to try alternative power management software. However, keep in mind that other software like tlp doesn’t really work well with asusctl, and battery life on Linux might be the same as on Windows no matter what you try.
 
-#### 7.1 TLP
+#### 9.1 TLP
 
 TLP is a feature-rich command line utility for Linux, saving laptop battery power without the need to delve deeper into technical details.
 TLP's default settings are already optimized for battery life and implement Powertop's recommendations out of the box, so additional configuration is not needed. Also, TLP is completely customizable, which means you can get even more power savings or meet your exact requirements. 
@@ -300,7 +356,7 @@ systemctl mask power-profiles-daemon.service
 {% step %}
 
 
-#### 7.2 Auto-CPUFreq
+#### 9.2 Auto-CPUFreq
 
 Automatic CPU speed & power optimizer for Linux. Actively monitors laptop battery state, CPU usage, CPU temperature, and system load, ultimately allowing you to improve battery life without making any compromises.
 
@@ -333,7 +389,7 @@ After installation, open the auto-cpufreq app and verify if it’s working prope
 
 {% step %}
 
-### 8. Firewall
+### 10. Firewall
 A firewall is a security system that monitors, filters, and controls incoming and outgoing network traffic according to predefined security rules. While it isn't mandatory to have a firewall for a workstation, it is highly recommended to set up some form of firewall. There are two firewall options depending on the netfilter installed:
 
 This covers only the basic things about firewalls. If you want advanced configuration or documentation, please visit the respective page for the firewalls on the Arch Wiki.
@@ -343,7 +399,7 @@ To check which netfilter is installed, run the following command:
 sudo pacman -Q | grep -E 'nftables|iptables'
 ```
 
-## 1. Ufw:
+## 10.1. Ufw:
 
 If you have `iptables(legacy)` installed, then it is recommended to use Uncomplicated Firewall (ufw).
 
@@ -368,7 +424,7 @@ The gufw package provides a GUI for ufw, which can be used to configure ufw. For
 sudo ufw allow <port>/<optional: protocol>
 ```
 
-## 2. Firewalld:
+## 10.2. Firewalld:
 Firewalld is recommended for systems that have `iptables-nft` installed, which includes most modern distros.
 
 Install the firewalld package:
