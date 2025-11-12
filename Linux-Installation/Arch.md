@@ -78,7 +78,7 @@ Once you're in the live session:
 2. Launch the installer from the taskbar.
 3. Choose the **Online Installation** method.
 
-### Guided Installer Walkthrough
+### Guided Installer Walkthrough (For the Calamares installer found in EndeavourOS and CachyOS.)
 
 1. **Language, Location, and Keyboard**\
    Choose your preferred language, region, and keyboard layout.
@@ -108,6 +108,24 @@ Once you're in the live session:
    Review all settings. If everything looks correct, click **Install**.
 
 8. Wait for the installation to complete, then reboot.
+
+### Vanilla Arch Installation:
+For a complete manual installation, please refer to the [installation steps](https://wiki.archlinux.org/title/Installation_guide) found on the Arch Wiki. You may also use the archinstall script to simplify the installation.
+
+#### Installation with archinstall:
+
+First, connect to a network using Ethernet or Wi-Fi.
+To connect to Wi-Fi, run the following command:
+
+```bash
+iwctl station wlan0 connect <wifi name>
+```
+Then enter your Wi-Fi password when prompted. Once connected, verify the connection by running:
+
+```bash
+ping archlinux.org
+```
+To stop the ping command, press Control+C. Once the network is verified, run archinstall to install the system.
 
 ## 3.6 Complete Setup
 
