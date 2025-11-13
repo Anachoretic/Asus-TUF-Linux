@@ -16,8 +16,6 @@ After installation, it’s crucial to update the system to ensure all packages a
 sudo apt update && sudo apt upgrade
 ```
 
-This command updates the package list and upgrades all installed packages.
-
 {% endstep %}
 
 {% step %}
@@ -57,8 +55,8 @@ sudo nano /etc/apt/sources.list
 
  
 
-{% hint style="warning" %} **Important**: The following links already exist in the sources section, but components like `non-free` and `non-free-firmware` may be missing. Simply compare the existing entries with the ones highlighted in red and add any missing components, nothing else needs to be changed. If that’s unclear, you can instead comment out the existing sources and copy these updated ones to the end of the file.
-{% endhint %}
+**The following links already exist in the sources section, but components like `non-free` and `non-free-firmware` may be missing. Simply compare the existing entries with the ones highlighted in red and add any missing components, nothing else needs to be changed. If that’s unclear, you can instead comment out the existing sources and copy these updated ones to the end of the file.**
+
 
  After editing the file update your system with
 ```bash
@@ -99,9 +97,10 @@ Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers
 
 {% hint style="warning" %}
 **Important:** Set GPU mode to *Hybrid* or *Ultimate* in the Windows before installation or through supergfxctl, or the Driver installer might not detect the GPU.
-
-
 {% endhint %}
+
+
+{% endstep %}
 
 {% step %}
 
@@ -357,6 +356,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 6. Manually Copy the desired files or folders to your main directory or another location.
 
 {% endstep %}
+
 {% step %}
 
 ## Step 8: Multimedia Support
@@ -371,7 +371,7 @@ sudo apt install ubuntu-restricted-extras
 
 {% step %}
 
-## Step 9: 
+## Step 9: Firewall
 
 {% endstep %}
 
