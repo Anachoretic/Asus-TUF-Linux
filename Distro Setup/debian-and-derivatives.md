@@ -1,13 +1,12 @@
 # Setup (Debian)
 
-# Post-Installation Configuration for Debian-Based Systems
+Officially, tools like asusctl and supergfxctl aren’t supported on Debian. While this won’t stop you from running Debian on your laptop, you might need to use other software that can partially do the same job.
 
-{% hint style="danger" %}
-**Note:** Debian and its derivatives (Ubuntu, Mint, Pop! OS, etc.) are considered **unsupported** on the official [Asus Linux](https://asus-linux.org/) site. Software such as **asusctl** and **supergfxctl** must be compiled from source. Fedora is the recommended distribution for full support. If you still wish to proceed with Debian, follow this guide carefully. Some features may not function as expected.
-{% endhint %}
+The main problem is updates. If you have a newer laptop, there’s a good chance some of your hardware might not be fully supported on Debian, things like your keyboard, trackpad, or GPU might not work properly, or at all, because of older packages and kernels. For that reason, it’s recommended to use a distro that’s updated more frequently, such as Fedora, Tumbleweed, or Arch.
 
 {% stepper %}
 {% step %}
+
 ## 1. System Update
 
 After installation, it’s crucial to update the system to ensure all packages are up-to-date.
@@ -20,28 +19,97 @@ This command updates the package list and upgrades all installed packages.
 {% endstep %}
 
 {% step %}
+
 ## 2. Driver Installation
 
 By default, most drivers (e.g., for Intel, AMD, and other hardware) are included in the Linux kernel. However, **Nvidia dGPU drivers must be installed separately.**
 
-* **Debian users:** Follow the [Debian Nvidia Guide](https://wiki.debian.org/NvidiaGraphicsDrivers).
-* **Ubuntu/Mint/Pop!\_OS users:** Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers**. Ensure that proprietary drivers (not Nouveau) are selected.
+<details>
+<summary><strong>Debian(Trixie):</strong></summary>
 
-{% hint style="warning" %}
-**Important:** Set GPU mode to \*Hybrid\* or \*Ultimate\* in the Windows or through supergfxctl, or the Driver installer might not detect the GPU.
+To install the NVIDIA driver on Debian, you’ll need to add the non-free  sources.
+
+First, create a backup of the sources file in case something goes wrong:
+
+First create a backup of the sources file in case something goes wrong:
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+```
+
+Then, edit the sources file:
+```bash
+sudo nano /etc/apt/sources.list
+```
+
+
+
+-  deb http://deb.debian.org/debian/ trixie <span style="color:red">main contrib non-free non-free-firmware</span>
+
+- deb-src http://deb.debian.org/debian/ trixie <span style="color:red">main contrib non-free non-free-firmware</span>
+
+- deb http://deb.debian.org/debian-security/ trixie-security <span style="color:red">main contrib non-free non-free-firmware</span> 
+
+- deb-src http://deb.debian.org/debian-security/ trixie-security <span style="color:red">main contrib non-free non-free-firmware</span>
+
+- deb http://deb.debian.org/debian/ trixie-updates <span style="color:red">main contrib non-free non-free-firmware</span> 
+
+- deb-src http://deb.debian.org/debian/ trixie-updates <span style="color:red">main contrib non-free non-free-firmware</span>
+
+ 
+
+{% hint style="warning" %} **Important**: The following links already exist in the sources section, but components like `non-free` and `non-free-firmware` may be missing. Simply compare the existing entries with the ones highlighted in red and add any missing components, nothing else needs to be changed. If that’s unclear, you can instead comment out the existing sources and copy these updated ones to the end of the file.
 {% endhint %}
 
-* **Pop!\_OS:** Offers a dedicated Nvidia ISO. If you have an Nvidia GPU, this is the recommended option.
-{% endstep %}
+ After editing the file update your system with
+```bash
+sudo apt update
+```
 
+Then, if anything breaks after adding the new entries, you can restore the original file with:
+```bash
+sudo cp /etc/apt/sources.list.bak /etc/apt/sources.list
+```
+
+Now install the `nvidia-detect` package along with the dependencies for the driver: the driver:
+```bash
+sudo apt install nvidia-detect linux-headers-amd64
+```
+
+After that, simply launch `nvidia-detect` from the terminal and install the recommended NVIDIA driver.
+
+```bash
+sudo apt install nvidia-driver-full
+```
+
+Also, install and enable the GPU switching wrapper for Debian.
+```bash
+sudo apt install switcheroo-control && systemctl enable switcheroo-control --now
+```
+
+</details>
+
+<details>
+
+<summary><strong>Ubuntu/Mint</strong></summary>
+
+Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers**. Ensure that proprietary drivers (not Nouveau) are selected.
+
+</details>
+
+
+{% hint style="warning" %}
+**Important:** Set GPU mode to *Hybrid* or *Ultimate* in the Windows before installation or through supergfxctl, or the Driver installer might not detect the GPU.
+{% endhint %}
 {% step %}
-## 3. Flatpak Installation (Ubuntu Only)
 
-Most Debian-based distributions ship with Flatpak, but Ubuntu defaults to Snap. To install Flatpak on Ubuntu:
+## 3. Flatpak Installation:
+
+If your distro doesn’t come with Flatpak by default, you can add Flatpak with the following command. If your distro already has Flatpak enabled, you can skip this step.
 
 ```bash
 sudo apt install flatpak
-sudo apt install gnome-software-plugin-flatpak
+sudo apt install gnome-software-plugin-flatpak #For Gnome
+sudo apt install plasma-discover-backend-flatpak #For KDE
 ```
 
 Then, add the Flathub repository:
@@ -52,7 +120,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 {% endstep %}
 
 {% step %}
-## 4. Asus Software Installation (Manual Compilation)
+
+## 4. Asus Software Installation:
 
 {% hint style="warning" %}
 **Note:** These tools need to be built from source. Follow steps carefully.
@@ -120,6 +189,7 @@ sudo systemctl start supergfxd
 ### 4.4 Optional GUI Support
 
 * **GNOME:** Install the [`supergfxctl-gex`](https://extensions.gnome.org/extension/5344/supergfxctl-gex) extension.
+
 * **Other DEs (e.g., Cinnamon, MATE,XFCE):** Use CLI commands.
 
 **4.5 Switching GPU Modes via CLI**
@@ -159,13 +229,13 @@ Enter a name, press the desired key (e.g., Fn+F4), and set one of the following 
 * Armoury Crate: `rog-control-center`
 * Aura Mode: `asusctl aura -n`
 * Performance Mode: `asusctl profile -n`
+
 {% endstep %}
 
 {% step %}
 
 ## Step 6: Power Management
-
-If you notice that your battery life on Linux is significantly shorter compared to Windows, you may benefit from additional power management tools. Two of the most commonly recommended options are **TLP** and **CPU AutoFreq**. These tools help optimize power usage, particularly on laptops, by dynamically adjusting CPU frequencies and managing various power-related settings.
+If you aren’t satisfied with your battery life on Linux while using `power-profiles-daemon`, you may want to try alternative power management software. However, keep in mind that other software like tlp doesn’t really work well with asusctl, and battery life on Linux might be the same as on Windows no matter what you try.
 
 {% hint style="warning" %} **Important**: Only install **one** of these tools. Running both simultaneously can cause conflicts and lead to unexpected behavior. {% endhint %}
 
@@ -228,6 +298,7 @@ Installation:
 sudo apt install timeshift
 ```
 How to Use Timeshift:
+
 1. Select Snapshot Type: Choose between **RSYNC** and **BTRFS** based on your file system.
 
 {% hint style="info" %} If your system is using the BTRFS file system, it is recommended to use the BTRFS snapshot option for better performance. If not, select RSYNC. {% endhint %}
@@ -284,8 +355,6 @@ flatpak install flathub org.gnome.World.PikaBackup
 {% endstep %}
 {% step %}
 
-
-
 ## Step 8: Multimedia Support
 
 To enable playback for formats like MP3, MPEG4, AVI, and more, you’ll need to install the necessary media codecs. Ubuntu doesn’t include them out of the box due to licensing restrictions.
@@ -298,29 +367,7 @@ sudo apt install ubuntu-restricted-extras
 
 {% step %}
 
-## Step 9: Install Essential Software (Optional)
-
-Install the software you need for your workflow. Below is a list of apps I typically install along with a brief description of what each does. You can install these either via the terminal or using Flatpak, but I recommend using the terminal for simplicity and speed.
-
-```bash
-sudo apt install <package name> # To install a software.
-sudo apt remove <package name > # To uninstall a software.
-```
-
-* gedit - Simple text editor for GNOME.
-* VLC	- Plays almost all media formats.
-* htop - Terminal system monitor.
-* GIMP - Powerful image editor(Photoshop alternative).
-* LibreOffice / OnlyOffice - Office suites for documents.
-* GParted - 	Tool to manage disk partitions.
-* VSCodium - VS Code without telemetry.
-* Obsidian - Markdown note-taking app.
-* KDE Connect - Phone integration with your PC.
-* Spotify - Music streaming player.
-* OBS Studio - Screen recording and streaming software.
-* OpenRGB - Control RGB lighting without vendor software.
-* OpenRazer - 	Linux driver for Razer device lighting control.
-
+## Step 9: 
 
 {% endstep %}
 
