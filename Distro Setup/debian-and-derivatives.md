@@ -5,6 +5,7 @@ Officially, tools like asusctl and supergfxctl aren’t supported on Debian. Whi
 The main problem is updates. If you have a newer laptop, there’s a good chance some of your hardware might not be fully supported on Debian, things like your keyboard, trackpad, or GPU might not work properly, or at all, because of older packages and kernels. For that reason, it’s recommended to use a distro that’s updated more frequently, such as Fedora, Tumbleweed, or Arch.
 
 {% stepper %}
+
 {% step %}
 
 ## 1. System Update
@@ -16,6 +17,7 @@ sudo apt update && sudo apt upgrade
 ```
 
 This command updates the package list and upgrades all installed packages.
+
 {% endstep %}
 
 {% step %}
@@ -40,8 +42,6 @@ Then, edit the sources file:
 ```bash
 sudo nano /etc/apt/sources.list
 ```
-
-
 
 -  deb http://deb.debian.org/debian/ trixie <span style="color:red">main contrib non-free non-free-firmware</span>
 
@@ -99,7 +99,10 @@ Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers
 
 {% hint style="warning" %}
 **Important:** Set GPU mode to *Hybrid* or *Ultimate* in the Windows before installation or through supergfxctl, or the Driver installer might not detect the GPU.
+
+
 {% endhint %}
+
 {% step %}
 
 ## 3. Flatpak Installation:
@@ -208,6 +211,7 @@ supergfxctl --help
 {% endstep %}
 
 {% step %}
+
 ## 5. Fixing Hotkeys
 
 {% hint style="info" %}
