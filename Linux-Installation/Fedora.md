@@ -129,9 +129,13 @@ After installation, exit the live environment by shutting down the laptop. Then 
 
 ```bash
 diskpart
-select disk X  # Replace X with your disk number
+
+select disk X  # Replace X with your disk where windows is installed.
+
 list partition
-select partition 1  # The EFI partition on Windows is usually 1
+
+select partition 1
+
 assign letter=Z
 ```
 
@@ -139,9 +143,16 @@ assign letter=Z
 
 ```bash
 cd Z:
+
 dir
+
 rd /s System
-del mach_kernel 
+
+del mach_kernel
+
+cd EFI
+
+rd /s fedora
 ```
 
 4. Return to the previous terminal and run:
