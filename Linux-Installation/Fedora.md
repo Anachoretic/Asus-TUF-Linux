@@ -88,23 +88,32 @@ Download the latest Fedora Workstation ISO from the official website:
 
 ## Step 5: Begin Installation
 
-Video guide: [https://www.youtube.com/watch?v=eHQJMy8Q7Zk](https://www.youtube.com/watch?v=eHQJMy8Q7Zk)
+https://github.com/user-attachments/assets/24b75533-fb63-41ec-9104-fea52f66c126
 
 {% hint style="info" %} If the installer doesn't appear immediately, wait 10–20 seconds. {% endhint %}
 
-1. On the Welcome screen, select your preferred language and click Next.
-2. On the **Installation Destination** screen:
+https://github.com/user-attachments/assets/eecaab46-e385-47d8-9aca-1d6fdae49dd6
+
+On the Welcome screen, select your preferred language and click Next.
+
+https://github.com/user-attachments/assets/c84315cf-bc5b-44b2-812d-b6d9ab800720
+
+On the **Installation Destination** screen:
    - **Dual Boot:** Ensure unallocated space is available. Select "Share disk with other operating system".
    - **Standalone:** Choose "Use entire disk".
 
 {% hint style="warning" %} **Ensure you select the correct target drive if your system has multiple disks to avoid data loss.** {% endhint %}
 
-3. (Optional) Configure disk encryption on the Storage Configuration screen. Unless required, it's recommended to skip encryption for simplicity.
-4. Review your configuration on the Summary screen. Click **Begin Installation** to start.
-5. After installation:
-   - Exit the Live Environment.
-   - Remove the USB drive.
-   - Reboot into Fedora.
+https://github.com/user-attachments/assets/dfbe6e24-bd76-4ed8-a45f-6e8c647493fc
+
+Drive encryption is optional; you can choose to encrypt the drive or skip it. If you’re trying to dual-boot, do not enable drive encryption, as it can cause issues.
+
+https://github.com/user-attachments/assets/212e2c66-cc26-4b28-a987-e9f43aa8b288
+
+
+Review your configuration on the Summary screen. Click **Begin Installation** to start.
+
+After installation, exit the live environment by shutting down the laptop. Then remove the USB and power it on; you should see the GRUB menu. Simply select Fedora and boot into it.
 
 {% endstep %}
 {% step %}
