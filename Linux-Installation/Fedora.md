@@ -123,7 +123,32 @@ After installation, exit the live environment by shutting down the laptop. Then 
 
 ### For Dual Boot Setups
 
-Refer to the [same video guide](https://www.youtube.com/watch?v=eHQJMy8Q7Zk) for safe removal of Fedora.
+1. Open **Disk Management** in Windows and delete the Linux partitions.  
+
+2. Launch **Command Prompt as Administrator**, then run:
+
+```bash
+diskpart
+select disk X  # Replace X with your disk number
+list partition
+select partition 1  # The EFI partition on Windows is usually 1
+assign letter=Z
+```
+
+3. Open a new Command Prompt window (As administrator):
+
+```bash
+cd Z:
+dir
+rd /s System
+del mach_kernel 
+```
+
+4. Return to the previous terminal and run:
+
+```bash
+remove letter=Z
+```
 
 ### For Standalone Fedora Installations
 
