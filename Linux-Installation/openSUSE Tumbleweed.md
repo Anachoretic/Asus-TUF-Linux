@@ -117,11 +117,11 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 <summary><strong> Troubleshooting: Black Screen</strong> </summary>
 If you use the YaST installer and have an NVIDIA GPU, you may encounter a black screen as previously mentioned. You can fix this by adding `nomodeset` to GRUB before booting. Here’s how you do it.
 
-![](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/SuseTT-1.png)
+![](https://github.com/user-attachments/assets/ae59882d-09f2-45c7-8255-a5bf7e5c9ec4)
 
 Select the installation option by pressing the down arrow key once, then press `E` to edit the GRUB entry.
 
-![](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/SuseTT-2.png))
+![](https://github.com/user-attachments/assets/ba43eb8a-0bb0-4866-a617-2d02d50fe4de)
 
 Go to the line that begins with linux, then at the end where it says splash=silent press space once and type nomodeset. Press F10 to boot, and it should start normally.
 
@@ -140,28 +140,29 @@ The installation and uninstallation steps are currently specifically made for th
 <details>
 <summary><strong>Agama Setup:</strong> </summary>
 
-![Product Selection](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-1.png)
+![Product Selection](https://github.com/user-attachments/assets/2670af41-e155-452e-95b8-6d330c61d8d4)
 
 First, select openSUSE Tumbleweed, then click Select and wait for it to detect everything. This may take a few seconds, so be patient.
 
-![Network Connection](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-2.png)
+![Network Connection](https://github.com/user-attachments/assets/288c8c4f-20d7-43ed-bb2d-cef57dbaac47)
+
 
 It will place you in the Overview section. Then, click on the Network tab to connect to a network, as the installer will need to download packages for the setup.
 
-![Hostname](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-3.png)
+![Hostname](https://github.com/user-attachments/assets/884a2fe2-568c-43ad-9dbd-4940f7f9dfd1)
 
 Now, give your device a hostname, which is the name for the laptop itself, not the username.
 
-![Locales](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-4.png)
+![Locales](https://github.com/user-attachments/assets/1117c27a-8d8b-4a01-bb2a-d6dd5551d64b)
 
 Now head over to the localization tab and pick your language,keybord layout and your timezone.
 
-![User account](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-5.png)
+![User account](https://github.com/user-attachments/assets/30be9569-db43-4a6b-a411-7a1a0a1f4912)
 
 Now, add a username and password, and make sure to set a password for the root account by clicking Edit under First User to add a user and under Root User to set the root password.
 
 
-![Partitioning](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-6.png)
+![Partitioning](https://github.com/user-attachments/assets/34ec97c8-7d27-43f5-965e-c6c198a33703)
 
 
 **By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. 
@@ -176,16 +177,16 @@ A typical custom partition scheme with seperate home partition should be as foll
 -the rest as swap
 
 
-![Software Selection](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-7.png)
+![Software Selection](https://github.com/user-attachments/assets/6ace82da-7e1f-47ef-9ff7-65fb0dcdc039)
 
-![osT-8.png](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-8.png)
+![osT-8.png](https://github.com/user-attachments/assets/a6c1d9dd-6e7e-44f1-9dac-1c3486b2631f)
 
 Agama will default to a minimal install, so you should select a DE before installing it. Simply click on "Change Selection" and select either KDE or GNOME. KDE looks similar to Windows, while GNOME looks like macOS. Either is a great choice. I've added an image of what each desktop looks like by default. For someone switching from Windows, KDE may look more familiar.
 
 
-![KDE](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/Kde.png)
+![KDE](https://github.com/user-attachments/assets/7883750f-eaa0-469d-8191-5811fc2477a2)
 
-![GNOME](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/Gnome.png)
+![GNOME](https://github.com/user-attachments/assets/5d652677-53e1-4fca-8f63-5eb71a75a50d)
 </details>
 
 
