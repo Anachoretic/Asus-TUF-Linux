@@ -117,11 +117,11 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 <summary><strong> Troubleshooting: Black Screen</strong> </summary>
 If you use the YaST installer and have an NVIDIA GPU, you may encounter a black screen as previously mentioned. You can fix this by adding `nomodeset` to GRUB before booting. Here’s how you do it.
 
-![SuseTT-1.png](/home/zephyr/Pictures/Screenshots/SuseTT-1.png)
+![](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/SuseTT-1.png)
 
 Select the installation option by pressing the down arrow key once, then press `E` to edit the GRUB entry.
 
-![SuseTT-2.png](/home/zephyr/Pictures/Screenshots/SuseTT-2.png)
+![](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/SuseTT-2.png))
 
 Go to the line that begins with linux, then at the end where it says splash=silent press space once and type nomodeset. Press F10 to boot, and it should start normally.
 
@@ -140,49 +140,52 @@ The installation and uninstallation steps are currently specifically made for th
 <details>
 <summary><strong>Agama Setup:</strong> </summary>
 
-![Product Selection](osT-1.png)
+![Product Selection](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-1.png)
 
 First, select openSUSE Tumbleweed, then click Select and wait for it to detect everything. This may take a few seconds, so be patient.
 
-![Network Connection](osT-2.png)
+![Network Connection](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-2.png)
 
 It will place you in the Overview section. Then, click on the Network tab to connect to a network, as the installer will need to download packages for the setup.
 
-![Hostname](osT-3.png)
+![Hostname](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-3.png)
 
 Now, give your device a hostname, which is the name for the laptop itself, not the username.
 
-![Locales](osT-4.png)
+![Locales](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-4.png)
 
 Now head over to the localization tab and pick your language,keybord layout and your timezone.
 
-![User account](osT-5.png)
+![User account](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-5.png)
 
 Now, add a username and password, and make sure to set a password for the root account by clicking Edit under First User to add a user and under Root User to set the root password.
 
 
-![Partitioning](osT-6.png)
+![Partitioning](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-6.png)
 
 
 **By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. 
 A typical custom partition scheme with seperate home partition should be as follows:
 
 -1 GiB for /boot/efi 
+
 -60–80 GiB for / (root), 
+
 -the remaining space minus swap for /home
+
 -the rest as swap
 
 
-![Software Selection](osT-7.png)
+![Software Selection](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-7.png)
 
-![osT-8.png](osT-8.png)
+![osT-8.png](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/osT-8.png)
 
 Agama will default to a minimal install, so you should select a DE before installing it. Simply click on "Change Selection" and select either KDE or GNOME. KDE looks similar to Windows, while GNOME looks like macOS. Either is a great choice. I've added an image of what each desktop looks like by default. For someone switching from Windows, KDE may look more familiar.
 
 
-![KDE](Kde.png)
+![KDE](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/Kde.png)
 
-![GNOME](Gnome.png)
+![GNOME](https://github.com/Anachoretic/Asus-TUF-Linux/blob/main/Images/openSUSE%20Tumbleweed/Gnome.png)
 </details>
 
 
