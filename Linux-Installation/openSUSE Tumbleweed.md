@@ -2,7 +2,7 @@
 
 {% step %}
 
-# Step 1: Tumbleweed
+# openSUSE Tumbleweed:
 Tumbleweed is a rolling release distro, kind of like Arch. You get updates faster than Debian or Fedora, but slower than Arch, since updates are more thoroughly tested.
 
 Currently, there are two installers available for Tumbleweed: the YaST installer and the updated Agama installer. Agama isn’t officially out yet, but you can still use it, it’s more updated and faster than YaST. You can use whichever one you want until YaST gets fully replaced by Agama.
@@ -15,9 +15,9 @@ When installing Tumbleweed, you can choose your desktop environment. Pick either
 
 {% step %}
 
-# Step 2: Prerequisites:
+## Prerequisites:
 
-### Required Before You Begin
+## Required Before You Begin
 
 • USB drive with at least 8 GB of storage.  
 • Bootable media tool: **Rufus**, **Ventoy**, or **Balena Etcher**.  
@@ -26,17 +26,17 @@ When installing Tumbleweed, you can choose your desktop environment. Pick either
 • **Fast Boot** should be disabled (for dual-boot users).  
 • Set **GPU mode to Ultimate or Standard** in Windows.
 
-{% hint style="warning" %} **Secure Boot can prevent some distros from booting. Disable it in BIOS.** {% endhint %}
+{% hint style="warning" %} Secure Boot can prevent some distros from booting. Disable it in BIOS. {% endhint %}
 
-{% hint style="warning" %} **If BitLocker is not disabled, it can cause data loss or access issues during installation.** {% endhint %}
+{% hint style="warning" %} If BitLocker is not disabled, it can cause data loss or access issues during installation. {% endhint %}
 
 {% endstep %}
 
 {% step %}
 
-# Step 3: Bootable USB Creation and Partitioning
+## Bootable USB Creation and Partitioning
 
-## Step 3.1: Download ISO
+### Downloading the ISO:
 
 Download the installer:
 
@@ -47,7 +47,7 @@ Download the installer:
 
 
 
-## Step 3.2: Create Bootable USB
+### Create a bootable USB:
 
 {% tabs %}
 
@@ -93,7 +93,7 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 {% endtabs %}
 
 
-## Step 3.3: Partitioning (Dual Boot Only)
+## Partitioning (Dual Boot Only)
 
 1. Open **Disk Management** in Windows.  
 2. Right-click on the **C: drive** and select **Shrink Volume**.  
@@ -104,7 +104,7 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 
 {% step %}
 
-## Step 4: BIOS Setup
+## BIOS Setup
 
 1. Restart your PC and press `F2` (or your BIOS key).  
 2. In BIOS settings:  
@@ -133,7 +133,7 @@ Do note that the `nomodeset` parameter might carry over to the installed system,
 
 {% step %}
 
-## Step 5: Begin Installation
+## Installation
 
 The installation and uninstallation steps are currently specifically made for the Agama installer.
 
@@ -194,7 +194,7 @@ Agama will default to a minimal install, so you should select a DE before instal
 
 {% step %}
 
-## Step 6: Complete Setup
+## Complete Setup:
 
 1. After installation, **exit the Live Environment**.  
 2. **Remove the USB drive**.  
@@ -208,9 +208,9 @@ Agama will default to a minimal install, so you should select a DE before instal
 
 {% step %}
 
-# 7. Uninstalling Linux
+## Uninstalling Linux:
 
-## 7.1 For Dual Boot Users
+### For Dual Boot Users:
 
 1. Open **Disk Management** in Windows and delete the Linux partitions.  
 2. Launch **Command Prompt as Administrator**, then run:
@@ -253,7 +253,7 @@ remove letter=Z
 
 
 
-## 7.2 For Standalone Linux Users
+### For Standalone Linux Users
 
 1. Boot from a Windows installation USB.  
 2. Press `Shift + F10` to open Command Prompt.  
