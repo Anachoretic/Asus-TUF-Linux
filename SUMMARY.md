@@ -1,40 +1,53 @@
 # Table of Contents
 
-* [**Introduction**](README.md)  
+## Getting Started
 
-## Linux Installation:
+* [**Welcome**](README.md)
 
+* [**Quickstart**]()
+
+* [**Choosing a Distro**]()
+
+* [**Do’s & Don’ts**]()
+
+## Installation:
 
 * [**Arch**](Linux-Installation/Arch.md)  
 
-* [**Debian**](Linux-Installation/Debian.md)  
+* [**Debian/Ubuntu**](Linux-Installation/Debian.md)  
 
 * [**Fedora**](Linux-Installation/Fedora.md)
 
 * [**OpenSUSE Tumbleweed**](<Linux-Installation/openSUSE%20Tumbleweed.md>)  
 
 
-## Distro Setup:
+## Post-Install Setup:
 
 
-* [**Arch and Derivatives**](<Distro Setup/arch-and-derivatives.md>)  
+* [**Arch / Derivatives**](<Distro Setup/arch-and-derivatives.md>)  
 
-* [**Debian and Derivatives**](<Distro Setup/debian-and-derivatives.md>)  
+* [**Debian / Derivatives**](<Distro Setup/debian-and-derivatives.md>)  
 
 *  [**Fedora**](<Distro Setup/Fedora.md>)
 
-*  [**OpenSUSE Tumbleweed**](<Distro Setup/openSUSE%20Tumbleweed.md>)  
+*  [**OpenSUSE Tumbleweed**](<Distro Setup/openSUSE%20Tumbleweed.md>)
 
-  
+## Customization:
+*  [**GNOME**]()
+*  [**KDE**]()
 
-## Optimization and Troubleshooting:
+
+##  Optimizations & Daily Use:
 
 * [**Gaming on Linux**](optimization-and-troubleshooting/gaming-on-linux.md)  
 
 * [**Maintenance**](optimization-and-troubleshooting/maintenance.md)  
 
-* [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)  
-
-
-## Advanced Configuration
 * [**Monitoring Tools**](Advanced-Configuration/monitoring-tools.md)
+
+## Troubleshooting
+* [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)
+
+
+## External Resources:
+* [**External Wikis**]()
