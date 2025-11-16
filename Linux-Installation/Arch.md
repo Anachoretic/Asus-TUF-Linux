@@ -117,8 +117,6 @@ For a single-boot setup, select Erase Disk and enable Swap with Hibernate, for a
 
 ![An example of dual boot.](https://github.com/user-attachments/assets/5f2ff832-49ce-4b5f-806d-756e84e3b3f9)
 
-An example of dual boot
-
 ![User Setup](https://github.com/user-attachments/assets/e4b1b96a-b405-4d9e-9a0f-e3d19c9cff18)
 
 Now enter your username, hostname, and password, then click Next.
