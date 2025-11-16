@@ -1,7 +1,9 @@
 
-# Important Note
+# Note:
 
-I highly recommend using **Fedora** or another up-to-date distro instead of Debian-based ones. They generally offer better hardware and software compatibility with Asus laptops in general. However, if you still want to go with something like Ubuntu or Mint, that’s fine too,just follow this guide. Keep in mind that some Asus-specific features and software might not work as expected. Also, a quick side note: this guide includes links to video tutorials in case you prefer a visual walkthrough.
+Officially, tools like asusctl and supergfxctl aren’t supported on Debian. While this won’t stop you from running Debian on your laptop, you might need to use other software that can partially do the same job.
+
+The main problem is updates. If you have a newer laptop, there’s a good chance some of your hardware might not be fully supported on Debian, things like your keyboard, trackpad, or GPU might not work properly, or at all, because of older packages and kernels. For that reason, it’s recommended to use a distro that’s updated more frequently, such as Fedora, Tumbleweed, or Arch.
 
 {% hint style="info" %} This guide includes links to video tutorials for visual learners. {% endhint %}
 
