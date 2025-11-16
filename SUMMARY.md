@@ -4,9 +4,7 @@
 
 * [**Welcome**](README.md)
 
-* [**Quickstart**]()
-
-* [**Choosing a Distro**]()
+* [**Choosing a Distro**](Distro-Selection.md)
 
 * [**Do’s & Don’ts**]()
 
