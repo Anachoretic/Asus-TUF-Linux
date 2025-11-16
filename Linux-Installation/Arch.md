@@ -79,40 +79,46 @@ Once you're in the live session:
 1. Connect to the internet using Wi-Fi or Ethernet.
 2. Launch the installer from the taskbar.
 3. Choose the **Online Installation** method.
-
-![](https://github.com/user-attachments/assets/d58d6f62-b0ba-4c96-86e1-5396fef4ce18)
-
-
 ### Guided Installer Walkthrough (For the Calamares installer found in EndeavourOS and CachyOS.)
+
+![Installer](https://github.com/user-attachments/assets/d58d6f62-b0ba-4c96-86e1-5396fef4ce18)
 
 
 ![Language](https://github.com/user-attachments/assets/662cab30-5614-44cb-b302-47b000b22041)
 Choose your language.
 
+
 ![Region and Timezone](https://github.com/user-attachments/assets/955937b3-34ac-4a4d-ac2d-49f7cca28f34)
 Choose your region and your timezone.
+
 
 ![Keyboard Layout](https://github.com/user-attachments/assets/8a5de1ce-ce43-4bfc-b15c-6ce4d40ac181)   
 Choose your keyboard layout. If you have the US layout, simply press Next.
 
+
 ![Desktop Environment](https://github.com/user-attachments/assets/4291fd8f-b9fa-465b-9838-fc8e22fb6021)
 Now choose your desktop environment. I would recommend sticking to either GNOME or KDE. It will show a preview image of what the desktop environment looks like, but in short: KDE is more Windows-like and GNOME is more macOS-like. Once you've decided, simply double click on the option and choose Next.
+
 
 ![Additional Packages](https://github.com/user-attachments/assets/6dd59b59-fa23-40a3-957e-feddd24a755d)
 I’d recommend getting an LTS kernel that you can use as a backup, and if you have a printer, you can check the printing support box. Other than that, I’d leave the rest as is.
 
+
 ![Bootloader](https://github.com/user-attachments/assets/a77b2c68-a3f8-4b09-9abf-74573d03f4f4)
 Select GRUB as the bootloader.
 
-![Disk Setup](https://github.com/user-attachments/assets/10b78333-e5f4-4038-9b06-7cce694a5d11)
 
+![Disk Setup](https://github.com/user-attachments/assets/10b78333-e5f4-4038-9b06-7cce694a5d11)
 For a single-boot setup, select Erase Disk and enable Swap with Hibernate, for a dual-boot setup, select Replace a Partition and choose the unallocated space.
+
 
 ![An example of dual boot.](https://github.com/user-attachments/assets/5f2ff832-49ce-4b5f-806d-756e84e3b3f9)
 An example of dual boot
 
+
 ![User Setup](https://github.com/user-attachments/assets/e4b1b96a-b405-4d9e-9a0f-e3d19c9cff18)
 Now enter your username, hostname, and password, then click Next.
+
 
 ![Summary](https://github.com/user-attachments/assets/344647c1-f90f-4cd0-9f4a-a24ecdac90d0)
 Review all settings. If everything looks correct, click **Install**. Then wait for the installation to complete, and reboot.
@@ -142,7 +148,7 @@ For a complete manual installation, please refer to the [installation steps](htt
 diskpart
 select disk X         # Replace X with your actual disk number
 list partition
-select partition 1    # EFI partition is usually number 1
+select partition 1    # EFI partition is usually number 1.
 assign letter=Z
 ```
 
