@@ -189,20 +189,7 @@ Agama will default to a minimal install, so you should select a DE before instal
 ![GNOME](https://github.com/user-attachments/assets/5d652677-53e1-4fca-8f63-5eb71a75a50d)
 </details>
 
-
-{% endstep %}
-
-{% step %}
-
-## Complete Setup:
-
-1. After installation, **exit the Live Environment**.  
-2. **Remove the USB drive**.  
-3. Reboot your system. You should now boot directly into Linux or see a bootloader menu.
-
-{% endstep %}
-
-{% endstepper %}
+After installation, exit the Live Environment, remove the USB drive, and reboot your system; you should now see the GRUB menu, select openSUSE Tumbleweed and boot into it.
 
 {% endstep %}
 
