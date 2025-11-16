@@ -6,7 +6,7 @@
 
 * [**Choosing a Distro**](Distro-Selection.md)
 
-* [**Do’s & Don’ts**]()
+* [**Do’s & Don’ts**](Do’s%20&%20Don’ts.md)
 
 ## Installation:
 
