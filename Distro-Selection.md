@@ -18,3 +18,22 @@ Just don’t jump into Arch just because you heard it’s popular. If you’re w
 
 5. **Distro hop:**
 There’s nothing wrong with trying different distros, but if you’re just hopping around to “find one for you” without knowing what you actually need, you’ll just waste time jumping from one to another.
+
+## Recommended Linux Distributions:
+Here are some of my recommended distros from each major distribution for beginners using ASUS TUF laptops (keep in mind the numbers aren’t a ranking, just a simple list )
+
+1. Fedora:
+
+If you are trying Linux for the first time, I would highly recommend Fedora. It’s a semi-rolling release distro (the kernel and most packages are updated regularly but it still follows a release cycle). It also has excellent software support and compatibility.
+
+2. EndeavourOS:
+
+EndeavourOS is basically Arch Linux with a GUI installer. It’s a great distro if you want to try Arch for the first time. If you’re willing to read the documentation, it’s an excellent great.
+
+3. Linux Mint:
+
+ASUS software compatibility is limited on Debian-based distros, so for that reason, I generally recommend other distros. That said, Mint is still possibly the best beginner-friendly Debian-based distro in my opinion.
+
+4. openSUSE Tumbleweed:
+
+Tumbleweed is a rolling release distro similar to Arch, but updates are slightly slower since they are thoroughly tested. This makes it more stable in my experience. It also has a GUI for almost everything using YaST, so you can configure and manage most tasks without touching the terminal.
