@@ -20,17 +20,16 @@ Fedora has excellent compatibility with ASUS laptops in terms of both hardware a
 • **Fast Boot** should be disabled (required only if you are planning to dual boot).\
 • Set **GPU mode to Ultimate or Standard** in Windows. {% endhint %}
 
-{% hint style="warning" %} **Secure Boot can prevent Fedora from booting if not disabled.** {% endhint %}
+{% hint style="warning" %} Secure Boot can prevent Fedora from booting if not disabled.{% endhint %}
 
-{% hint style="warning" %} **Failure to disable BitLocker may result in data loss or drive access issues.** {% endhint %}
+{% hint style="warning" %} Failure to disable BitLocker may result in data loss or drive access issues.{% endhint %}
 
 {% endstep %}
 {% step %}
 
 ## Installation Steps
 
-## Step 1: Download Fedora ISO
-
+## Fedora ISO download
 Download the latest Fedora Workstation ISO from the official website:
 
 [https://fedoraproject.org/en/workstation/download](https://fedoraproject.org/en/workstation/download)
@@ -41,7 +40,7 @@ Download the latest Fedora Workstation ISO from the official website:
 {% endstep %}
 {% step %}
 
-## Step 2: Create Bootable Media
+##  Bootable media creation:
 
 {% tabs %} {% tab title="Using Rufus" %}
 
@@ -64,7 +63,7 @@ Download the latest Fedora Workstation ISO from the official website:
 {% endstep %}
 {% step %}
 
-## Step 3: Partitioning (Dual Boot Only)
+## Partitioning (Dual Boot Only)
 
 1. Open **Disk Management** in Windows.
 2. Right-click on the **C: drive** and select **Shrink Volume**.
@@ -74,7 +73,7 @@ Download the latest Fedora Workstation ISO from the official website:
 {% endstep %}
 {% step %}
 
-## Step 4: BIOS Setup
+## BIOS Setup
 
 1. Restart your PC and press `F2` (or the correct key for your system) to enter BIOS.
 2. In BIOS:
@@ -86,7 +85,7 @@ Download the latest Fedora Workstation ISO from the official website:
 {% endstep %}
 {% step %}
 
-## Step 5: Begin Installation
+## Begin Installation
 
 ![](https://github.com/user-attachments/assets/24b75533-fb63-41ec-9104-fea52f66c126)
 
@@ -119,11 +118,11 @@ After installation, exit the live environment by shutting down the laptop. Then 
 {% step %}
 
 
-## Uninstalling Fedora
+## Fedora uninstallation:
 
 ### For Dual Boot Setups
 
-1. Open **Disk Management** in Windows and delete the Linux partitions.  
+1. Open **Disk Management** in Windows and delete the Linux partitions. Then merge the unallocated space into your C: drive or any other drive.
 
 2. Launch **Command Prompt as Administrator**, then run:
 
@@ -175,6 +174,8 @@ clean
 
 4. Proceed with the Windows installation.
 
-{% hint style="info" %} If you're using an Intel system and the Windows installer doesn't detect your disk, disable **VMD (Volume Management Device)** in BIOS. {% endhint %}
+{% hint style="info" %} If you're using an Intel system and the Windows installer doesn't detect your disk, disable VMD (Volume Management Device) in BIOS. {% endhint %}
 
 {% endstep %}
+
+{% endstepper %}
