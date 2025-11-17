@@ -2,6 +2,8 @@
 While choosing a Linux distro, you may be overwhelmed by the sheer number of options out there. But realistically, you only need to care about four major base distros: Arch, Debian, Fedora, and openSUSE.
 Almost everything else originates from these. There are other unique ones too, but you’ll discover them naturally as you go deeper down the Linux rabbit hole.
 
+Quick note: You may have noticed that the installation steps for Debian and Arch don’t cover installing vanilla Debian or Arch and instead focus on derivatives like Ubuntu or EndeavourOS. This is intentional to keep things simple and straightforward, as the guide is meant to be beginner-friendly, and installing the vanilla versions requires more self-exploration and experience.
+
 ## **Things not to do while choosing a distro:**
 
 1. **Choose a distro based on looks:**
