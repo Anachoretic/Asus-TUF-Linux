@@ -1,5 +1,6 @@
 ## Do's and Don'ts While Using Linux
 
+These aren’t any new rules you need to follow exclusively for Linux; they’re just basic things that apply to every OS.
 
 ### Do's:
 
