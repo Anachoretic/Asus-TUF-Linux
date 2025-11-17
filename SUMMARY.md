@@ -21,7 +21,6 @@
 
 ## Post-Install Setup:
 
-
 * [**Arch / Derivatives**](<Distro Setup/arch-and-derivatives.md>)  
 
 * [**Debian / Derivatives**](<Distro Setup/debian-and-derivatives.md>)  
@@ -31,9 +30,8 @@
 *  [**OpenSUSE Tumbleweed**](<Distro Setup/openSUSE%20Tumbleweed.md>)
 
 ## Customization:
-*  [**GNOME**]()
-*  [**KDE**]()
-
+*  [**GNOME**](<Customization/GNOME.md>)
+*  [**KDE**](Customization/KDE.md)
 
 ##  Optimizations & Daily Use:
 
@@ -45,7 +43,6 @@
 
 ## Troubleshooting
 * [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)
-
 
 ## External Resources:
 * [**External Wikis**]()
