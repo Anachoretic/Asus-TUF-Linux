@@ -32,10 +32,6 @@ If you are trying Linux for the first time, I would highly recommend Fedora. It�
 
 EndeavourOS is basically Arch Linux with a GUI installer. It’s a great distro if you want to try Arch for the first time. If you’re willing to read the documentation, it’s an excellent great.
 
-3. Linux Mint:
-
-ASUS software compatibility is limited on Debian-based distros, so for that reason, I generally recommend other distros. That said, Mint is still possibly the best beginner-friendly Debian-based distro in my opinion.
-
-4. openSUSE Tumbleweed:
+3. openSUSE Tumbleweed:
 
 Tumbleweed is a rolling release distro similar to Arch, but updates are slightly slower since they are thoroughly tested. This makes it more stable in my experience. It also has a GUI for almost everything using YaST, so you can configure and manage most tasks without touching the terminal.
