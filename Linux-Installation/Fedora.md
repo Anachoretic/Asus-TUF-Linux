@@ -76,7 +76,6 @@ dd if=/home/user/Downloads/Fedora-Workstation-Live-43-1.6.x86_64.iso of=/dev/sda
 
 
 {% endtab %}
-
 {% endtabs %}
 
 {% endstep %}
