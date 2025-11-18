@@ -17,6 +17,9 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 
 Launch **Extension Manager** after installation and install the extension that you want.
 
+![](https://github.com/user-attachments/assets/9258d456-413d-4eaa-8333-dffc1c9cfb3a)
+
+
 ### Recommended Extensions:
 
 1. [**Places Status Indicator**](https://extensions.gnome.org/extension/8/places-status-indicator/)
