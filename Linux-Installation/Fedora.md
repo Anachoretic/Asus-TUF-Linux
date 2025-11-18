@@ -42,7 +42,7 @@ Download the latest Fedora Workstation ISO from the official website:
 
 ##  Bootable media creation:
 
-{% tabs %} {% tab title="Using Rufus" %}
+{% tabs %} {% tab title="Rufus" %}
 
 1. Download [Rufus](https://rufus.ie/).
 2. Select “ISO Image” and choose the Fedora ISO.
@@ -117,7 +117,7 @@ On the **Installation Destination** screen:
    - **Dual Boot:** Ensure unallocated space is available. Select "Share disk with other operating system".
    - **Standalone:** Choose "Use entire disk".
 
-{% hint style="warning" %} **Ensure you select the correct target drive if your system has multiple disks to avoid data loss.** {% endhint %}
+{% hint style="warning" %}**Ensure you select the correct target drive if your system has multiple disks to avoid data loss.**{% endhint %}
 
 ![](https://github.com/user-attachments/assets/dfbe6e24-bd76-4ed8-a45f-6e8c647493fc)
 
