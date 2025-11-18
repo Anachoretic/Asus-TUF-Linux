@@ -60,8 +60,6 @@ Download the latest Fedora Workstation ISO from the official website:
 4. Select your USB drive and click **Install**.
 5. After setup, copy the Fedora ISO file to the **Ventoy** partition. {% endtab %}
 
-{% tabs %}
-
 {% tab title="dd" %} 
 The dd command is a simple utility that comes with GNU and is available on every Linux distro. It lets you copy data block by block and can be used to create a bootable live ISO on Linux without needing to install any additional tools.
 
