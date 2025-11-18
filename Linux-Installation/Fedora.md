@@ -32,10 +32,10 @@ Fedora has excellent compatibility with ASUS laptops in terms of both hardware a
 ## Fedora ISO download
 Download the latest Fedora Workstation ISO from the official website:
 
-[https://fedoraproject.org/en/workstation/download](https://fedoraproject.org/en/workstation/download)
+-[Fedora Workstation GNOME ](https://fedoraproject.org/en/workstation/download)
 
-- Recommended: Fedora Workstation (GNOME)
-- Alternative: Fedora Workstation (KDE)
+-[Fedora KDE Plasma Desktop ](https://www.fedoraproject.org/kde/download)
+
 
 {% endstep %}
 {% step %}
@@ -58,7 +58,26 @@ Download the latest Fedora Workstation ISO from the official website:
 3. Go to **Options > Partition Style > GPT**.\
    (Secure Boot support is optional; MOK keys are required on first boot if enabled.)
 4. Select your USB drive and click **Install**.
-5. After setup, copy the Fedora ISO file to the **Ventoy** partition. {% endtab %} {% endtabs %} {% endstep %}
+5. After setup, copy the Fedora ISO file to the **Ventoy** partition. {% endtab %}
+
+{% tabs %}
+
+{% tab title="dd" %} 
+The dd command is a simple utility that comes with GNU and is available on every Linux distro. It lets you copy data block by block and can be used to create a bootable live ISO on Linux without needing to install any additional tools.
+
+1. Identify your USB drive using `lsblk`.
+2. Open the terminal and run the following command:
+```bash 
+dd if=/path/to/iso of=/dev/sdX bs=4M status=progress oflag=sync
+
+# Example:
+dd if=/home/user/Downloads/Fedora-Workstation-Live-43-1.6.x86_64.iso of=/dev/sda bs=4M status=progress oflag=sync
+```
+
+
+{% endtab %}
+
+{% endtabs %}
 
 {% endstep %}
 {% step %}
