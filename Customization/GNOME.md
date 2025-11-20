@@ -82,7 +82,7 @@ Icon themes change the look of system and app icons.
 
 ### Installing an Icon Theme:
 
-1. Download an icon from: [https://www.gnome-look.org/browse?cat=132&ord=rating](https://www.gnome-look.org/browse?cat=132&ord=rating)
+1. Download an icon from: [gnome-look.org](https://www.gnome-look.org/browse?cat=132&ord=rating)
 
 2. Extract it, then copy the folder into the .icons directory inside your home folder (if the folder doesn’t exist, create it).
 
@@ -108,7 +108,8 @@ Cursor themes are installed the same way as icon themes.
 
 <details>
  <summary>Examples:</summary>
-![](https://github.com/user-attachments/assets/d62cf758-edd9-4a6f-bf63-4850f89efde9)
+
+ ![](https://github.com/user-attachments/assets/30766d65-a5a1-44c7-bbcf-4b0056a06630)
 
 </details>
 
