@@ -29,7 +29,7 @@ Installation
 sudo pacman -S btop	# Arch Linux
 sudo apt install btop	# Debian/Ubuntu
 sudo dnf install btop	# Fedora
-
+sudo zypper in btop # openSUSE Tumbleweed
 ```
 
 Usage:   
@@ -46,7 +46,8 @@ Installtion:
 ```bash
 sudo pacman -S mangohud goverlay	#Arch Linux
 sudo apt install mangohud goverlay	#Debian
-ssudo dnf install amngohud goverlay	#Fedora
+sudo dnf install mangohud goverlay	#Fedora
+sudo zypper in mangohud goverlay # openSUSE Tumbleweed
 ```
 
 Usage:   
