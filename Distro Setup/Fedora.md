@@ -244,7 +244,7 @@ sudo nano /etc/dnf/dnf.conf
 
 ```bash
 max_parallel_downloads=10
-fastestmirror=1
+fastestmirror=true
 ```
 
 
