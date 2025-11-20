@@ -103,5 +103,11 @@ Cursor themes are installed the same way as icon themes.
 2. Extract it and copy the cursor theme into the `.icons` folder.
 3. Open GNOME Tweaks, go to the Appearance tab, and select the cursor theme to apply it.
 
+<details>
+ <summary>Examples:</summary>
+![](https://github.com/user-attachments/assets/d62cf758-edd9-4a6f-bf63-4850f89efde9)
+
+</details>
+
 {% endstep %}
 {% endsteppers %}
