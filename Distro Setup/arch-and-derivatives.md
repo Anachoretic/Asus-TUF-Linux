@@ -434,7 +434,7 @@ sudo pacman -S firewalld python-pyqt6
 
 Then enable it with the following command:
 ```bash
-sudo systemctl enable firewalld
+sudo systemctl enable firewalld --now
 ```
 
 Again, if you need to open a port or a service, you can either use the GUI or the terminal for it. The `firewalld` package contains a GUI by default, while the Python package adds applet support for firewalld.
