@@ -61,10 +61,6 @@ Make sure to list all snapshots to verify that the snapshot was created:
 snapper list
 ```
 
-{% endstep %}
-
-{% step %}
-
 ### To restore a previous snapshot:
 First, list all available snapshots:
 
