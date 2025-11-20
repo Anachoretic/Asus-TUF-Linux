@@ -31,6 +31,7 @@
 
 ## Customization:
 *  [**GNOME**](<Customization/GNOME.md>)
+
 *  [**KDE**](Customization/KDE.md)
 
 ##  Optimizations & Daily Use:
@@ -40,6 +41,8 @@
 * [**Maintenance**](optimization-and-troubleshooting/maintenance.md)  
 
 * [**Monitoring Tools**](Advanced-Configuration/monitoring-tools.md)
+
+* [**Advanced Configuration**](Advanced-Configuration/Advanced-Configuration.md)
 
 ## Troubleshooting
 * [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)
