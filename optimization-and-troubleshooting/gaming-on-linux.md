@@ -145,12 +145,6 @@ For emulators:
    - Set the emulator executable
    - Point it to the ROM file
 
-{% hint style="warning" %}
-Just make sure you only use ROMs you legally own. I don’t condone piracy in any form.
-{% endhint %}
-
-   
-
 That’s the basics of gaming on Linux. It won’t be perfect for every setup or game, but it’s come a long way. Steam and Lutris together can cover a large chunk of your library.
 
 {% hint style="tip" %}
