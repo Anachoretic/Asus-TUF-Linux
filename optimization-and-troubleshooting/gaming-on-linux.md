@@ -115,6 +115,10 @@ sudo apt install lutris
 ```bash
 sudo dnf install lutris
 ```
+- **openSUSE Tumbleweed:**
+```bash
+sudo zypper in lutris
+```
 
 
 ### Running Games in Lutris
