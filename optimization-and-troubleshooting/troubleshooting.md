@@ -1,3 +1,9 @@
+---
+title: Troubleshooting
+icon: wrench
+---
+
+
 # Troubleshooting Guide
 This guide contains some issues that one might face while using Linux, along with the solutions and resources to get help.
 
