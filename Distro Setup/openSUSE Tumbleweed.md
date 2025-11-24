@@ -1,3 +1,9 @@
+---
+title: openSUSE Tumbleweed
+icon: suse
+---
+
+
 # Tumbleweed Post Install:
 {% stepper %}
 
