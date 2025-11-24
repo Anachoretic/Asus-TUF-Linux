@@ -1,3 +1,8 @@
+---
+icon: debian
+---
+
+
 # Setup (Debian)
 
 Officially, tools like asusctl and supergfxctl aren’t supported on Debian. While this won’t stop you from running Debian on your laptop, you might need to use other software that can partially do the same job.
