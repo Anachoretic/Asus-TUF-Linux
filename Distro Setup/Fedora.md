@@ -1,3 +1,11 @@
+---
+title: Fedora
+icon: fedora
+---
+
+
+
+
 # Fedora Post-Installation Guide
 
 This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, power management tweaks, backup solutions, multimedia codecs, DNF configuration, fonts, Steam installation, and more.
