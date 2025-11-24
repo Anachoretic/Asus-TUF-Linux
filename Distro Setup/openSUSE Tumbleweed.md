@@ -130,8 +130,25 @@ sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-
 ## 5. Asus Software:
 The ASUS-specific software for Tumbleweed is hosted on the COPR repository, so you will need to add the COPR repo to download it. 
 
+To add the repository, we need to create a .repo file. Simply create a file called asus-linux using the following command:
+
+```bash
+sudo nano /etc/zypp/repos.d/asus-linux.repo
 ```
-sudo zypper ar -f --no-gpgcheck https://download.copr.fedorainfracloud.org/results/lukenukem/asus-linux/opensuse-tumbleweed-x86_64/   Asus-Linux
+
+Then paste the following into the asus-linux.repo file, save it with Ctrl+S, exit with Ctrl+X, and refresh Zypper using `zypper ref`.
+
+```bash
+[asus-linux]
+name=asus-linux
+baseurl=https://download.copr.fedorainfracloud.org/results/lukenukem/asus-linux/opensuse-tumbleweed-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/lukenukem/asus-linux/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
 ```
 
 Then download the following packages:
