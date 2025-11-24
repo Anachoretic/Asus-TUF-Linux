@@ -1,7 +1,8 @@
 ---
-title: Arch
-icon: Arch
+title: Arch Linux
+icon: arch
 ---
+
 
 # Arch Linux Post-Install Guide
 
