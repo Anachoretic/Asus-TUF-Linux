@@ -3,7 +3,6 @@ title: Performance Monitoring:
 icon: monitor-waveform
 ---
 
-
 # Performance Monitoring:
 
 Performance monitors are tools designed to track and analyze your system’s performance in real-time. They provide detailed insights into CPU usage, memory consumption, disk activity, network traffic, and more. With customizable options and clear graphical displays, performance monitors help you identify bottlenecks, troubleshoot issues, and optimize system performance effectively. Whether you’re a casual user or a system administrator, these tools are great for keeping your system running smoothly.
