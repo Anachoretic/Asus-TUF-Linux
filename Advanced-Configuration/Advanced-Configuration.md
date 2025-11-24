@@ -1,3 +1,9 @@
+---
+title: Advanced
+icon: sliders
+---
+
+
 ## 1. CPU boost:
 CPU boost is a feature that temporarily raises a processor’s clock speed above its base frequency to improve performance during demanding tasks. Disabling it 
 causes the CPU to stay near its base clock, which reduces temperatures but also lowers performance. Applications that rely on high CPU speeds such as games or other CPU-intensive workloads will see a 
