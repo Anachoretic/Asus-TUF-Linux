@@ -1,3 +1,8 @@
+---
+title: Gaming on Linux
+icon: gamepad-modern
+---
+
 # Gaming on Linux
 
 Gaming on Linux has come a long way, mostly thanks to tools like **Wine** and **Proton**. It’s much better than it used to be, but it’s still not flawless. Some games won’t run at all, and others might need extra tweaks to get working.
