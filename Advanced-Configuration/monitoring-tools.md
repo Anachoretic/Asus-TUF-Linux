@@ -1,5 +1,5 @@
 ---
-title: Performance Monitoring:
+title: Performance Monitoring
 icon: monitor-waveform
 ---
 
