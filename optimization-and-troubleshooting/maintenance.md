@@ -1,3 +1,9 @@
+---
+title: System Maintenance
+icon: screwdriver-wrench
+---
+
+
 # System Maintenance
 
 Regular maintenance includes updating software, backing up data, cleaning orphaned packages and caches, and installing LTS kernels to keep Linux secure, efficient, and stable.
