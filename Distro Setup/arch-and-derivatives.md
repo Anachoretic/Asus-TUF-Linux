@@ -1,6 +1,6 @@
 ---
 title: Arch Linux
-icon: arch
+icon: linux
 ---
 
 
