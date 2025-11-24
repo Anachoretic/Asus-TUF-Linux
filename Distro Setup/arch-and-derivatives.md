@@ -1,3 +1,8 @@
+---
+title: Arch
+icon: arch
+---
+
 # Arch Linux Post-Install Guide
 
 {% stepper %}
