@@ -182,7 +182,7 @@ A typical custom partition scheme with seperate home partition should be as foll
 
 ![Software Selection](/Images/openSUSE/Software-Selection.png)
 
-![osT-8.png](/Images/openSUSE/Software-Selection2.png)
+![](/Images/openSUSE/Software-Selection-2.png)
 
 Agama will default to a minimal install, so you should select a DE before installing it. Simply click on "Change Selection" and select either KDE or GNOME. KDE looks similar to Windows, while GNOME looks like macOS. Either is a great choice. I've added an image of what each desktop looks like by default. For someone switching from Windows, KDE may look more familiar.
 
