@@ -143,29 +143,29 @@ The installation and uninstallation steps are currently specifically made for th
 <details>
 <summary><strong>Agama Setup:</strong> </summary>
 
-![Product Selection](https://github.com/user-attachments/assets/2670af41-e155-452e-95b8-6d330c61d8d4)
+![Product Selection](/Images/openSUSE/Product-Selection.png)
 
 First, select openSUSE Tumbleweed, then click Select and wait for it to detect everything. This may take a few seconds, so be patient.
 
-![Network Connection](https://github.com/user-attachments/assets/288c8c4f-20d7-43ed-bb2d-cef57dbaac47)
+![Network Connection](/Images/openSUSE/Network-Connection.png)
 
 
 It will place you in the Overview section. Then, click on the Network tab to connect to a network, as the installer will need to download packages for the setup.
 
-![Hostname](https://github.com/user-attachments/assets/884a2fe2-568c-43ad-9dbd-4940f7f9dfd1)
+![Hostname](/Images/openSUSE/Hostname.png)
 
 Now, give your device a hostname, which is the name for the laptop itself, not the username.
 
-![Locales](https://github.com/user-attachments/assets/1117c27a-8d8b-4a01-bb2a-d6dd5551d64b)
+![Locales](/Images/openSUSE/Locales.png)
 
 Now head over to the localization tab and pick your language,keybord layout and your timezone.
 
-![User account](https://github.com/user-attachments/assets/30be9569-db43-4a6b-a411-7a1a0a1f4912)
+![User account]/Images/openSUSE/User-account.png)
 
 Now, add a username and password, and make sure to set a password for the root account by clicking Edit under First User to add a user and under Root User to set the root password.
 
 
-![Partitioning](https://github.com/user-attachments/assets/34ec97c8-7d27-43f5-965e-c6c198a33703)
+![Partitioning](/Images/openSUSE/Partitioning)
 
 
 **By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. 
@@ -180,9 +180,9 @@ A typical custom partition scheme with seperate home partition should be as foll
 -the rest as swap
 
 
-![Software Selection](https://github.com/user-attachments/assets/6ace82da-7e1f-47ef-9ff7-65fb0dcdc039)
+![Software Selection](/Images/openSUSE/Software-Selection.png)
 
-![osT-8.png](https://github.com/user-attachments/assets/a6c1d9dd-6e7e-44f1-9dac-1c3486b2631f)
+![osT-8.png](/Images/openSUSE/Software-Selection2.png)
 
 Agama will default to a minimal install, so you should select a DE before installing it. Simply click on "Change Selection" and select either KDE or GNOME. KDE looks similar to Windows, while GNOME looks like macOS. Either is a great choice. I've added an image of what each desktop looks like by default. For someone switching from Windows, KDE may look more familiar.
 
