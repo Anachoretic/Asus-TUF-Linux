@@ -1,3 +1,8 @@
+---
+title: Arch
+icon: linux
+---
+
 {% stepper %}
 
 {% step %}
@@ -81,47 +86,50 @@ Once you're in the live session:
 3. Choose the **Online Installation** method.
 ### Guided Installer Walkthrough (For the Calamares installer found in EndeavourOS and CachyOS.)
 
-![Installer](https://github.com/user-attachments/assets/d58d6f62-b0ba-4c96-86e1-5396fef4ce18)
+![Installer](/Images/EndeavourOS/Installer.png)
 
+First, connect to Wi-Fi. An internet connection is required for updating the system, and some options, like selecting a desktop environment or bootloader, are not available in the offline installer.
+Next, launch the installer from the taskbar and choose Online Installation. Then wait for the Calamares installer to launch.
 
-![Language](https://github.com/user-attachments/assets/662cab30-5614-44cb-b302-47b000b22041)
+![Language](/Images/EndeavourOS/Language.png)
 
 Choose your language.
 
 
-![Region and Timezone](https://github.com/user-attachments/assets/955937b3-34ac-4a4d-ac2d-49f7cca28f34)
+![Region and Timezone](/Images/EndeavourOS/Region.png)
 
 Choose your region and your timezone.
 
 
-![Keyboard Layout](https://github.com/user-attachments/assets/8a5de1ce-ce43-4bfc-b15c-6ce4d40ac181)   
+![Keyboard Layout](/Images/EndeavourOS/Keyboard-Layout.png)   
 
 Choose your keyboard layout. If you have the US layout, simply press Next.
 
 
-![Desktop Environment](https://github.com/user-attachments/assets/4291fd8f-b9fa-465b-9838-fc8e22fb6021)
+![Desktop Environment](/Images/EndeavourOS/DE.png)
 
 Now choose your desktop environment. I would recommend sticking to either GNOME or KDE. It will show a preview image of what the desktop environment looks like, but in short: KDE is more Windows-like and GNOME is more macOS-like. Once you've decided, simply double click on the option and choose Next.
 
-![Additional Packages](https://github.com/user-attachments/assets/6dd59b59-fa23-40a3-957e-feddd24a755d)
+![Additional Packages](/Images/EndeavourOS/Packages.png)
 
 I’d recommend getting an LTS kernel that you can use as a backup, and if you have a printer, you can check the printing support box. Other than that, I’d leave the rest as is.
 
-![Bootloader](https://github.com/user-attachments/assets/a77b2c68-a3f8-4b09-9abf-74573d03f4f4)
+![Bootloader](/Images/EndeavourOS/Bootloader.png)
 
 Select GRUB as the bootloader.
 
-![Disk Setup](https://github.com/user-attachments/assets/10b78333-e5f4-4038-9b06-7cce694a5d11)
+![Disk Setup](/Images/EndeavourOS/Partitions.png)
 
-For a single-boot setup, select Erase Disk and enable Swap with Hibernate, for a dual-boot setup, select Replace a Partition and choose the unallocated space.
+For a single-boot setup, select Erase Disk and enable Swap with Hibernate if you plan on using suspend to disk instead of swap on zram. For a dual-boot setup, select Replace a Partition and choose the unallocated space.
 
-![An example of dual boot.](https://github.com/user-attachments/assets/5f2ff832-49ce-4b5f-806d-756e84e3b3f9)
+![An example of dual boot.](/Images/EndeavourOS/Partitions-DB.png)
+This is an example of a dual-boot setup. The disk size is irrelevant because it is running in a virtual machine.
 
-![User Setup](https://github.com/user-attachments/assets/e4b1b96a-b405-4d9e-9a0f-e3d19c9cff18)
+![User Setup](/Images/EndeavourOS/Username.png)
 
 Now enter your username, hostname, and password, then click Next.
 
-![Summary](https://github.com/user-attachments/assets/344647c1-f90f-4cd0-9f4a-a24ecdac90d0)
+![Summary](/Images/EndeavourOS/Summary.png)
 
 Review all settings. If everything looks correct, click **Install**. Then wait for the installation to complete, and reboot.
 
