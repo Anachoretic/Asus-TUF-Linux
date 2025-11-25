@@ -64,7 +64,7 @@ Download the latest EndeavourOS ISO from the official website:\
 1. Open Disk Management in Windows.
 2. Locate your C: drive, right-click, and select **Shrink Volume**.
 3. Shrink the volume by at least 50 GB (recommended).
-4. Leave the space unallocated; do not create a new volume.
+4. Leave the space unallocated; **do not create a new volume**.
 
 ## 3.4 BIOS Setup
 
@@ -72,8 +72,6 @@ Download the latest EndeavourOS ISO from the official website:\
 2. Disable **Secure Boot**.
 3. Set your USB drive as the first boot device.
 4. Save changes and exit BIOS.
-
-{% hint style="info" %} If the installer doesn't appear immediately, wait 10–20 seconds or search for “Install...” in the menu. {% endhint %}
 
 ## 3.5 Begin Installation
 
@@ -84,12 +82,13 @@ Once you're in the live session:
 1. Connect to the internet using Wi-Fi or Ethernet.
 2. Launch the installer from the taskbar.
 3. Choose the **Online Installation** method.
+
+{% hint style="info" %} An internet connection is required for updating the system, and some options, like selecting a desktop environment or bootloader, are not available in the offline installer. {% endhint %}
+
 ### Guided Installer Walkthrough (For the Calamares installer found in EndeavourOS and CachyOS.)
 
 ![Installer](/Images/EndeavourOS/Installer.png)
 
-First, connect to Wi-Fi. An internet connection is required for updating the system, and some options, like selecting a desktop environment or bootloader, are not available in the offline installer.
-Next, launch the installer from the taskbar and choose Online Installation. Then wait for the Calamares installer to launch.
 
 ![Language](/Images/EndeavourOS/Language.png)
 
