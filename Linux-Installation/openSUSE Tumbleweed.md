@@ -160,12 +160,12 @@ Now, give your device a hostname, which is the name for the laptop itself, not t
 
 Now head over to the localization tab and pick your language,keybord layout and your timezone.
 
-![User account]/Images/openSUSE/User-account.png)
+![User account](/Images/openSUSE/User-account.png)
 
 Now, add a username and password, and make sure to set a password for the root account by clicking Edit under First User to add a user and under Root User to set the root password.
 
 
-![Partitioning](/Images/openSUSE/Partitioning)
+![Partitioning](/Images/openSUSE/Partitioning.png)
 
 
 **By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. 
