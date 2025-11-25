@@ -1,3 +1,8 @@
+---
+title: openSUSE Tumbleweed
+icon: suse
+---
+
 {% stepper %}
 
 {% step %}
@@ -147,34 +152,26 @@ The installation and uninstallation steps are currently specifically made for th
 
 First, select openSUSE Tumbleweed as the operating system you want to install. Then select it and wait for the system to detect everything. This may take a few seconds, so be patient.
 
+![](/Images/openSUSE/Network.png)
+
+By default, it will open in the Overview tab. Since the installer requires network access to download necessary files, you need to connect to a network. If you don’t have a network, you can skip this step. However, if you plan on using Wi-Fi, go to the Network tab. On the right side, it will list all available networks, simply select and connect to your network.
 
 ![Hostname](/Images/openSUSE/Hostname.png)
 
-Now, give your device a hostname, which is the name for the laptop itself, not the username.
+To give your device a name, go to the Hostname tab. This isn’t your username, but a name to identify your device on the network. You can also skip this step and set your hostname later using `hostnamectl`.
 
 ![Locales](/Images/openSUSE/Locales.png)
 
-Now head over to the localization tab and pick your language,keybord layout and your timezone.
+Use the Localization section to select your timezone, language, and keyboard layout.
 
 ![User account](/Images/openSUSE/User-account.png)
 
-Now, add a username and password, and make sure to set a password for the root account by clicking Edit under First User to add a user and under Root User to set the root password.
-
+On the Authentication tab, add a user by entering a username and password. Also, set a password for the root account.
 
 ![Partitioning](/Images/openSUSE/Partitioning.png)
 
 
-**By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. 
-A typical custom partition scheme with seperate home partition should be as follows:
-
--1 GiB for /boot/efi 
-
--60–80 GiB for / (root), 
-
--the remaining space minus swap for /home
-
--the rest as swap
-
+**By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. If you plan to use ZRAM exclusively, you may want to remove the swap partition.
 
 ![Software Selection](/Images/openSUSE/Software-Selection.png)
 
