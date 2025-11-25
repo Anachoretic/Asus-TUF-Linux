@@ -117,7 +117,7 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 <summary><strong> Troubleshooting: Black Screen</strong> </summary>
 If you use the YaST installer and have an NVIDIA GPU, you may encounter a black screen as previously mentioned. You can fix this by adding `nomodeset` to GRUB before booting. Here’s how you do it:
 
-<img src="/Images/openSUSE/Troubleshoot.png" width="999" height="1080" alt="Troubleshooting Black Screen">
+![Troubleshoot](/Images/openSUSE/Troubleshoot.png)
 
 
 Select the installation option by pressing the down arrow key once, then press `E` to edit the GRUB entry.
