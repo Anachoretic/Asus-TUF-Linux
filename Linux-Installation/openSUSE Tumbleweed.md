@@ -145,12 +145,8 @@ The installation and uninstallation steps are currently specifically made for th
 
 ![Product Selection](/Images/openSUSE/Product-Selection.png)
 
-First, select openSUSE Tumbleweed, then click Select and wait for it to detect everything. This may take a few seconds, so be patient.
+First, select openSUSE Tumbleweed as the operating system you want to install. Then select it and wait for the system to detect everything. This may take a few seconds, so be patient.
 
-![Network Connection](/Images/openSUSE/Network-Connection.png)
-
-
-It will place you in the Overview section. Then, click on the Network tab to connect to a network, as the installer will need to download packages for the setup.
 
 ![Hostname](/Images/openSUSE/Hostname.png)
 
