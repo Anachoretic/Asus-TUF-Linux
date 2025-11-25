@@ -123,6 +123,7 @@ Select GRUB as the bootloader.
 For a single-boot setup, select Erase Disk and enable Swap with Hibernate if you plan on using suspend to disk instead of swap on zram. For a dual-boot setup, select Replace a Partition and choose the unallocated space.
 
 ![An example of dual boot.](/Images/EndeavourOS/Partitions-DB.png)
+
 This is an example of a dual-boot setup. The disk size is irrelevant because it is running in a virtual machine.
 
 ![User Setup](/Images/EndeavourOS/Username.png)
