@@ -39,7 +39,7 @@ The AUR is community-driven. Anyone can upload packages, so there’s always a s
 
 {% step %}
 
-## 2.Pacman Configuration: 
+## 2. Pacman Configuration: 
 
 ### 2.1 Enable Multilib repository (Required for Drivers and Wine)
 
@@ -158,13 +158,13 @@ nvidia-inst
 ### **Proprietary driver:**
 
 ```bash
-sudo pacman -S dkms nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver Vulkan-icd-loader lib32-Vulkan-icd-loader
+sudo pacman -S dkms nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 
 ### **Nvidia open kernel module driver:**
 
 ```bash
-sudo pacman -S dkms nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver Vulkan-icd-loader lib32-Vulkan-icd-loader
+sudo pacman -S dkms nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 
 ### 3.2. AMD Drivers
@@ -172,14 +172,14 @@ sudo pacman -S dkms nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-sett
 The drivers for AMD are usually installed out of the box since they’re part of the Linux kernel. If you want to make sure you have everything, including the 32-bit libraries and Vulkan, simply run the command below.
 
 ```bash
-sudo pacman -S mesa lib32-mesa Vulkan-radeon lib32-Vulkan-radeon libva-mesa-driver libva-utils
+sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver libva-utils
 ```
 
 ### 3.1 Intel:
 Same for intel as well.
 
 ```bash
-sudo pacman -S mesa lib32-mesa Vulkan-intel lib32-Vulkan-intel intel-media-driver libva-intel-driver libva-utils
+sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-intel-driver libva-utils
 ```
 
 {% hint style="info" %}
