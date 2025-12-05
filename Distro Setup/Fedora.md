@@ -43,12 +43,16 @@ Start by updating the system:
 ```bash
 sudo dnf update
 ```
+If you have a newer GPU (4000 series and above), it is recommended to use only the open kernel module, as the proprietary drivers won’t work with these cards. To make the open driver the default, simply run the following command and continue with the setup as usual.
+
+```bash
+sudo sh -c 'echo "%_with_kmod_nvidia_open 1" > /etc/rpm/macros.nvidia-kmod'
+```
 
 Install Nvidia packages:
 
 ```bash
-sudo dnf install akmod-nvidia
-sudo dnf install xorg-x11-drv-nvidia-cuda
+sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda
 ```
 
 {% hint style="info" %} After installing, wait 3–6 minutes for the kernel module to build in the background. {% endhint %}
