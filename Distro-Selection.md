@@ -30,18 +30,14 @@ There’s nothing wrong with trying different distros, but if you’re just hopp
 ## Recommended Linux Distributions:
 Here are some of my recommended distros from each major distribution for beginners using ASUS TUF laptops (keep in mind the numbers aren’t a ranking, just a simple list )
 
-1. Fedora:
+1. [Fedora:](https://www.fedoraproject.org/)
+If you are trying Linux for the first time, I would highly recommend Fedora. It’s a semi-rolling release distro (the kernel and most packages are updated regularly but it still follows a release cycle). It also has excellent software support and compatibility.
 
-  If you are trying Linux for the first time, I would highly recommend Fedora. It’s a semi-rolling release distro (the kernel and most packages are updated regularly but it still follows a release cycle). It also has excellent software support and compatibility.
+2. [EndeavourOS:](https://endeavouros.com/)
+EndeavourOS is basically Arch Linux with a GUI installer. It’s a great distro if you want to try Arch for the first time. If you’re willing to read the documentation, it’s an excellent great.
 
-2. EndeavourOS:
+3. [CachyOS:](https://cachyos.org/)
+An Arch-based distro that sits between a general-purpose and a gaming-focused distro. By default, it handles all the required configuration, including drivers, with minimal user intervention, and it uses a custom kernel optimized for gaming.
 
-  EndeavourOS is basically Arch Linux with a GUI installer. It’s a great distro if you want to try Arch for the first time. If you’re willing to read the documentation, it’s an excellent great.
-
-3.CachyOS:
-
-  An Arch-based distro that sits between a general-purpose and a gaming-focused distro. By default, it handles all the required configuration, including drivers, with minimal user intervention, and it uses a custom kernel optimized for gaming.
-
-4. openSUSE Tumbleweed:
-
-  Tumbleweed is a rolling release distro similar to Arch, but updates are slightly slower since they are thoroughly tested. This makes it more stable in my experience. It also has a GUI for almost everything using YaST, so you can configure and manage most tasks without touching the terminal.
+4. [openSUSE Tumbleweed:](https://get.opensuse.org/tumbleweed/)
+Tumbleweed is a rolling release distro similar to Arch, but updates are slightly slower since they are thoroughly tested. This makes it more stable in my experience. It also has a GUI for almost everything using YaST, so you can configure and manage most tasks without touching the terminal.
