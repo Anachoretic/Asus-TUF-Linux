@@ -1,11 +1,7 @@
 
-# Note:
-
-Officially, tools like asusctl and supergfxctl aren’t supported on Debian. While this won’t stop you from running Debian on your laptop, you might need to use other software that can partially do the same job.
-
-The main problem is updates. If you have a newer laptop, there’s a good chance some of your hardware might not be fully supported on Debian, things like your keyboard, trackpad, or GPU might not work properly, or at all, because of older packages and kernels. For that reason, it’s recommended to use a distro that’s updated more frequently, such as Fedora, Tumbleweed, or Arch.
-
-{% hint style="info" %} This guide includes links to video tutorials for visual learners. {% endhint %}
+---
+icon: debian
+---
 
 
 {% stepper %}
@@ -13,10 +9,6 @@ The main problem is updates. If you have a newer laptop, there’s a good chance
 {% step %}
 
 # Step 1: Distro Selection
-
-Fedora is the preferred distribution for ASUS laptops. However, for those who prefer to stick with Debian-based systems:
-
-Ubuntu and Linux Mint are among the most user-friendly distributions. I recommend using one of these, as the rest of this guide is based on these two specific distros,though it is also applicable to other Debian-based distributions.
 
 {% endstep %}
 
