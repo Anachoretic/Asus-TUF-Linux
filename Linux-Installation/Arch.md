@@ -9,7 +9,7 @@ icon: linux
 
 # 1. Distro Selection
 
-If you’re interested in trying an Arch-based system but want something easier to get started with, I’d suggest EndeavourOS. It gives you the Arch experience with just a few helpful extras , like a graphical installer and a helpful community.
+If you’re interested in trying an Arch-based system but want something easier to get started with, I’d suggest EndeavourOS or Cachyos.  The installation steps originally made for EndeavourOS also apply to Cachy OS since they use the same installer. For installing vanilla Arch, the only guide you should be following is the one on the Arch Wiki.
 
 {% hint style="warning" %} If you’ve never used Linux before and aren’t willing to read documentation or troubleshoot issues, Arch or Arch-based distributions may not be the best starting point. {% endhint %} {% endstep %}
 
