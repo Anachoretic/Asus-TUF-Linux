@@ -5,6 +5,3 @@ The idea behind this guide is to simplify the process of running Linux on ASUS T
 This guide includes tips and advice based on my own Linux experience, so you can avoid wasting time on random trial and error. I’ve tried to keep it as clear and concise as possible while still including the details that matter most.
 
 The guide isn’t perfect, but I’m doing my best to include the most important information without leaving out too much. If you have anything to add or any suggestions, I’d love for you to contribute. I have to start somewhere and build upon it, so more content will be added over time.
-
-Progress:
-■■■■■■□□□□ 61%
