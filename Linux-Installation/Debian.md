@@ -19,7 +19,7 @@ Before installation, you’ll need the following:
 # Installation Media Creation:
 After downloading the ISO of your preferred distro, you will need to flash it to a USB drive to boot from it and install the OS. You can use tools such as Balena Etcher, Rufus, or other similar software to burn the ISO.
 
-% tabs %}
+{% tabs %}
 
 {% tab title="Rufus" %}
 
@@ -43,6 +43,7 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 5. After installation, copy the ISO file directly to the **Ventoy** partition.
 
 {% endtab %}
+
 {% endtabs %}
 
 {% step %}
