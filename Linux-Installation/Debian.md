@@ -19,12 +19,12 @@ icon: debian
 
 ### Required Before You Begin
 
-• USB drive with at least 8 GB of storage.  
-• Bootable media tool: **Rufus**, **Ventoy**, or **Balena Etcher**.  
-• **Secure Boot** must be disabled in BIOS.  
-• **BitLocker** must be disabled in Windows.  
-• **Fast Boot** should be disabled (for dual-boot users).  
-• Set **GPU mode to Ultimate or Standard** in Windows.
+- [x] USB drive with at least 8 GB of storage.  
+- [x] Bootable media tool: **Rufus**, **Ventoy**, or **Balena Etcher**.  
+- [x] **Secure Boot** must be disabled in BIOS.  
+- [x] **BitLocker** must be disabled in Windows.  
+- [x] **Fast Boot** should be disabled (for dual-boot users).  
+- [x] Set **GPU mode to Ultimate or Standard** in Windows.
 
 {% endhint %}
 
