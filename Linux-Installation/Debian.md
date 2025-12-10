@@ -16,7 +16,7 @@ Before installation, you’ll need the following:
 {% step %}
 {% endstep %}
 
-## Installation Media Creation:
+# Installation Media Creation:
 After downloading the ISO of your preferred distro, you will need to flash it to a USB drive to boot from it and install the OS. You can use tools such as Balena Etcher, Rufus, or other similar software to burn the ISO.
 
 % tabs %}
@@ -48,10 +48,10 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 {% step %}
 {% endstep %}
  
-## Partitioning for Dual Boot:
+# Partitioning for Dual Boot:
 If you are trying to dual boot Linux alongside Windows, you will need to leave some unallocated space for the installer to detect and use. A minimum of 60 GiB is recommended for the Linux partition. If you plan on playing multiple large games, you may want to allocate even more space, as games installed on the Windows (NTFS) partition generally won’t work on Linux.
 
-### Steps:
+## Steps:
 To create a partition, open Disk Management, then right-click on your partition or drive. If you want to share the same SSD between two operating systems, right-click on the C: partition and select Shrink Volume. In the field **Enter the amount of space to shrink in MB**, enter the size you want to allocate to Linux and click Shrink.
 
 After shrinking, you will see a black unallocated space of the same size. Do not create a new volume, leave it unallocated. Once confirmed, you can exit Disk Management and continue to the next step.
@@ -59,14 +59,14 @@ After shrinking, you will see a black unallocated space of the same size. Do not
 {% step %}
 {% endstep %}
 
-## Installation Steps:
+# Installation Steps:
 
-### Booting from the Installation USB:
+## Booting from the Installation USB:
 
 Assuming you have disabled Secure Boot, if you have not, hold the F2 key and press the Power button, keeping F2 held until you enter the BIOS screen. Inside the BIOS, go to the Security tab, turn off Secure Boot, then save the changes and exit. Once Secure Boot is disabled, plug in your USB drive, hold the Esc key, and press the Power button. When prompted to select a boot device, choose your USB drive and press Enter.
 
 
-### Installation:
+## Installation:
 The installation steps for Ubuntu and Linux Mint are mostly the same. Here is a summary of the entire process.
 
 - Enable **third-party software** (e.g., codecs, drivers).  
@@ -83,15 +83,15 @@ The installation steps for Ubuntu and Linux Mint are mostly the same. Here is a 
 {% step %}
 {% endstep %}
 
-## Uninstalling Linux
+# Uninstalling Linux
 
-### For Dual Boot Users
+## For Dual Boot Users
 
 Open Disk Management in Windows, delete the Linux partitions, and then extend the partition from which the space was taken.
 
 When Linux is installed alongside Windows, its bootloader files are copied to the Windows EFI system partition. To fully remove Linux, you’ll need to delete those files. If you skip this step, you might get an error on boot from the Linux bootloader saying it can’t find the Linux system.
 
-#### Open PowerShell as administrator and run the following commands in order.
+### Open PowerShell as administrator and run the following commands in order.
 
 ```bash
 diskpart
@@ -105,7 +105,7 @@ select partition 1  # The EFI partition on Windows is usually 1
 assign letter=Z
 ```
 
-#### Now open a new PowerShell window as administrator while keeping the old one open.
+### Now open a new PowerShell window as administrator while keeping the old one open.
 
 ```bash
 cd Z:
@@ -128,7 +128,7 @@ remove letter=Z
 After that, you can close both windows and use Windows normally.
 
 
-###  For Standalone Linux Installation:
+##  For Standalone Linux Installation:
 
 If you want to return to Windows after using Linux, open DiskPart, select the Linux drive, and remove its filesystem by returning it to an uninitialized state using the `clean` command in DiskPart.
 
