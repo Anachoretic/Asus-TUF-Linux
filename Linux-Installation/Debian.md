@@ -8,10 +8,10 @@ icon: debian
 
 # Prerequisites:
 Before installation, you’ll need the following:
-- [ ] A USB drive with at least 8 GB of storage.
-- [ ] **Secure Boot** should be disabled.
-- [ ] BitLocker disabled to avoid potential data loss during installation.
-- [ ] dGPU mode should be set to Standard (Hybrid) or Ultimate in Windows.
+- [x] A USB drive with at least 8 GB of storage.
+- [x] **Secure Boot** should be disabled.
+- [x] BitLocker disabled to avoid potential data loss during installation.
+- [x] dGPU mode should be set to Standard (Hybrid) or Ultimate in Windows.
 
 {% step %}
 {% endstep %}
