@@ -4,57 +4,24 @@ icon: debian
 
 
 {% stepper %}
-
 {% step %}
 
-# Step 1: Distro Selection
+# Prerequisites:
+Before installation, you’ll need the following:
+- [ ] A USB drive with at least 8 GB of storage.
+- [ ] **Secure Boot** should be disabled.
+- [ ] BitLocker disabled to avoid potential data loss during installation.
+- [ ] dGPU mode should be set to Standard (Hybrid) or Ultimate in Windows.
 
+{% step %}
 {% endstep %}
 
-{% step %}
+## Installation Media Creation:
+After downloading the ISO of your preferred distro, you will need to flash it to a USB drive to boot from it and install the OS. You can use tools such as Balena Etcher, Rufus, or other similar software to burn the ISO.
 
-# Step 2: Prerequisites
+% tabs %}
 
-{% hint style="info" %}
-
-### Required Before You Begin
-
-- [x] USB drive with at least 8 GB of storage.  
-- [x] Bootable media tool: **Rufus**, **Ventoy**, or **Balena Etcher**.  
-- [x] **Secure Boot** must be disabled in BIOS.  
-- [x] **BitLocker** must be disabled in Windows.  
-- [x] **Fast Boot** should be disabled (for dual-boot users).  
-- [x] Set **GPU mode to Ultimate or Standard** in Windows.
-
-{% endhint %}
-
-{% hint style="warning" %} **Secure Boot can prevent some distros from booting. Disable it in BIOS.** {% endhint %}
-
-{% hint style="warning" %} **If BitLocker is not disabled, it can cause data loss or access issues during installation.** {% endhint %}
-
-{% endstep %}
-
-{% step %}
-
-# Step 3: Bootable USB Creation and Partitioning
-
-## Video Tutorials
-
-- [Standalone Linux Installation](https://youtu.be/WiW4KN2rNZY?si)  
-- [Dual Boot Setup with Windows](https://youtu.be/mXyN1aJYefc?si)
-
-
-## Step 3.1: Download ISO
-
-Download the latest version of your chosen Linux distribution:
-
-[Ubuntu](https://ubuntu.com/download)  
-[Linux Mint](https://linuxmint.com/download.php)
-
-
-## Step 3.2: Create Bootable USB
-
-{% tabs %} {% tab title="Rufus" %}
+{% tab title="Rufus" %}
 
 1. Download [Rufus](https://rufus.ie/).  
 2. Select “ISO Image” and choose your distro’s ISO.  
@@ -71,43 +38,36 @@ Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switc
 
 1. [Download Ventoy](https://github.com/ventoy/ventoy/releases).  
 2. Extract and run `Ventoy2Disk.exe`.  
-3. Go to **Options > Partition Style > GPT**  
-   (Secure Boot support is optional; MOK keys are required on first boot if enabled).  
+3. Go to **Options > Partition Style > GPT**   
 4. Select your USB drive and click **Install**.  
-5. After setup, copy ISO files directly to the **Ventoy** partition.
+5. After installation, copy the ISO file directly to the **Ventoy** partition.
 
-{% endtab %} {% endtabs %}
-
-
-## Step 3.3: Partitioning (Dual Boot Only)
-
-1. Open **Disk Management** in Windows.  
-2. Right-click on the **C: drive** and select **Shrink Volume**.  
-3. Enter the desired size for Linux (at least 50 GB recommended).  
-4. Do **not** format the new space; leave it unallocated.
-
-{% endstep %}
+{% endtab %}
+{% endtabs %}
 
 {% step %}
-
-## Step 4: BIOS Setup
-
-1. Restart your PC and press `F2` (or your BIOS key).  
-2. In BIOS settings:  
-   • Disable **Secure Boot**.  
-   • Set the USB drive as the first boot device.  
-3. Save changes and exit BIOS.  
-4. Boot from the USB.
-
-{% hint style="info" %} If the installer doesn't appear right away, wait 10–20 seconds or search for “Install...” in the menu. {% endhint %}
-
 {% endstep %}
+ 
+## Partitioning for Dual Boot:
+If you are trying to dual boot Linux alongside Windows, you will need to leave some unallocated space for the installer to detect and use. A minimum of 60 GiB is recommended for the Linux partition. If you plan on playing multiple large games, you may want to allocate even more space, as games installed on the Windows (NTFS) partition generally won’t work on Linux.
+
+### Steps:
+To create a partition, open Disk Management, then right-click on your partition or drive. If you want to share the same SSD between two operating systems, right-click on the C: partition and select Shrink Volume. In the field **Enter the amount of space to shrink in MB**, enter the size you want to allocate to Linux and click Shrink.
+
+After shrinking, you will see a black unallocated space of the same size. Do not create a new volume, leave it unallocated. Once confirmed, you can exit Disk Management and continue to the next step.
 
 {% step %}
+{% endstep %}
 
-## Step 5: Begin Installation
+## Installation Steps:
 
-Each distro’s setup may differ slightly, but the basics are the same:
+### Booting from the Installation USB:
+
+Assuming you have disabled Secure Boot, if you have not, hold the F2 key and press the Power button, keeping F2 held until you enter the BIOS screen. Inside the BIOS, go to the Security tab, turn off Secure Boot, then save the changes and exit. Once Secure Boot is disabled, plug in your USB drive, hold the Esc key, and press the Power button. When prompted to select a boot device, choose your USB drive and press Enter.
+
+
+### Installation:
+The installation steps for Ubuntu and Linux Mint are mostly the same. Here is a summary of the entire process.
 
 - Enable **third-party software** (e.g., codecs, drivers).  
 - Choose:  
@@ -118,77 +78,73 @@ Each distro’s setup may differ slightly, but the basics are the same:
 
 - **Disk encryption**:  
   - Optional for standalone Linux.  
-  - Not recommended for dual-boot systems, as it may cause bootloader issues.
-
-Once confirmed, begin the installation process.
-
-{% endstep %}
+  - Not recommended for dual-boot systems.
 
 {% step %}
-
-## Step 6: Complete Setup
-
-1. After installation, **exit the Live Environment**.  
-2. **Remove the USB drive**.  
-3. Reboot your system. You should now boot directly into Linux or see a bootloader menu.
-
 {% endstep %}
 
-{% endstepper %}
+## Uninstalling Linux
 
-{% endstep %}
+### For Dual Boot Users
 
-{% step %}
+Open Disk Management in Windows, delete the Linux partitions, and then extend the partition from which the space was taken.
 
-# 7. Uninstalling Linux
+When Linux is installed alongside Windows, its bootloader files are copied to the Windows EFI system partition. To fully remove Linux, you’ll need to delete those files. If you skip this step, you might get an error on boot from the Linux bootloader saying it can’t find the Linux system.
 
-## 7.1 For Dual Boot Users
-
-1. Open **Disk Management** in Windows and delete the Linux partitions.  
-2. Launch **Command Prompt as Administrator**, then run:
+#### Open PowerShell as administrator and run the following commands in order.
 
 ```bash
 diskpart
+
 select disk X  # Replace X with your disk number
+
 list partition
+
 select partition 1  # The EFI partition on Windows is usually 1
+
 assign letter=Z
 ```
 
-3. Open a new Command Prompt window:
+#### Now open a new PowerShell window as administrator while keeping the old one open.
 
 ```bash
 cd Z:
+
 cd EFI
+
 dir
-rd /s /q ubuntu  # Replace "ubuntu" with your distro’s folder name
+
+rd /s /q ubuntu  
 ```
 
-4. Return to the previous terminal and run:
+**For both Mint and Ubuntu, the folder is named ubuntu, but it may be different for other distributions, so check the listed names.**
+
+Return to the previous window and run:
 
 ```bash
 remove letter=Z
 ```
 
-5. Restart your system. Windows should boot normally.
+After that, you can close both windows and use Windows normally.
 
-## 7.2 For Standalone Linux Users
 
-1. Boot from a Windows installation USB.  
-2. Press `Shift + F10` to open Command Prompt.  
-3. Run:
+###  For Standalone Linux Installation:
+
+If you want to return to Windows after using Linux, open DiskPart, select the Linux drive, and remove its filesystem by returning it to an uninitialized state using the `clean` command in DiskPart.
 
 ```bash
+
 diskpart
+
 select disk X  # Replace X with the correct drive
+
 clean
+
 exit
 ```
 
-4. Continue with the Windows installation process.
+{% hint style="info" %} If you are using an Intel system and the Windows installer cannot detect your drive, disable VMD (Volume Management Device) in BIOS. {% endhint %}
 
-{% hint style="info" %} If you are using an Intel system and the Windows installer cannot detect your drive, disable **VMD** (Volume Management Device) in BIOS. {% endhint %}
 
 {% endstep %}
-
-{% endstepper %}
+{% endsteppers %}
