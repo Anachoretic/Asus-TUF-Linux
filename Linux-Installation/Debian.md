@@ -89,7 +89,8 @@ On this screen, select your keyboard layout.
 ![](/Images/UBUNTU/Internet.png)
 
 The installer will ask if you want to connect to the internet. It is recommended to do so in order to download updates and additional software.
-If you connect, the installer may prompt you to update itself—simply follow the prompts to update and then continue with the installation.
+
+If you connect to the internet, the installer may prompt you to update. Simply update it and continue with the setup.
 
 ![](/Images/UBUNTU/Type.png)
 
