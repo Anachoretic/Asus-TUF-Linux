@@ -1,3 +1,7 @@
+---
+title: Fedora
+icon: fedora
+---
 
 
 # Fedora Installation Guide for ASUS Laptops
