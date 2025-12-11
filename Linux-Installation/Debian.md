@@ -60,7 +60,7 @@ After shrinking, you will see a black unallocated space of the same size. Do not
 {% step %}
 {% endstep %}
 
-# 4 Installation Steps:
+# 4.  Installation Steps:
 
 ## 4.1 Booting from the Installation USB:
 
