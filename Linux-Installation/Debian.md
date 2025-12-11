@@ -117,7 +117,7 @@ Simply enter your username, device name, set a password, and click 'Continue.
 
 Select a timezone and click 'Next.'
 
-![](/Images/UBUNTU/Summary)
+![](/Images/UBUNTU/Summary.png)
 
 Finally, the installer will show a summary of the selected options and the changes it will make. Make sure everything is correct, then click 'Install' and wait for the installation to complete.
 
