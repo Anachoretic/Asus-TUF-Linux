@@ -1,4 +1,4 @@
 ---
 title: KDE
-icon: K
+icon: k
 ---
