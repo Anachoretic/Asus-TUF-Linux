@@ -110,6 +110,7 @@ If you are dual-booting Ubuntu with Windows and have already done the partitioni
 For a standalone installation, select 'Erase disk and install Ubuntu,' making sure to choose the correct disk.
 
 ![](/Images/UBUNTU/User.png)
+
 Simply enter your username, device name, set a password, and click 'Continue.
 
 ![](/Images/UBUNTU/Timezone.png)
