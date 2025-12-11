@@ -1,4 +1,9 @@
-# GNOME Customization Guide
+---
+title: GNOME
+icon: G
+---
+
+# GNOME Customization:
 
 This guide covers the basics of GNOME customization, including extensions, the shell theme, and icon and cursor themes.
 
