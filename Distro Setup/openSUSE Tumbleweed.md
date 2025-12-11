@@ -190,14 +190,42 @@ Some hotkeys are BIOS-level and can’t be remapped.
 
 {% hint style="info" %} To test remap capability: press the key while adding a shortcut. If nothing registers, it can't be reassigned. {% endhint %}
 
-### For GNOME
-- Settings → Keyboard → Shortcuts → “+”
+<details><summary>GNOME</summary>
+Go the following:
+Settings > Keyboard > View and Customize Shortcuts > Custom Shortcuts
 
-### For KDE
-- System Settings → Shortcuts → Custom Shortcuts → New Global Shortcut
+![](/Images/GNOME/KBD-1.png)
 
-Add the following commands:
+Then, click Add a Shortcut.
 
+![](/Images/GNOME/KBD-2.png)
+
+![](/Images/GNOME/KBD-3.png)
+
+Next, enter the command in the Command field. For the shortcut, click Set Shortcut and press the hotkey you want to assign. After that, give your shortcut a name, and finally, click Add. The shortcut should now work normally.
+</details>
+
+<details><summary>KDE</summary>
+
+Go to Settings > Keyboard > Shortcuts and click Add New (Command or Script).
+
+![](/Images/KDE/KBD-1.png)
+
+Enter the command and assign a name for the hotkey.
+
+![](/Images/KDE/KBD-2.png)
+
+Locate the command you just added in the Command section, then click Add under Custom Shortcuts.
+
+![](/Images/KDE/KBD-3.png)
+
+Assign the key combination you want, then click Apply.
+
+![](/Images/KDE/KBD-4.png)
+</details>
+
+
+### Commands:
 - `rog-control-center`: Launch GUI
 - `asusctl aura -n`: Toggle Aura lighting
 - `asusctl profile -n`: Change power profile
