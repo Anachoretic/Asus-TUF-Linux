@@ -68,18 +68,58 @@ Assuming you have disabled Secure Boot, if you have not, hold the F2 key and pre
 
 
 ## 4.2 Installation:
-The installation steps for Ubuntu and Linux Mint are mostly the same. Here is a summary of the entire process.
+ 
+ <details>
+  <summary>Ubuntu </summary>
 
-- Enable **third-party software** (e.g., codecs, drivers).  
-- Choose:  
-  - **Erase disk and install** (for Linux-only users).  
-  - **Install alongside Windows** (for dual boot).
+Once Ubuntu has booted, wait a few seconds and the installer should open automatically after a chime. If it doesn’t, click on the installer icon in the dock on the left side of the screen.
 
-{% hint style="warning" %} If your system has multiple drives, ensure the correct one is selected to avoid data loss. {% endhint %}
+![](/Images/UBUNTU/Language.png)
 
-- **Disk encryption**:  
-  - Optional for standalone Linux.  
-  - Not recommended for dual-boot systems.
+The installer will open on the language tab. Simply choose your preferred language and click 'Next'.
+
+![](/Images/UBUNTU/Accessibility.png)
+
+On the second tab, you’ll be asked if you want to enable any accessibility features. Enable any you need, or simply click 'Next' if you don’t want to use any.
+
+![](/Images/UBUNTU/Keyboard-Layout.png)
+
+On this screen, select your keyboard layout.
+
+![](/Images/UBUNTU/Internet.png)
+
+The installer will ask if you want to connect to the internet. It is recommended to do so in order to download updates and additional software.
+If you connect, the installer may prompt you to update itself—simply follow the prompts to update and then continue with the installation.
+
+![](/Images/UBUNTU/Type.png)
+
+For this step, choose 'Interactive Installation' and click 'Next'.
+
+![](/Images/UBUNTU/Applications.png)
+
+The default selection will install the basic set of apps, while the extended selection will include additional apps like LibreOffice and others. You can choose either option according to your preference.
+
+![](/Images/UBUNTU/Software.png)
+
+You will be prompted to install third-party software and multimedia codecs. Simply enable both options to have them downloaded.
+
+![](/Images/UBUNTU/Disk-Setup.png)
+
+If you are dual-booting Ubuntu with Windows and have already done the partitioning in Windows, you will see the option to 'Install alongside Windows.' Simply select that and continue.
+For a standalone installation, select 'Erase disk and install Ubuntu,' making sure to choose the correct disk.
+
+![](/Images/UBUNTU/User.png)
+Simply enter your username, device name, set a password, and click 'Continue.
+
+![](/Images/UBUNTU/Timezone.png)
+
+Select a timezone and click 'Next.'
+
+![](/Images/UBUNTU/Summary)
+
+Finally, the installer will show a summary of the selected options and the changes it will make. Make sure everything is correct, then click 'Install' and wait for the installation to complete.
+
+</details> 
 
 {% step %}
 {% endstep %}
