@@ -1,6 +1,6 @@
 ---
 title: GNOME
-icon: G
+icon: g
 ---
 
 # GNOME Customization:
