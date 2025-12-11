@@ -222,17 +222,42 @@ supergfxctl --help
 Some hotkey functions are controlled at the BIOS level and cannot be remapped. To check if a hotkey can be remapped, try creating a shortcut. If the input is detected, remapping is possible.
 {% endhint %}
 
-### 5.1 GNOME
+<details><summary>GNOME</summary>
+Go the following:
+Settings > Keyboard > View and Customize Shortcuts > Custom Shortcuts
 
-* Go to **Settings > Keyboard > Keyboard Shortcuts**
-* Click “+” to add a new shortcut
+![](/Images/GNOME/KBD-1.png)
 
-### 5.2 KDE
+Then, click Add a Shortcut.
 
-* Go to **System Settings > Shortcuts > Custom Shortcuts**
-* Create a new **Global Shortcut → Command/URL**
+![](/Images/GNOME/KBD-2.png)
 
-Enter a name, press the desired key (e.g., Fn+F4), and set one of the following commands:
+![](/Images/GNOME/KBD-3.png)
+
+Next, enter the command in the Command field. For the shortcut, click Set Shortcut and press the hotkey you want to assign. After that, give your shortcut a name, and finally, click Add. The shortcut should now work normally.
+</details>
+
+<details><summary>KDE</summary>
+
+Go to Settings > Keyboard > Shortcuts and click Add New (Command or Script).
+
+![](/Images/KDE/KBD-1.png)
+
+Enter the command and assign a name for the hotkey.
+
+![](/Images/KDE/KBD-2.png)
+
+Locate the command you just added in the Command section, then click Add under Custom Shortcuts.
+
+![](/Images/KDE/KBD-3.png)
+
+Assign the key combination you want, then click Apply.
+
+![](/Images/KDE/KBD-4.png)
+</details>
+
+
+### Commands:
 
 * Armoury Crate: `rog-control-center`
 * Aura Mode: `asusctl aura -n`
