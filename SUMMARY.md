@@ -48,4 +48,4 @@
 * [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)
 
 ## External Resources:
-* [**External Wikis**](Extra/Wiki,md)
+* [**External Wikis**](Extra/Wiki.md)
