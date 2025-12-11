@@ -1,5 +1,5 @@
 ---
-icon: list-ui
+icon: list
 ---
 
 ## Do's and Don'ts While Using Linux
