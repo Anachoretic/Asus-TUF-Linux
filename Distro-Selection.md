@@ -1,3 +1,7 @@
+---
+icon: check
+---
+
 # Choosing a Distro:
 Linux suffers from fragmentation, which is why there are hundreds of distros out there, with roughly 600 being actively maintained. When choosing a distro, it’s easy to feel overwhelmed by the sheer number of options, but realistically you only need to know about four major families: Debian, Fedora, openSUSE, and Arch. Most other distros originate from one of these. 
 
