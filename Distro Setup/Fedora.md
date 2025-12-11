@@ -128,7 +128,24 @@ Then, click Add a Shortcut.
 Next, enter the command in the Command field. For the shortcut, click Set Shortcut and press the hotkey you want to assign. After that, give your shortcut a name, and finally, click Add. The shortcut should now work normally.
 </details>
 
+<details><summary>KDE</summary>
 
+Go to Settings > Keyboard > Shortcuts and click Add New (Command or Script).
+
+![](/Images/KDE/KBD-1.png)
+
+Enter the command and assign a name for the hotkey.
+
+![](/Images/KDE/KBD-2.png)
+
+Locate the command you just added in the Command section, then click Add under Custom Shortcuts.
+
+![](/Images/KDE/KBD-3.png)
+
+Assign the key combination you want, then click Apply.
+
+![](/Images/KDE/KBD-4.png)
+</details>
 
 Commands:
 
