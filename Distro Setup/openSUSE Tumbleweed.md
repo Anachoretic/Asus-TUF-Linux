@@ -103,7 +103,7 @@ For GPUs based on the Turing architecture or newer, it’s recommended to use th
 
 For Turing, Ampere, Ada Lovelace, and Hopper GPUs, the open kernel module is strongly recommended. For Pascal GPUs, you should use the proprietary driver only, since the newer module isn’t compatible. Performance is essentially the same between both driver types.
 
-{% hint style="info" %} The NVIDIA Open Kernel Module and the open-source Nouveau driver are completely different; don’t mix them up. {% endhint %}Info= 
+{% hint style="info" %} The NVIDIA Open Kernel Module and the open-source Nouveau driver are completely different; don’t mix them up. {% endhint %}
 
 You can compare your GPU architecture in the chart below:
 
