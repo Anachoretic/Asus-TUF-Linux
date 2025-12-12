@@ -212,10 +212,6 @@ To check available options:
 ```bash
 supergfxctl --help
 ```
-{% endstep %}
-
-{% step %}
-
 ### 4.5. Hotkeys:
 
 {% hint style="info" %}
