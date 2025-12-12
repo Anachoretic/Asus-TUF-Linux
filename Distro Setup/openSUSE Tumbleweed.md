@@ -89,21 +89,19 @@ snapper rollback 12
 {% step %}
 
 ## 4. Drivers:
-The drivers for AMD and Intel are baked into the kernel, so you won’t need to do anything for them for the most part. However, you will need to install the drivers for NVIDIA GPUs.
+All drivers are included in the kernel, so you generally don’t need to install anything extra like you do on Windows. The only exception is if you have an NVIDIA dGPU, since those drivers aren’t included by default and must be installed manually. Drivers for AMD and Intel GPUs are baked into the kernel, so you typically won’t need to do anything for them.
 
 First, add the repository for the NVIDIA drivers:
-
 ```bash
 sudo zypper install openSUSE-repos-Tumbleweed-NVIDIA && sudo zypper ref
 ```
+**After adding the repo, you will likely get a popup asking if you want to import the GPG key. Accept it and continue.**
 
-After adding the repo, you will likely get a popup asking if you want to import the GPG key. Accept it and continue.
 
-Then, install all the drivers. There are two drivers available for Tumbleweed: the open kernel module and the proprietary ones.
+**To keep it short, there are two types of NVIDIA drivers: the `open kernel module` and the `proprietary` driver.**
+For GPUs based on the Turing architecture or newer, it’s recommended to use the open kernel module. For Blackwell and newer cards, you must use the open kernel module, as the proprietary driver doesn’t support them.
 
-For GPUs based on Turing architecture or newer, it is recommended to use the open kernel module drivers. The performance is pretty much the same, and for Blackwell and newer, you should use the open kernel module.
-
-For Turing, Ampere, Ada Lovelace, and Hopper, it is highly recommended to use the Open Kernel Module. For Pascal, you should use only the proprietary driver, as the newer module isn’t compatible.
+For Turing, Ampere, Ada Lovelace, and Hopper GPUs, the open kernel module is strongly recommended. For Pascal GPUs, you should use the proprietary driver only, since the newer module isn’t compatible. Performance is essentially the same between both driver types.
 
 {% hint style="info" %} The NVIDIA Open Kernel Module and the open-source Nouveau driver are completely different; don’t mix them up. {% endhint %}Info= 
 
@@ -120,6 +118,7 @@ You can compare your GPU architecture in the chart below:
 
 
 ### 4.1. Open Kernel Module:
+
 ```bash
 sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-utils-G06
 ```
@@ -128,6 +127,7 @@ sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-
 ```bash
 sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-utils-G06
 ```
+After installing the drivers, simply reboot the system and verify that they’re being used by running `nvidia-smi`.
 
 {% endstep %}
 
@@ -136,13 +136,13 @@ sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-
 ## 5. Asus Software:
 The ASUS-specific software for Tumbleweed is hosted on the COPR repository, so you will need to add the COPR repo to download it. 
 
-To add the repository, we need to create a .repo file. Simply create a file called asus-linux using the following command:
+To add the repository, we need to create a `.repo` file. Simply create a file called asus-linux using the following command:
 
 ```bash
 sudo nano /etc/zypp/repos.d/asus-linux.repo
 ```
 
-Then paste the following into the asus-linux.repo file, save it with Ctrl+S, exit with Ctrl+X, and refresh Zypper using `zypper ref`.
+Then paste the following into the asus-linux.repo file, save it with  <kbd> Ctrl+S </kbd>, exit with  <kbd> Ctrl+X </kbd>, and refresh Zypper using `zypper ref`.
 
 ```bash
 [asus-linux]
@@ -163,8 +163,9 @@ sudo zypper in asusctl rog-control-center supergfxctl switcheroo-control
 ```
 
 Then enable the services with:
+
 ```bash
-systemctl enable switcheroo-control supergfxd
+systemctl enable switcheroo-control supergfxd --now
 ```
 {% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
 
