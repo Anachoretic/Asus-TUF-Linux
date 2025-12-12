@@ -19,6 +19,11 @@ Before installation, you’ll need the following:
 # 2. Installation Media Creation:
 After downloading the ISO of your preferred distro, you will need to flash it to a USB drive to boot from it and install the OS. You can use tools such as Balena Etcher, Rufus, or other similar software to burn the ISO.
 
+If you haven’t downloaded the ISOs yet, here’s where you can get them.
+- [Debian 13](https://www.debian.org/distrib/)
+- [Ubuntu GNOME](https://ubuntu.com/download/desktop)
+- [Ubuntu KDE](https://kubuntu.org/download/)
+
 {% tabs %}
 
 {% tab title="Rufus" %}
