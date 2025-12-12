@@ -3,9 +3,6 @@ title: Fedora
 icon: fedora
 ---
 
-
-
-
 # Fedora Post-Installation Guide
 
 This guide walks you through setting up your Fedora system with Nvidia drivers, Asus tools, power management tweaks, backup solutions, multimedia codecs, DNF configuration, fonts, Steam installation, and more.
@@ -82,6 +79,13 @@ Enable Nvidia power management:
 ```bash
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
+
+
+{% endstep %}
+
+{% step %}
+
+
 ## 4. Asus Software Setup
 
 ### 4.1 Asus Linux Tools
@@ -126,13 +130,7 @@ Set Hybrid GPU mode:
 ```bash
 supergfxctl --mode Hybrid
 ```
-
-
 {% hint style="info" %} Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
-
-{% endstep %}
-
-{% step %}
 
 ## 4.3. Fix Hotkeys (Asus Only)
 
@@ -295,7 +293,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 
 {% step %}
 
-## Step 7: Install Fonts (Fix weird web text)
+## 7. Install Fonts (Fix weird web text):
 
 Some websites or apps might look broken without these:
 
