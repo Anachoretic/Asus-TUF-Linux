@@ -11,7 +11,7 @@ This guide walks you through setting up your Fedora system with Nvidia drivers, 
 
 {% step %}
 
-## 1. DNF Configuration
+## 1. DNF Configuration:
 
 Configure DNS to use the fastest available mirrors and increase the number of parallel downloads.
 
@@ -31,7 +31,7 @@ fastestmirror=true
 
 {% step %}
 
-## 2. Enable RPM Fusion
+## 2. RPM Fusion:
 
 Fedora doesn't ship certain stuff like proprietary drivers and codecs out of the box. RPM Fusion adds that in. You’ll need both **free** and **nonfree** versions.
 
@@ -48,7 +48,7 @@ sudo dnf install \
 
 {% step %}
 
-## 3. GPU Driver Installation:
+## 3. GPU Driver:
 
 ### 3.1 NVIDIA Driver Setup
 
@@ -86,9 +86,9 @@ sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-res
 {% step %}
 
 
-## 4. Asus Software Setup
+## 4. Asus Software:
 
-### 4.1 Asus Linux Tools
+### 4.1 Asus Linux Tools:
 
 These give you access to GPU modes, fan profiles, and Aura lighting control.
 
@@ -110,7 +110,7 @@ sudo systemctl enable --now supergfxd.service
 
 {% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
 
-### 4.2 GPU Switching (Hybrid/Integrated/Discrete)
+### 4.2 GPU Switching:
 
 - GNOME users: [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/)
 
@@ -132,7 +132,7 @@ supergfxctl --mode Hybrid
 ```
 {% hint style="info" %} Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
 
-## 4.3. Fix Hotkeys (Asus Only)
+## 4.3. Hotkeys:
 
 Some hotkeys are BIOS-level and can’t be remapped.
 
@@ -183,10 +183,11 @@ Commands:
 
 {% step %}
 
-## 5. Multimedia and Hardware Codecs
+## 5. Multimedia:
 Add full multimedia support by installing codecs and tools for playing all common audio and video formats.
 
-### 5.1 Get the Basics
+### 5.1 Get the Basics:
+
 ```bash
 sudo dnf install libavcodec-freeworld
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
@@ -194,7 +195,7 @@ sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=Package
 sudo dnf group install -y multimedia sound-and-video
 ```
 
-### 5.2 Enable Hardware Acceleration
+### 5.2 Hardware Acceleration:
 
 **Intel:**
 ```bash
@@ -226,7 +227,7 @@ sudo dnf install libva-nvidia-driver.{i686,x86_64}
 {% step %}
 
 
-## 6. Create a Backup
+## 6. Backup:
 ### 6.1. System Settings Backup with Timeshift
 
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
@@ -293,7 +294,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 
 {% step %}
 
-## 7. Install Fonts (Fix weird web text):
+## 7. Fonts:
 
 Some websites or apps might look broken without these:
 
