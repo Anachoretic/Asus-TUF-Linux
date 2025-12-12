@@ -216,7 +216,7 @@ supergfxctl --help
 
 {% step %}
 
-## 5. Hotkeys:
+### 4.5. Hotkeys:
 
 {% hint style="info" %}
 Some hotkey functions are controlled at the BIOS level and cannot be remapped. To check if a hotkey can be remapped, try creating a shortcut. If the input is detected, remapping is possible.
@@ -267,13 +267,7 @@ Assign the key combination you want, then click Apply.
 
 {% step %}
 
-
-
-{% endstep %}
-
-{% step %}
-
-## 7. Backup's:
+## 5. Backup's:
 
 ### 1. System Settings Backup:
 
@@ -342,7 +336,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 
 {% step %}
 
-## 8. Multimedia Support
+## 6. Multimedia Support
 
 To enable playback for formats like MP3, MPEG4, AVI, and more, you’ll need to install the necessary media codecs. Ubuntu doesn’t include them out of the box due to licensing restrictions.
 
@@ -354,7 +348,7 @@ sudo apt install ubuntu-restricted-extras
 
 {% step %}
 
-## 9. Firewall
+## 7. Firewall
 
 {% endstep %}
 
