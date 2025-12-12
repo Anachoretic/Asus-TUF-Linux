@@ -310,7 +310,7 @@ sudo pacman -S flatpak && flatpak remote-add --if-not-exists flathub https://dl.
 {% step %} 
 
 
-### 7. Backups:
+# 7. Backups:
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
 
 Installation:
