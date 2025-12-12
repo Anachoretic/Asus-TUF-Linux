@@ -6,13 +6,11 @@ icon: linux
 
 # Arch Linux Post-Install Guide
 
-{% stepper %}
 
+{% stepper %}
 {% step %}
 
-This post-install guide aims to simplify running Arch Linux on TUF laptops. While it covers most topics and simplifies the process, it is by no means a replacement for the Arch Wiki. You should still rely primarily on the Arch Wiki for the quality and depth of information it contains. This guide cannot possibly match the Arch Wiki, so if you haven’t gotten used to reading the Wiki yet, now is the time to start.
-
-## 1. AUR Helper
+# 1. AUR Helper
 
 One of the most prominent and enticing features of Arch Linux is the **Arch User Repository (AUR)**. The AUR is a community-driven repository that provides package descriptions (PKGBUILDs). These allow you to compile software from source using `makepkg` and then install it with `pacman`.
 
@@ -39,9 +37,9 @@ The AUR is community-driven. Anyone can upload packages, so there’s always a s
 
 {% step %}
 
-## 2. Pacman Configuration: 
+# 2. Pacman Configuration: 
 
-### 2.1 Enable Multilib repository (Required for Drivers and Wine)
+## 2.1 Enable Multilib repository (Required for Drivers and Wine)
 
 Open the pacman configuration file:
 ```bash
@@ -54,7 +52,7 @@ Uncomment these lines:
 Include = /etc/pacman.d/mirrorlist
 ```
 
-### 2.2. Update Mirrors to Use the Fastest Server
+## 2.2. Update Mirrors to Use the Fastest Server
 
 Backup current mirrorlist:
 ```bash
@@ -102,7 +100,7 @@ ILoveCandy
 ```
 </details>
 
-## 3. Driver Installation
+# 3. Driver Installation
 
 If you're using an **Nvidia GPU**, you’ll also need to install proprietary drivers manually. AMD users can skip this, since Mesa drivers are included in the kernel and work out of the box. However, if you want to install all the 32-bit libraries and Vulkan support, see the instructions below.
 
@@ -169,7 +167,7 @@ The drivers for AMD are usually installed out of the box since they’re part of
 sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver libva-utils
 ```
 
-### 3.1 Intel:
+### 3.3 Intel:
 Same for intel as well.
 
 ```bash
@@ -185,7 +183,7 @@ Enable Nvidia services:
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
 
-## 4. Asus Software Installation:
+# 4. Asus Software Installation:
 
 Install Asus tools:
 
@@ -223,11 +221,7 @@ supergfxctl --mode Hybrid
 Changing to/from Hybrid mode requires logout. Ultimate mode requires a reboot.
 {% endhint %}
 
-{% endstep %}
-
-{% step %}
-
-### 5. Fixing Hotkeys
+### Fixing Hotkeys
 
 {% hint style="info" %}
 Some hotkeys are handled by the BIOS directly and can’t be remapped. Test by creating a shortcut and see if it registers.
@@ -277,12 +271,10 @@ Assign the key combination you want, then click Apply.
 
 {% step %}
 
-### 
-{% endstep %}
 
-{% step %}
 
-### 6. Enable Bluetooth (If it isn't enabled by default)
+# 5. Enable Bluetooth (If it isn't enabled by default)
+
 Install:
 ```bash
 sudo pacman -S bluez bluez-utils
@@ -299,7 +291,7 @@ sudo systemctl start bluetooth
 {% step %} 
 
 
-### 7.Flatpak
+# 6. Flatpak
 Flatpak is a Linux tool for installing and managing software. It runs applications in a sandboxed environment, keeping them partially separated from the main system. It is a widely used platform that allows software to work across various Linux distributions.
 
 Most Arch-based distributions come with Flatpak, but if it isn’t installed, you can use the following command to install it and add the Flatpak repository.
@@ -313,7 +305,7 @@ sudo pacman -S flatpak && flatpak remote-add --if-not-exists flathub https://dl.
 {% step %} 
 
 
-### 8.Backups:
+### 7. Backups:
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
 
 Installation:
@@ -354,69 +346,7 @@ How to Use Timeshift:
 {% step %} 
 
 
-### 9. Power Management
-If you aren’t satisfied with your battery life on Linux while using `power-profiles-daemon`, you may want to try alternative power management software. However, keep in mind that other software like tlp doesn’t really work well with asusctl, and battery life on Linux might be the same as on Windows no matter what you try.
-
-#### 9.1 TLP
-
-TLP is a feature-rich command line utility for Linux, saving laptop battery power without the need to delve deeper into technical details.
-TLP's default settings are already optimized for battery life and implement Powertop's recommendations out of the box, so additional configuration is not needed. Also, TLP is completely customizable, which means you can get even more power savings or meet your exact requirements. 
-
-Install TLP:
-
-```bash
-sudo pacman -S tlp
-sudo systemctl enable tlp
-sudo systemctl start tlp
-```
-
-{% hint style="info" %}
-TLP conflicts with power-profiles-daemon. Remove it or mask its services with:
-
-```bash
-systemctl mask power-profiles-daemon.service
-```
-{% endhint %}
-
-{% endstep %}
-
-{% step %}
-
-
-#### 9.2 Auto-CPUFreq
-
-Automatic CPU speed & power optimizer for Linux. Actively monitors laptop battery state, CPU usage, CPU temperature, and system load, ultimately allowing you to improve battery life without making any compromises.
-
-Using AUR:
-
-```bash
-yay -S auto-cpufreq
-```
-
-{% hint style="info" %}
-Installation from the AUR requires a bit of manual intervention. You'll need to run the following command to disable power-profiles-daemon if it's installed, otherwise cpu-auto-freq may not function correctly:
-
-```bash
-systemctl mask power-profiles-daemon.service
-```
-
-{% endhint %}
-
-Manual Install:
-
-```bash
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
-```
-
-{% hint style="info" %}
-After installation, open the auto-cpufreq app and verify if it’s working properly.
-{% endhint %}
-
-{% endstep %}
-
-{% step %}
-
-### 10. Firewall
+# 8. Firewall
 A firewall is a security system that monitors, filters, and controls incoming and outgoing network traffic according to predefined security rules. While it isn't mandatory to have a firewall for a workstation, it is highly recommended to set up some form of firewall. There are two firewall options depending on the netfilter installed:
 
 This covers only the basic things about firewalls. If you want advanced configuration or documentation, please visit the respective page for the firewalls on the Arch Wiki.
@@ -426,7 +356,7 @@ To check which netfilter is installed, run the following command:
 sudo pacman -Q | grep -E 'nftables|iptables'
 ```
 
-## 10.1. Ufw:
+## 9.1. Ufw:
 
 If you have `iptables(legacy)` installed, then it is recommended to use Uncomplicated Firewall (ufw).
 
@@ -451,7 +381,7 @@ The gufw package provides a GUI for ufw, which can be used to configure ufw. For
 sudo ufw allow <port>/<optional: protocol>
 ```
 
-## 10.2. Firewalld:
+## 9.2. Firewalld:
 Firewalld is recommended for systems that have `iptables-nft` installed, which includes most modern distros.
 
 Install the firewalld package:
