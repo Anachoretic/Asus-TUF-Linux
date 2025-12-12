@@ -14,7 +14,27 @@ This guide walks you through setting up your Fedora system with Nvidia drivers, 
 
 {% step %}
 
-## Step 1: Enable RPM Fusion
+## 1. DNF Configuration
+
+Configure DNS to use the fastest available mirrors and increase the number of parallel downloads.
+
+**Edit the config file for DNF:**
+
+```bash
+sudo nano /etc/dnf/dnf.conf
+```
+
+**Add these lines at the end:**
+
+```bash
+max_parallel_downloads=10
+fastestmirror=true
+```
+{% endstep %}
+
+{% step %}
+
+## 2. Enable RPM Fusion
 
 Fedora doesn't ship certain stuff like proprietary drivers and codecs out of the box. RPM Fusion adds that in. You’ll need both **free** and **nonfree** versions.
 
@@ -31,9 +51,9 @@ sudo dnf install \
 
 {% step %}
 
-## Step 2: GPU Driver Installation and Asus Software Setup
+## 3. GPU Driver Installation:
 
-### 2.1 NVIDIA Driver Setup
+### 3.1 NVIDIA Driver Setup
 
 {% hint style="warning" %}Make sure Secure Boot is turned off or the Nvidia driver won’t load. {% endhint %}
 
@@ -62,27 +82,34 @@ Enable Nvidia power management:
 ```bash
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
+## 4. Asus Software Setup
 
-### 2.2 Asus Linux Tools
+### 4.1 Asus Linux Tools
 
 These give you access to GPU modes, fan profiles, and Aura lighting control.
 
+
+First, add the repository.
 ```bash
-# Enable the ASUS tool repository
 sudo dnf copr enable lukenukem/asus-linux
+```
 
-# Install the tools
+Then install the following packages:
+
+```bash
 sudo dnf install asusctl supergfxctl rog-control-center
-
-# Enable the service for GPU switching
+```
+Finally, enable the supergfxd service.
+```bash
 sudo systemctl enable --now supergfxd.service
 ```
 
 {% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
 
-### 2.3 GPU Switching (Hybrid/Integrated/Discrete)
+### 4.2 GPU Switching (Hybrid/Integrated/Discrete)
 
 - GNOME users: [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/)
+
 - KDE users:Install the supergfxctl-plasmoid:
 
 ```bash
@@ -107,7 +134,7 @@ supergfxctl --mode Hybrid
 
 {% step %}
 
-## Step 3: Fix Hotkeys (Asus Only)
+## 4.3. Fix Hotkeys (Asus Only)
 
 Some hotkeys are BIOS-level and can’t be remapped.
 
@@ -158,80 +185,10 @@ Commands:
 
 {% step %}
 
-## Step 4: Power Management
-
-If you notice that your battery life on Linux is significantly shorter compared to Windows, you may benefit from additional power management tools. Two of the most commonly recommended options are **TLP** and **CPU AutoFreq**. These tools help optimize power usage, particularly on laptops, by dynamically adjusting CPU frequencies and managing various power-related settings.
-
-{% hint style="warning" %} **Important**: Only install **one** of these tools. Running both simultaneously can cause conflicts and lead to unexpected behavior. {% endhint %}
-
-### 4.1 TLP
-
-TLP is a feature-rich command-line utility for Linux that helps extend battery life without requiring manual tuning. Its default configuration is already optimized and implements many of Powertop’s recommendations.
-
-**Install TLP:**
-
-```bash
-sudo dnf install tlp
-```
-
-**Enable TLP:**
-
-```bash
-sudo systemctl enable tlp
-sudo systemctl start tlp
-```
-
-{% hint style="info" %} TLP conflicts with power-profiles-daemon. Remove it or mask its service:
-
-```bash
-systemctl mask power-profiles-daemon.service
-```
-
-{% endhint %}
-
-### 4.2 CPU AutoFreq
-
-CPU AutoFreq is a real-time CPU frequency and power optimizer. It monitors your system load, battery level, and temperature to dynamically manage CPU scaling for better battery life.
-
-**Manual Install:**
-
-```bash
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
-```
-
-{% hint style="info" %} If power-profiles-daemon is installed, disable it:
-
-```bash
-systemctl mask power-profiles-daemon.service
-```
-
-{% endhint %}
-
-{% hint style="info" %} After installation, open the cpu-auto-freq app and verify if it’s working properly. {% endhint %}
-
-{% endstep %}
-
-{% step %}
-
-
-
-## Step 5: Enable Flatpak Support
-
-By default, Fedora restricts the set of available Flatpak apps. You can unlock full Flatpak support by enabling third-party repos during the initial setup, or manually with the following command:
-
-```bash
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-```
-
-{% endstep %}
-
-{% step %}
-
-
-## Step 6: Multimedia and Hardware Codecs
+## 5. Multimedia and Hardware Codecs
 Add full multimedia support by installing codecs and tools for playing all common audio and video formats.
 
-### 6.1 Get the Basics
+### 5.1 Get the Basics
 ```bash
 sudo dnf install libavcodec-freeworld
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
@@ -239,7 +196,7 @@ sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=Package
 sudo dnf group install -y multimedia sound-and-video
 ```
 
-### 6.2 Enable Hardware Acceleration
+### 5.2 Enable Hardware Acceleration
 
 **Intel:**
 ```bash
@@ -270,30 +227,9 @@ sudo dnf install libva-nvidia-driver.{i686,x86_64}
 
 {% step %}
 
-## Step 7: DNF Configuration
 
-You can configure DNF to increase download speeds by enabling parallel downloads and selecting the fastest mirror.
-
-**Edit the config file:**
-
-```bash
-sudo nano /etc/dnf/dnf.conf
-```
-
-**Add these lines at the end:**
-
-```bash
-max_parallel_downloads=10
-fastestmirror=true
-```
-
-
-{% endstep %}
-
-{% step %}
-
-## Step 8: Create a Backup
-### 1. System Settings Backup with Timeshift
+## 6. Create a Backup
+### 6.1. System Settings Backup with Timeshift
 
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
 
@@ -328,7 +264,7 @@ How to Use Timeshift:
 
 {% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
 
-### 2.Backup Personal Files with Pika Backup
+### 6.2. Backup Personal Files with Pika Backup
 
 Pika Backup is a user-friendly tool designed for personal data backup. It leverages the BorgBackup engine for secure and efficient backups. Note that Pika Backup does **not** support full system restoration.
 
@@ -359,18 +295,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 
 {% step %}
 
-## Step 9: Install Steam
-
-Make sure RPM Fusion is enabled first.
-```bash
-sudo dnf install steam
-```
-
-{% endstep %}
-
-{% step %}
-
-## Step 10: Install Fonts (Fix weird web text)
+## Step 7: Install Fonts (Fix weird web text)
 
 Some websites or apps might look broken without these:
 
@@ -379,8 +304,9 @@ Some websites or apps might look broken without these:
 sudo dnf install msttcore-fonts-installer
 sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 sudo dnf install google-noto-emoji-color-fonts
-
-# Rebuild font cache
+```
+Rebuild font cache
+```bash
 fc-cache -f
 ```
 
