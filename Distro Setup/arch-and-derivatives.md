@@ -100,6 +100,10 @@ ILoveCandy
 ```
 </details>
 
+{% endstep %}
+
+{% step %}
+
 # 3. Driver Installation
 
 If you're using an **Nvidia GPU**, you’ll also need to install proprietary drivers manually. AMD users can skip this, since Mesa drivers are included in the kernel and work out of the box. However, if you want to install all the 32-bit libraries and Vulkan support, see the instructions below.
@@ -270,8 +274,6 @@ Assign the key combination you want, then click Apply.
 {% endstep %}
 
 {% step %}
-
-
 
 # 5. Enable Bluetooth (If it isn't enabled by default)
 
