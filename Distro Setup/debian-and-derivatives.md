@@ -13,7 +13,7 @@ The main problem is updates. If you have a newer laptop, there’s a good chance
 
 {% step %}
 
-## 1. System Update
+## 1. Updates:
 
 After installation, it’s crucial to update the system to ensure all packages are up-to-date.
 
@@ -25,7 +25,7 @@ sudo apt update && sudo apt upgrade
 
 {% step %}
 
-## 2. Driver Installation
+## 2. Driver's:
 
 By default, most drivers (e.g., for Intel, AMD, and other hardware) are included in the Linux kernel. However, **Nvidia dGPU drivers must be installed separately.**
 
@@ -109,7 +109,7 @@ Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers
 
 {% step %}
 
-## 3. Flatpak Installation:
+## 3. Flatpak:
 
 If your distro doesn’t come with Flatpak by default, you can add Flatpak with the following command. If your distro already has Flatpak enabled, you can skip this step.
 
@@ -128,13 +128,13 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 {% step %}
 
-## 4. Asus Software Installation:
+## 4. Asus Software:
 
 {% hint style="warning" %}
 **Note:** These tools need to be built from source. Follow steps carefully.
 {% endhint %}
 
-### 4.1 Install Build Dependencies**
+### 4.1 Build Dependencies**
 
 Install required development tools and libraries:
 
@@ -193,7 +193,7 @@ sudo systemctl enable supergfxd
 sudo systemctl start supergfxd
 ```
 
-### 4.4 Optional GUI Support
+### 4.4 GUI Support
 
 * **GNOME:** Install the [`supergfxctl-gex`](https://extensions.gnome.org/extension/5344/supergfxctl-gex) extension.
 
@@ -216,7 +216,7 @@ supergfxctl --help
 
 {% step %}
 
-## 5. Fixing Hotkeys
+## 5. Hotkeys:
 
 {% hint style="info" %}
 Some hotkey functions are controlled at the BIOS level and cannot be remapped. To check if a hotkey can be remapped, try creating a shortcut. If the input is detected, remapping is possible.
@@ -267,62 +267,15 @@ Assign the key combination you want, then click Apply.
 
 {% step %}
 
-## Step 6: Power Management
-If you aren’t satisfied with your battery life on Linux while using `power-profiles-daemon`, you may want to try alternative power management software. However, keep in mind that other software like tlp doesn’t really work well with asusctl, and battery life on Linux might be the same as on Windows no matter what you try.
 
-{% hint style="warning" %} **Important**: Only install **one** of these tools. Running both simultaneously can cause conflicts and lead to unexpected behavior. {% endhint %}
-
-### 6.1 TLP
-
-TLP is a feature-rich command-line utility for Linux that helps extend battery life without requiring manual tuning. Its default configuration is already optimized and implements many of Powertop’s recommendations.
-
-**Install TLP:**
-
-```bash
-sudo apt install tlp
-```
-
-**Enable TLP:**
-
-```bash
-sudo systemctl enable tlp
-sudo systemctl start tlp
-```
-
-{% hint style="info" %} TLP conflicts with power-profiles-daemon. Remove it or mask its service:
-
-```bash
-systemctl mask power-profiles-daemon.service
-```
-
-{% endhint %}
-
-### 6.2 CPU AutoFreq
-
-CPU AutoFreq is a real-time CPU frequency and power optimizer. It monitors your system load, battery level, and temperature to dynamically manage CPU scaling for better battery life.
-
-**Manual Install:**
-
-```bash
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
-```
-
-{% hint style="info" %} If power-profiles-daemon is installed, disable it:
-
-```bash
-systemctl mask power-profiles-daemon.service
-```
-
-{% endhint %}
-
-{% hint style="info" %} After installation, open the cpu-auto-freq app and verify if it’s working properly. {% endhint %}
 
 {% endstep %}
 
 {% step %}
 
-## Step 7: Create a Backup
-### 1. System Settings Backup with Timeshift
+## 7. Backup's:
+
+### 1. System Settings Backup:
 
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
 
@@ -358,7 +311,7 @@ How to Use Timeshift:
 
 {% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
 
-### 2.Backup Personal Files with Pika Backup
+### 2.Backup Personal Files with Pika Backup:
 
 Pika Backup is a user-friendly tool designed for personal data backup. It leverages the BorgBackup engine for secure and efficient backups. Note that Pika Backup does **not** support full system restoration.
 
@@ -389,7 +342,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 
 {% step %}
 
-## Step 8: Multimedia Support
+## 8. Multimedia Support
 
 To enable playback for formats like MP3, MPEG4, AVI, and more, you’ll need to install the necessary media codecs. Ubuntu doesn’t include them out of the box due to licensing restrictions.
 
@@ -401,7 +354,7 @@ sudo apt install ubuntu-restricted-extras
 
 {% step %}
 
-## Step 9: Firewall
+## 9. Firewall
 
 {% endstep %}
 
