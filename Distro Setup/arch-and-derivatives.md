@@ -187,6 +187,9 @@ Enable Nvidia services:
 sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
 
+{% endstep %}
+{% step %}
+
 # 4. Asus Software Installation:
 
 Install Asus tools:
