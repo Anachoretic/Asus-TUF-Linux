@@ -10,9 +10,9 @@
 
 ## Installation:
 
-* [**Arch**](Linux-Installation/Arch.md)  
+* [**Arch / Derivatives**](Linux-Installation/Arch.md)  
 
-* [**Debian/Ubuntu**](Linux-Installation/Debian.md)  
+* [**Debian / Derivatives**](Linux-Installation/Debian.md)  
 
 * [**Fedora**](Linux-Installation/Fedora.md)
 
