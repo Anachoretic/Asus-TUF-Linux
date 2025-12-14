@@ -117,6 +117,7 @@ In the `KDE` version of Fedora Workstation, you will be required to add a user a
 Simply enter your name, username, and the password you want to use, then continue to the next step. Enabling the root account is not recommended, leave it disabled unless you specifically need it.
 
 ![](/Images/Fedora/Summary.png)
+
 Finally, verify that the choices you made are correct and click <kbd>Install</kbd>.
 
 After that, wait for the installation to complete, then shut down the laptop, remove the USB drive, and boot into Fedora.
