@@ -4,65 +4,50 @@ icon: fedora
 ---
 
 
-# Fedora Installation Guide for ASUS Laptops
-
-Fedora has excellent compatibility with ASUS laptops in terms of both hardware and software. The ASUS software does not need to be manually compiled from source, making Fedora one of the best distros for newcomers starting out with Linux.
-
 {% stepper %}
 {% step %}
 
-## Prerequisites
+# 1. Prerequisites:
+Before installation, you’ll need the following:
+- [x] A USB drive with at least 8 GB of storage.
+- [x] **Secure Boot** should be disabled.
+- [x] BitLocker disabled to avoid potential data loss during installation.
+- [x] dGPU mode should be set to Standard (Hybrid) or Ultimate in Windows.
 
-{% hint style="info" %}
-
-### Pre-Installation Requirements
-
-• A USB drive with at least 8 GB of storage capacity.\
-• One of the following tools to create bootable media: **Rufus**, **Ventoy**, **Balena Etcher**, or **Fedora Media Writer**.\
-• **Secure Boot** must be disabled in the BIOS.\
-• **BitLocker** must be turned off in Windows.\
-• **Fast Boot** should be disabled (required only if you are planning to dual boot).\
-• Set **GPU mode to Ultimate or Standard** in Windows. {% endhint %}
-
-{% hint style="warning" %} Secure Boot can prevent Fedora from booting if not disabled.{% endhint %}
-
-{% hint style="warning" %} Failure to disable BitLocker may result in data loss or drive access issues.{% endhint %}
-
-{% endstep %}
 {% step %}
-
-## Installation Steps
-
-## Fedora ISO download
-Download the latest Fedora Workstation ISO from the official website:
-
--[Fedora Workstation GNOME ](https://fedoraproject.org/en/workstation/download)
-
--[Fedora KDE Plasma Desktop ](https://www.fedoraproject.org/kde/download)
-
-
 {% endstep %}
-{% step %}
 
-##  Bootable media creation:
+# 2. Installation Media Creation:
+After downloading the ISO of your preferred distro, you will need to flash it to a USB drive to boot from it and install the OS. You can use tools such as Balena Etcher, Rufus, or other similar software to burn the ISO.
 
-{% tabs %} {% tab title="Rufus" %}
+If you haven’t downloaded the ISOs yet, here’s where you can get them.
+- [Fedora GNOME](https://www.fedoraproject.org/workstation/download)
+- [Fedora KDE](https://www.fedoraproject.org/kde/download)
 
-1. Download [Rufus](https://rufus.ie/).
-2. Select “ISO Image” and choose the Fedora ISO.
-3. Insert your USB drive.
-4. Select the correct **Partition Scheme** (GPT for modern systems).
-5. Click **Start** and wait for it to finish.
-6. Safely eject the USB. {% endtab %}
+{% tabs %}
 
-{% tab title="Ventoy" %}
+{% tab title="Rufus" %}
 
-1. [Download Ventoy](https://github.com/ventoy/ventoy/releases).
-2. Extract and run `Ventoy2Disk.exe`.
-3. Go to **Options > Partition Style > GPT**.\
-   (Secure Boot support is optional; MOK keys are required on first boot if enabled.)
-4. Select your USB drive and click **Install**.
-5. After setup, copy the Fedora ISO file to the **Ventoy** partition. {% endtab %}
+1. Download [Rufus](https://rufus.ie/).  
+2. Select “ISO Image” and choose your distro’s ISO.  
+3. Insert your USB drive.  
+4. Select the correct **Partition Scheme** (GPT for modern systems).  
+5. Click **Start** and wait for it to finish.  
+6. Safely eject the USB.
+
+{% endtab %}
+
+{% tab title="Ventoy" %} 
+
+Ventoy allows multiple ISO files on one USB. It’s perfect for testing or switching between OSes.
+
+1. [Download Ventoy](https://github.com/ventoy/ventoy/releases).  
+2. Extract and run `Ventoy2Disk.exe`.  
+3. Go to **Options > Partition Style > GPT**   
+4. Select your USB drive and click **Install**.  
+5. After installation, copy the ISO file directly to the **Ventoy** partition.
+
+{% endtab %}
 
 {% tab title="dd" %} 
 The dd command is a simple utility that comes with GNU and is available on every Linux distro. It lets you copy data block by block and can be used to create a bootable live ISO on Linux without needing to install any additional tools.
@@ -73,129 +58,154 @@ The dd command is a simple utility that comes with GNU and is available on every
 dd if=/path/to/iso of=/dev/sdX bs=4M status=progress oflag=sync
 
 # Example:
-dd if=/home/user/Downloads/Fedora-Workstation-Live-43-1.6.x86_64.iso of=/dev/sda bs=4M status=progress oflag=sync
+dd if=~/Downloads/Fedora-Workstation-Live-43-1.6.x86_64.iso of=/dev/sda bs=4M status=progress oflag=sync
 ```
 
 
 {% endtab %}
 {% endtabs %}
 
-{% endstep %}
 {% step %}
-
-## Partitioning (Dual Boot Only)
-
-1. Open **Disk Management** in Windows.
-2. Right-click on the **C: drive** and select **Shrink Volume**.
-3. Enter the desired size for Linux (at least 50 GB recommended).
-4. Leave the space unallocated; do **not** format it. {% endstep %}
-
 {% endstep %}
+ 
+# 3. Partitioning for Dual Boot:
+If you are trying to dual boot Linux alongside Windows, you will need to leave some unallocated space for the installer to detect and use. A minimum of 60 GiB is recommended for the Linux partition. If you plan on playing multiple large games, you may want to allocate even more space, as games installed on the Windows (NTFS) partition generally won’t work on Linux.
+
+## 3.1 Steps:
+To create a partition, open Disk Management, then right-click on your partition or drive. If you want to share the same SSD between two operating systems, right-click on the C: partition and select Shrink Volume. In the field **Enter the amount of space to shrink in MB**, enter the size you want to allocate to Linux and click Shrink.
+
+After shrinking, you will see a black unallocated space of the same size. Do not create a new volume, leave it unallocated. Once confirmed, you can exit Disk Management and continue to the next step.
+
 {% step %}
-
-## BIOS Setup
-
-1. Restart your PC and press `F2` (or the correct key for your system) to enter BIOS.
-2. In BIOS:
-   - Disable **Secure Boot**.
-   - Set the USB drive as the first boot device.
-3. Save changes and exit BIOS.
-4. Boot from the USB. {% endstep %}
-
 {% endstep %}
+
+# 4.  Installation Steps:
+
+## 4.1 Booting from the Installation USB:
+
+Assuming you have disabled Secure Boot, if you have not, hold the F2 key and press the Power button, keeping F2 held until you enter the BIOS screen. Inside the BIOS, go to the Security tab, turn off Secure Boot, then save the changes and exit. Once Secure Boot is disabled, plug in your USB drive, hold the Esc key, and press the Power button. When prompted to select a boot device, choose your USB drive and press Enter.
+
+
+## 4.2 Installation:
+ 
+![](/Images/Fedora/Installer.png)
+
+After booting into Fedora, wait a few seconds. The installer should launch automatically. If it doesn’t, you can start it manually from the dock in GNOME, the application menu, or by clicking the desktop icon in KDE.
+
+Once it launches, click <kbd>Install Fedora Linux</kbd>.
+
+![](/Images/Fedora/Language.png)
+
+
+In the first step, choose your language and keyboard layout.
+
+![](/Images/Fedora/Disks.png)
+
+First, make sure the installer has chosen the correct disk. If not, click <kbd> Change Destination </kbd> and select the correct disk. If you have a single drive, you don’t need to worry about this.
+
+Next, if you are planning to dual boot with Windows and have completed the previous partitioning steps, you should see an option called <kbd> Share disk with other operating system </kbd>. Select it and continue to the next step.
+
+
+![](/Images/Fedora/Encryption.png)
+
+Encryption is optional for a standalone installation, but it is not recommended for a dual boot setup.
+
+![](/Images/Fedora/User.png)
+
+In the `KDE` version of Fedora Workstation, you will be required to add a user and set a password during installation. On `GNOME`, however, this step is available after the installation is complete, when you first boot into the OS.
+
+Simply enter your name, username, and the password you want to use, then continue to the next step. Enabling the root account is not recommended, leave it disabled unless you specifically need it.
+
+![](/Images/Fedora/Summary.png)
+Finally, verify that the choices you made are correct and click <kbd>Install</kbd>.
+
+After that, wait for the installation to complete, then shut down the laptop, remove the USB drive, and boot into Fedora.
+
 {% step %}
-
-## Begin Installation
-
-![](https://github.com/user-attachments/assets/24b75533-fb63-41ec-9104-fea52f66c126)
-
-{% hint style="info" %} If the installer doesn't appear immediately, wait 10–20 seconds. {% endhint %}
-
-![](https://github.com/user-attachments/assets/eecaab46-e385-47d8-9aca-1d6fdae49dd6)
-
-On the Welcome screen, select your preferred language and click Next.
-
-![](https://github.com/user-attachments/assets/c84315cf-bc5b-44b2-812d-b6d9ab800720)
-
-On the **Installation Destination** screen:
-   - **Dual Boot:** Ensure unallocated space is available. Select "Share disk with other operating system".
-   - **Standalone:** Choose "Use entire disk".
-
-{% hint style="warning" %}**Ensure you select the correct target drive if your system has multiple disks to avoid data loss.**{% endhint %}
-
-![](https://github.com/user-attachments/assets/dfbe6e24-bd76-4ed8-a45f-6e8c647493fc)
-
-Drive encryption is optional; you can choose to encrypt the drive or skip it. If you’re trying to dual-boot, do not enable drive encryption, as it can cause issues.
-
-![](https://github.com/user-attachments/assets/212e2c66-cc26-4b28-a987-e9f43aa8b288)
-
-
-Review your configuration on the Summary screen. Click **Begin Installation** to start.
-
-After installation, exit the live environment by shutting down the laptop. Then remove the USB and power it on; you should see the GRUB menu. Simply select Fedora and boot into it.
-
 {% endstep %}
-{% step %}
 
+# 5. Uninstalling Linux
 
-## Fedora uninstallation:
+## 5.1 For Dual Boot Users
 
-### For Dual Boot Setups
+Open Disk Management in Windows, delete the Linux partitions, and then extend the partition from which the space was taken.
 
-1. Open **Disk Management** in Windows and delete the Linux partitions. Then merge the unallocated space into your C: drive or any other drive.
+When Linux is installed alongside Windows, its bootloader files are copied to the Windows EFI system partition. To fully remove Linux, you’ll need to delete those files. If you skip this step, you might get an error on boot from the Linux bootloader saying it can’t find the Linux system.
 
-2. Launch **Command Prompt as Administrator**, then run:
+### Open PowerShell as administrator and run the following commands in order.
 
 ```bash
 diskpart
 
-select disk X  # Replace X with your disk where windows is installed.
+select disk X  # Replace X with your disk number
 
 list partition
 
-select partition 1
+select partition 1  # The EFI partition on Windows is usually 1
 
 assign letter=Z
 ```
 
-3. Open a new Command Prompt window (As administrator):
+### Now open a new `CMD` window as administrator while keeping the old one open.
 
 ```bash
-cd Z:
-
-dir
-
-rd /s System
-
-del mach_kernel
-
-cd EFI
-
-rd /s fedora
+Z:
 ```
 
-4. Return to the previous terminal and run:
+```bash
+dir
+```
+
+You should see an `EFI` folder inside `Z:`. If you see anything like `System` or `mach_kernel`, simply remove it with the following commands:
+
+```
+rd /s /q System
+
+rd /s /q mach_kernel
+```
+
+Now, cd into the `EFI` folder and delete the Fedora entry present inside it.
+
+```
+cd EFI
+
+rd /s /q fedora
+```
+
+Do not remove anything else, as it may break your Windows bootloader installation.
+
+Finally, verify that the Fedora folder has been removed with:
+
+```bash
+dir
+```
+
+Return to the previous window and run:
 
 ```bash
 remove letter=Z
 ```
 
-### For Standalone Fedora Installations
+After that, you can close both windows and use Windows normally.
 
-1. Boot from Windows installation media.
-2. Press `Shift + F10` to open Command Prompt.
-3. Run the following commands:
 
-```batch
+## 5.2 For Standalone Linux Installation:
+
+If you want to return to Windows after using Linux, open DiskPart, select the Linux drive, and remove its filesystem by returning it to an uninitialized state using the `clean` command in DiskPart.
+
+```bash
+
 diskpart
-select disk X  # Replace X with the Fedora disk
+
+select disk X  # Replace X with the correct drive
+
 clean
+
+exit
 ```
 
-4. Proceed with the Windows installation.
+{% hint style="info" %} If you are using an Intel system and the Windows installer cannot detect your drive, disable VMD (Volume Management Device) in BIOS. {% endhint %}
 
-{% hint style="info" %} If you're using an Intel system and the Windows installer doesn't detect your disk, disable VMD (Volume Management Device) in BIOS. {% endhint %}
 
 {% endstep %}
-
-{% endstepper %}
+{% endsteppers %}
