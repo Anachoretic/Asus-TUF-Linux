@@ -116,6 +116,10 @@ Cursor themes are installed the same way as icon themes.
 
  ![](https://github.com/user-attachments/assets/30766d65-a5a1-44c7-bbcf-4b0056a06630)
 
+- GTK theme: [Catppuccin](https://www.gnome-look.org/p/1715554)
+- Icon theme: [Colloid](https://www.gnome-look.org/p/1356095)
+- Cursor theme: [Volantes Cursor](https://www.gnome-look.org/p/1661983)
+
 </details>
 
 {% endstep %}
