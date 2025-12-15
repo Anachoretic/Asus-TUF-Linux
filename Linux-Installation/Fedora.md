@@ -76,6 +76,12 @@ To create a partition, open Disk Management, then right-click on your partition 
 
 After shrinking, you will see a black unallocated space of the same size. Do not create a new volume, leave it unallocated. Once confirmed, you can exit Disk Management and continue to the next step.
 
+![](/Images/Windows/Diskmgmt.png)
+
+{% hint style="info" %}
+If you are not confident with partitioning and are worried you might mess something up, then take a screenshot of the Disk Management screen so you can identify which partitions are new and can be safely removed.
+{% endhint %}
+
 {% step %}
 {% endstep %}
 
