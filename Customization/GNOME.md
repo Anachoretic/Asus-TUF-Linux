@@ -22,7 +22,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 
 Launch **Extension Manager** after installation and install the extension that you want.
 
-![](https://github.com/user-attachments/assets/9258d456-413d-4eaa-8333-dffc1c9cfb3a)
+![](/Images/GNOME/Extension-Manager.png)
 
 
 ### Recommended Extensions:
@@ -62,13 +62,13 @@ If you like having titlebar button for minimize and maximize then open gnome twe
 
 2. Extract the theme, then open the theme folder. Its contents should look like this :
 
-![](https://github.com/user-attachments/assets/7102e86f-8ffc-428a-9559-99aef7431a52)
+![](/Images/GNOME/Index.png)
 
 3. Copy the theme folder into the .themes folder in your home directory. If the `.themes` folder doesn’t exist, create it. Press Ctrl+H to show hidden files, then copy your theme into .themes. (Make sure the theme folder isn’t nested inside any subfolders, or it won’t be detected.)
 
 4. Now open gnome-tweaks and go to the Appearance tab. Select your downloaded theme for both Shell and Legacy Applications. (If the Shell option is greyed out, make sure the User Themes extension is installed, then relaunch gnome-tweaks.)
 
-![](https://github.com/user-attachments/assets/99a51736-e18a-4819-a31b-54e1c09e1c3e)
+![](/Images/GNOME/Styles.png)
 
 
 ### Additional Step for GTK4 Themes:
@@ -114,7 +114,7 @@ Cursor themes are installed the same way as icon themes.
 <details>
  <summary>Examples:</summary>
 
- ![](https://github.com/user-attachments/assets/30766d65-a5a1-44c7-bbcf-4b0056a06630)
+ ![](/Images/GNOME/Example-1.png)
 
 - GTK theme: [Catppuccin](https://www.gnome-look.org/p/1715554)
 - Icon theme: [Colloid](https://www.gnome-look.org/p/1356095)
