@@ -92,7 +92,7 @@ If you are not confident with partitioning and are worried you might mess someth
 
 ## 4.1 Booting from the Installation USB:
 
-Assuming you have disabled Secure Boot, if you have not, hold the F2 key and press the Power button, keeping F2 held until you enter the BIOS screen. Inside the BIOS, go to the Security tab, turn off Secure Boot, then save the changes and exit. Once Secure Boot is disabled, plug in your USB drive, hold the Esc key, and press the Power button. When prompted to select a boot device, choose your USB drive and press Enter.
+Assuming you have disabled Secure Boot, if you have not, hold the <kbd>F2</kbd> key and press the Power button, keeping <kbd>F2</kbd> held until you enter the BIOS screen. Inside the BIOS, go to the Security tab, turn off Secure Boot, then save the changes and exit. Once Secure Boot is disabled, plug in your USB drive, hold the <kbd>Esc</kbd> key, and press the Power button. When prompted to select a boot device, choose your USB drive and press Enter.
 
 
 ## 4.2 Installation:
@@ -141,7 +141,9 @@ Agama will default to a minimal install, so you should select a DE before instal
 <details>
 <summary><strong> Troubleshooting: Black Screen</strong> </summary>
 
-If you use the YaST installer and have an NVIDIA GPU, you may encounter a black screen as previously mentioned. You can fix this by adding `nomodeset` to GRUB before booting. Here’s how you do it:
+If you use the YaST installer and have an NVIDIA GPU, you may encounter a black screen. You can fix this by adding `nomodeset` to GRUB before booting.
+
+Here’s how you do it:
 
 ![](/Images/openSUSE/Troubleshoot.png)
 
