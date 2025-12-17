@@ -37,7 +37,7 @@ Make sure your GPU drivers are properly installed before continuing. NVIDIA user
 
 ## Steam Games:
 
-### Installing Steam:
+### Steam Installation:
 Steam is easy to install and available through both Flatpak and package managers.
 
 **Flatpak (Recommended for most users):**
@@ -91,7 +91,7 @@ You can also enable Proton for these non-Steam games. Just right-click the game 
 
 ## Non-Steam Games:
 
-### 1. Lutris:
+### Lutris:
 **Lutris** is an open-source game launcher that supports a wide range of platforms, including:
 - GOG
 - Epic Games Store
