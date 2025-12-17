@@ -3,7 +3,7 @@ title: Gaming on Linux
 icon: gamepad-modern
 ---
 
-# Gaming on Linux
+# Gaming on Linux:
 
 Gaming on Linux has come a long way, mostly thanks to tools like **Wine** and **Proton**. It’s much better than it used to be, but it’s still not flawless. Some games won’t run at all, and others might need extra tweaks to get working.
 
@@ -12,7 +12,7 @@ If most of your games are on Steam, you’re in a good spot. **Valve’s Proton*
 Multiplayer games that use kernel-level anti-cheat (like **Easy Anti-Cheat** or **BattlEye**) often don’t run on Linux. This is by design, as anti-cheat programs need deep system access and are built specifically for Windows, so unfortunately many competitive titles won’t launch or let you connect online on Linux.
 Anti cheat makers could add Linux support, but most don’t , mainly because the Linux player base is small, security is tricky to handle properly, and honestly, it’s not a priority for them.
 
-### Check Compatibility First
+## Compatibility:
 Before diving in, check whether the game works on Linux using these sites:
 
 - [**ProtonDB**](https://www.protondb.com) – Real user reports on how games run with Proton.
