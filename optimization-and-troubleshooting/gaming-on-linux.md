@@ -35,7 +35,7 @@ This guide is split into two sections:
 Make sure your GPU drivers are properly installed before continuing. NVIDIA users should install the proprietary driver. For AMD, the open-source Mesa drivers are usually sufficient.
 {% endhint %}
 
-## 1. Steam Games
+## Steam Games
 
 ### Installing Steam
 Steam is easy to install and available through both Flatpak and package managers.
@@ -89,7 +89,7 @@ You can also enable Proton for these non-Steam games. Just right-click the game 
 
    
 
-## 2. Non-Steam Games
+## Non-Steam Games
 
 ### Lutris
 **Lutris** is an open-source game launcher that supports a wide range of platforms, including:
@@ -124,8 +124,6 @@ sudo dnf install lutris
 ```bash
 sudo zypper in lutris
 ```
-
-
 ### Running Games in Lutris
 After installing:
 - Log into your accounts (Epic, GOG, etc.) directly in Lutris
@@ -139,19 +137,4 @@ To manually install a Windows game:
 
 {% hint style="tip" %}
 Not every game is listed in the app, but many have community installers available at [lutris.net](https://lutris.net).
-{% endhint %}
-
-### Adding Emulator Games
-For emulators:
-
-1. Go to **Preferences > Runners**, and enable the emulator you want
-2. Add a game manually:
-   - Click **+ > Add a Game**
-   - Set the emulator executable
-   - Point it to the ROM file
-
-That’s the basics of gaming on Linux. It won’t be perfect for every setup or game, but it’s come a long way. Steam and Lutris together can cover a large chunk of your library.
-
-{% hint style="tip" %}
-If you need help with gaming on Linux, I’d recommend joining communities like [r/linux_gaming](https://www.reddit.com/r/linux_gaming/)  and  [GamingOnLinux](https://www.gamingonlinux.com/). They’re great places to get advice and troubleshooting steps.
 {% endhint %}
