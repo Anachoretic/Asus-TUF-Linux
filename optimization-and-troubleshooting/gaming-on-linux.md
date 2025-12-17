@@ -35,9 +35,9 @@ This guide is split into two sections:
 Make sure your GPU drivers are properly installed before continuing. NVIDIA users should install the proprietary driver. For AMD, the open-source Mesa drivers are usually sufficient.
 {% endhint %}
 
-## Steam Games
+## Steam Games:
 
-### Installing Steam
+### Installing Steam:
 Steam is easy to install and available through both Flatpak and package managers.
 
 **Flatpak (Recommended for most users):**
@@ -63,7 +63,7 @@ sudo dnf install steam
 Flatpak offers better isolation and avoids system dependency issues. However, native installs might offer slightly better integration with your GPU drivers.
 {% endhint %}
 
-### Enabling Proton Support
+### Enabling Proton Support:
 Once Steam is installed and launched:
 
 1. Open **Steam > Settings > Compatibility**
@@ -89,9 +89,9 @@ You can also enable Proton for these non-Steam games. Just right-click the game 
 
    
 
-## Non-Steam Games
+## Non-Steam Games:
 
-### Lutris
+### 1. Lutris:
 **Lutris** is an open-source game launcher that supports a wide range of platforms, including:
 - GOG
 - Epic Games Store
@@ -101,7 +101,7 @@ You can also enable Proton for these non-Steam games. Just right-click the game 
 
 It helps organize and launch both native and Windows-based games from one place.
 
-### Installing Lutris
+### Lutris Installation:
 **Via Flatpak:**
 ```bash
 flatpak install flathub net.lutris.Lutris
@@ -124,7 +124,7 @@ sudo dnf install lutris
 ```bash
 sudo zypper in lutris
 ```
-### Running Games in Lutris
+### Running Games in Lutris:
 After installing:
 - Log into your accounts (Epic, GOG, etc.) directly in Lutris
 - Your game libraries should appear if supported
