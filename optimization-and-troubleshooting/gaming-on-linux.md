@@ -74,6 +74,7 @@ This enables features like controller support and Steam Overlay.
 
 {% hint style="tip" %}
 You can also enable Proton for these non-Steam games. Just right-click the game > Properties > Compatibility.
+
 ![](/Images/Steam/Compatibility(Non-Steam).png)
 {% endhint %}
 
