@@ -12,11 +12,18 @@ If most of your games are on Steam, you’re in a good spot. **Valve’s Proton*
 Multiplayer games that use kernel-level anti-cheat (like **Easy Anti-Cheat** or **BattlEye**) often don’t run on Linux. This is by design, as anti-cheat programs need deep system access and are built specifically for Windows, so unfortunately many competitive titles won’t launch or let you connect online on Linux.
 Anti cheat makers could add Linux support, but most don’t , mainly because the Linux player base is small, security is tricky to handle properly, and honestly, it’s not a priority for them.
 
+{% hint style="warning" %}
+Make sure your GPU drivers are installed and working before continuing.
+{% endhint %}
+
 ## Compatibility:
 Before diving in, check whether the game works on Linux using these sites:
 
-- [**ProtonDB**](https://www.protondb.com) – Real user reports on how games run with Proton.
-- [**Are We Anti-Cheat Yet?**](https://areweanticheatyet.com) – Lists anti-cheats and whether they work on Linux or Steam Deck.
+- [**ProtonDB**](https://www.protondb.com):
+List of Steam games and their compatibility with Proton (the compatibility layer for Windows).
+
+- [**Are We Anti-Cheat Yet?**](https://areweanticheatyet.com):
+A list of games that use anti-cheat and their playability status on Linux
 
 If your favorite games aren’t compatible, you have two options:
 - **Dual-boot Linux with Windows**
@@ -24,15 +31,6 @@ If your favorite games aren’t compatible, you have two options:
 
 {% hint style="tip" %}
 Check ProtonDB for useful launch options or configuration tweaks. The community often shares helpful info for getting specific games working.
-{% endhint %}
-
-This guide is split into two sections:
-
-1. **Steam Games**
-2. **Non-Steam Games**
-
-{% hint style="warning" %}
-Make sure your GPU drivers are properly installed before continuing. NVIDIA users should install the proprietary driver. For AMD, the open-source Mesa drivers are usually sufficient.
 {% endhint %}
 
 ## Steam Games:
@@ -46,36 +44,25 @@ flatpak install flathub com.valvesoftware.Steam
 ```
 
 **Package Manager Install:**
-- **Arch (multilib must be enabled):**
-```bash
-sudo pacman -S steam
-```
-- **Debian/Ubuntu:**
-```bash
-sudo apt install steam
-```
-- **Fedora (Enable RPM Fusion):**
-```bash
-sudo dnf install steam
-```
+he package name for Steam is `steam`; it’s the same across all distributions, so you can simply install it using your package manager.
 
-{% hint style="tip" %}
-Flatpak offers better isolation and avoids system dependency issues. However, native installs might offer slightly better integration with your GPU drivers.
+{% hint style="ifno" %}
+On Arch, you will need to enable the `multilib` repository to install Steam, while on Fedora, you will need to enable the `RPM Fusion` repository.
 {% endhint %}
 
 ### Enabling Proton Support:
 Once Steam is installed and launched:
-
 1. Open **Steam > Settings > Compatibility**
 2. Enable **"Steam Play for all other titles"**
 3. Set it to use **Proton Experimental**
 
 ![](/Images/Steam/Compatibility.png)
 
-This lets you run many Windows-only games directly through Steam.
+Enabling Proton allows you to run the game using Proton (the compatibility layer for Windows), which can make most games playable. Be sure to check the compatibility first.
 
-{% hint style="tip" %}
-Always prefer native Linux versions when available , they usually offer better performance and fewer bugs.
+
+{% hint style="info" %}
+If a game has a native Linux port, you should use that instead of running it through Proton, as the native version usually performs better. If the native version doesn’t work well for you, then you can try running it through Proton.
 {% endhint %}
 
 ### Adding Non-Steam Games
@@ -109,22 +96,8 @@ flatpak install flathub net.lutris.Lutris
 ```
 
 **Via Package Manager:**
-- **Arch:**
-```bash
-sudo pacman -S lutris
-```
-- **Debian/Ubuntu:**
-```bash
-sudo apt install lutris
-```
-- **Fedora:**
-```bash
-sudo dnf install lutris
-```
-- **openSUSE Tumbleweed:**
-```bash
-sudo zypper in lutris
-```
+The package name for Lutris is `lutris` on all distributions.
+
 ### Running Games in Lutris:
 After installing:
 - Log into your accounts (Epic, GOG, etc.) directly in Lutris
