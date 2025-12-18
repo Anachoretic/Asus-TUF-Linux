@@ -70,6 +70,8 @@ Once Steam is installed and launched:
 2. Enable **"Steam Play for all other titles"**
 3. Set it to use **Proton Experimental**
 
+![](/Images/Steam/Compatibility.png)
+
 This lets you run many Windows-only games directly through Steam.
 
 {% hint style="tip" %}
@@ -85,9 +87,8 @@ This enables features like controller support and Steam Overlay.
 
 {% hint style="tip" %}
 You can also enable Proton for these non-Steam games. Just right-click the game > Properties > Compatibility.
+![](/Images/Steam/Compatibility(Non-Steam).png)
 {% endhint %}
-
-   
 
 ## Non-Steam Games:
 
