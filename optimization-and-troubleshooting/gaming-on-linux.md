@@ -141,14 +141,15 @@ After the installation completes, exit the installer and open Lutris. Right-clic
 
 ![](/Images/Lutris/Rebind.png)
 
-Now, in the game options, reselect the executable at the new location where the game was installed. It will usually be called something like gamename.exe or an abbreviation of it ending in .exe. Simply select the new executable and click Save.
+Now, in the game options, reselect the executable at the new location where the game was installed. It will usually be called something like `gamename.exe` or an abbreviation of it ending in `.exe`. Simply select the new executable and click Save.
 
 That’s pretty much it. You can now just launch the game and play it normally through Lutris.
 
-{% hint style="info" %}
-If you need a specific version of `Proton-GE` or `Wine-GE`, you can install `ProtonUp-Qt` from Flatpak to manage different versions.
-{% endhint %}
-
 </details>
  
-
+{% hint style="info" %}
+If you need a specific version of `Proton-GE` or `Wine-GE`, you can install `ProtonUp-Qt` from Flatpak to manage different versions.
+```bash
+flatpak install flathub net.davidotek.pupgui2
+```
+{% endhint %}
