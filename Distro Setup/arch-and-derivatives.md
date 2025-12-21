@@ -111,6 +111,96 @@ If you're using an **Nvidia GPU**, you’ll also need to install proprietary dri
 Unlike Windows, most drivers are already included in the Linux kernel and the rest of the drivers is usually included in the `linux-firmware` package. You usually don’t need to install them manually.
 
 ## 3.1 Nvidia Drivers:
+The NVIDIA proprietary driver has been removed from the repositories and replaced by the newer `nvidia-open` driver. For GPUs newer than Pascal, you should install the `nvidia-open` driver.`nvidia-open` does not support the GTX 10series (Pascal) or older cards. 
+
+For Turing and newer GPUs, the `nvidia-open` driver functions largely the same as the older proprietary driver.
+
+
+If your GPU isn’t listed, please refer to the [Arch Wiki page for NVIDIA drivers](https://wiki.archlinux.org/title/NVIDIA) to determine which driver version is supported for your GPU.
+
+
+You can compare your gpu architecture in the chart below:
+
+| **GPU Generation**          | **Architecture** |
+|-----------------------------|------------------|
+| RTX 50 Series Laptop GPU    | Blackwell        |
+| RTX 40 Series Laptop GPU    | Ada Lovelace     |
+| RTX 30 Series Laptop GPU    | Ampere           |
+| RTX 20 Series Laptop GPU    | Turing           |
+| GTX 16 Series               | Turing           |
+| GTX 10 Series               | Pascal           |
+
+{% hint style="warning" %}
+Before installaing the driver make sure **Secure Boot is disabled**, or the Nvidia driver won’t load.
+{% endhint %}
+
+Assuming the system is up to date, begin by checking whether your NVIDIA GPU is detected and visible to the system:
+
+```bash
+lspci | grep -i nvidia
+```
+
+If it doesn’t show, try switching to Hybrid GPU mode using `supergfxctl` and run the command again.
+
+<details>
+<summary>Arch:</summary>
+
+Begin by checking which kernel is installed by running:
+
+```bash
+uname -r
+```
+
+Now, depending on the kernel you are using, you may need to install a specific variant of the NVIDIA driver. For the default (`linux`) and LTS (`linux-lts`) kernels, you can choose between the `non-DKMS` and `DKMS` packages. Functionally, both provide the same NVIDIA driver and features.
+
+The main difference is how kernel compatibility is handled. The `non-DKMS` package (for example `nvidia-open`) is built specifically for a particular kernel version and must be updated whenever that kernel is updated. In contrast, the `DKMS` variant builds the kernel module automatically for any installed kernel, including future updates, as long as the `kernel headers` are present.
+
+For other kernels such as `linux-zen` or `linux-hardened`, the `DKMS` package is required, as prebuilt `non-DKMS` modules are not provided for those kernels.
+
+### For Linux:
+```bash
+sudo pacman -S nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
+```
+
+### For Linux-lts:
+```bash
+sudo pacman -S nvidia-open-lts nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
+```
+
+### For other kernels:
+You must install the headers package for your specific kernel before installing the DKMS drivers. The package name varies depending on the kernel. For example, for the Zen kernel it is called linux-zen-headers, and for the Hardened kernel it is called linux-hardened-headers.
+
+```bash
+sudo pacman -S dkms nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
+```
+
+</details> 
+
+ <details>
+ <summary>EndeavourOS/CachyOS:</summary>
+
+### CachyOS:
+The drivers should already be installed by default, and no additional steps are required.
+
+You can verify if they are installed and running with:
+```bash
+nvidia-smi
+```
+
+### EndeavourOS:
+Install `nvidia-inst` using yay, then run it. It should automatically detect your GPU and install all required drivers, with no additional steps needed.
+
+```bash
+yay -S nvidia-inst
+```
+
+```bash
+nvidia-inst
+```
+</details> 
+
+Finally, after installation, verify if the driver is installed and working by running `nvidia-smi`.
+
 
 ### 3.2. AMD Drivers
 
