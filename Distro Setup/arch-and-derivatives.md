@@ -365,7 +365,6 @@ How to Use Timeshift:
 
 {% step %} 
 
-
 # 7. Firewall
 A firewall is a security system that monitors, filters, and controls incoming and outgoing network traffic according to predefined security rules. While it isn't mandatory to have a firewall for a workstation, it is highly recommended to set up some form of firewall. There are two firewall options depending on the netfilter installed:
 
