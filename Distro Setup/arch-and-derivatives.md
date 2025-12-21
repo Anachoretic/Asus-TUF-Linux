@@ -3,10 +3,6 @@ title: Arch Linux
 icon: linux
 ---
 
-
-# Arch Linux Post-Install Guide
-
-
 {% stepper %}
 {% step %}
 
@@ -310,8 +306,7 @@ Assign the key combination you want, then click Apply.
 
 {% step %}
 
-
-# 5. Flatpak
+# 5. Flatpak:
 Flatpak is a Linux tool for installing and managing software. It runs applications in a sandboxed environment, keeping them partially separated from the main system. It is a widely used platform that allows software to work across various Linux distributions.
 
 Most Arch-based distributions come with Flatpak, but if it isn’t installed, you can use the following command to install it and add the Flatpak repository.
@@ -322,8 +317,7 @@ sudo pacman -S flatpak && flatpak remote-add --if-not-exists flathub https://dl.
 
 {% endstep %}
 
-{% step %} 
-
+{% step %}
 
 # 6. Backups:
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
@@ -347,7 +341,7 @@ How to Use Timeshift:
 
 5. Restore a Snapshot: To undo system changes, select a previous snapshot and click Restore.
 
-#### Restoring a Broken System Using Timeshift:
+## Restoring a Broken System Using Timeshift:
 
 1. Boot from a Linux ISO with Timeshift installed.
 
@@ -435,7 +429,6 @@ Then reload firewalld to integrate changes into the current runtime:
 ```bash
 sudo firewall-cmd --reload
 ```
-
 {% endstep %}
 
 {% endstepper %}
