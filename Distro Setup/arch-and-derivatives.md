@@ -111,57 +111,6 @@ If you're using an **Nvidia GPU**, you’ll also need to install proprietary dri
 Unlike Windows, most drivers are already included in the Linux kernel and the rest of the drivers is usually included in the `linux-firmware` package. You usually don’t need to install them manually.
 
 ## 3.1 Nvidia Drivers:
-There are currently two drivers available for NVIDIA GPUs: the proprietary one and the open-source GPU kernel modules. To determine which one you need, please read below.
-
-NVIDIA released open-source Linux GPU kernel modules (not to be confused with the fully open-source drivers Nouveau). These are still the proprietary drivers but semi open-source and are recommended for NVIDIA Blackwell and higher, as proprietary drivers won’t work for them. However, if you have anything older than Pascal, then it is recommended to use the proprietary drivers, as the open-source ones aren’t compatible. The performance is the same for other architectures, so you may choose to use whichever one you want.
-
-You can compare your gpu architecture in the chart below:
-
-| **GPU Generation**          | **Architecture** |
-|-----------------------------|------------------|
-| RTX 50 Series Laptop GPU    | Blackwell        |
-| RTX 40 Series Laptop GPU    | Ada Lovelace     |
-| RTX 30 Series Laptop GPU    | Ampere           |
-| RTX 20 Series Laptop GPU    | Turing           |
-| GTX 16 Series               | Turing           |
-| GTX 10 Series               | Pascal           |
-
-
-{% hint style="warning" %}
-Make sure **Secure Boot is disabled**, or the Nvidia driver won’t load.
-{% endhint %}
-
-Update system:
-```bash
-sudo pacman -Syu
-```
-
-Check GPU detection:
-```bash
-lspci | grep -i nvidia
-```
-
-If it doesn’t show, try switching to Hybrid GPU mode using `supergfxctl` and run the command again.
-
-**For EndeavourOS users:**
-```bash
-yay -S nvidia-inst
-nvidia-inst
-```
-
-**Manual installation (Arch and Arch-based distros):**
- 
-### **Proprietary driver:**
-
-```bash
-sudo pacman -S dkms nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
-```
-
-### **Nvidia open kernel module driver:**
-
-```bash
-sudo pacman -S dkms nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
-```
 
 ### 3.2. AMD Drivers
 
