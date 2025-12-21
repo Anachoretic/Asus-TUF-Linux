@@ -368,7 +368,6 @@ To check which netfilter is installed, run the following command:
 ```bash
 sudo pacman -Q | grep -E 'nftables|iptables'
 ```
-
 ## 7.1. Ufw:
 
 If you have `iptables(legacy)` installed, then it is recommended to use Uncomplicated Firewall (ufw).
@@ -377,12 +376,10 @@ Install ufw and its GUI with:
 ```bash
 sudo pacman -S ufw gufw
 ```
-
 Then enable it with:
 ```bash
 sudo ufw enable
 ```
-
 The default configuration denies all incoming connections while allowing outgoing connections. The default should be enough for most users, but if you use Docker, SSH, or any torrent software, you will need to give it access through your firewall.
 
 {% hint style="info" %}
@@ -393,7 +390,6 @@ The gufw package provides a GUI for ufw, which can be used to configure ufw. For
 ```bash
 sudo ufw allow <port>/<optional: protocol>
 ```
-
 ## 7.2. Firewalld:
 Firewalld is recommended for systems that have `iptables-nft` installed, which includes most modern distros.
 
@@ -401,12 +397,10 @@ Install the firewalld package:
 ```bash
 sudo pacman -S firewalld python-pyqt6
 ```
-
 Then enable it with the following command:
 ```bash
 sudo systemctl enable firewalld --now
 ```
-
 Again, if you need to open a port or a service, you can either use the GUI or the terminal for it. The `firewalld` package contains a GUI by default, while the Python package adds applet support for firewalld.
 
 To open/close a port or service, you can run the following command:
@@ -418,13 +412,10 @@ sudo firewall-cmd --zone=public --remove-port=<port>/<optional: protocol>
 ```bash
 sudo firewall-cmd --zone=public --remove-service=<service>
 ```
-
 By default, firewalld only saves these changes temporarily until a reboot. If you want to make the changes persistent, use the `--permanent` flag as such:
-
 ```bash
 sudo firewall-cmd --permanent --zone=public --remove-service=<service>
 ```
-
 Then reload firewalld to integrate changes into the current runtime:
 ```bash
 sudo firewall-cmd --reload
