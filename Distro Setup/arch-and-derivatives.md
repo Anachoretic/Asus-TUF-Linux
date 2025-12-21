@@ -199,11 +199,13 @@ nvidia-inst
 ```
 </details> 
 
+{% hint style="info" %}
+After installation, wait for the initramfs to be regenerated.
+{% endhint %}
+
 Finally, after installation, verify if the driver is installed and working by running `nvidia-smi`.
 
-
-### 3.2. AMD Drivers
-
+### 3.2. AMD Drivers:
 The drivers for AMD are usually installed out of the box since they’re part of the Linux kernel. If you want to make sure you have everything, including the 32-bit libraries and Vulkan, simply run the command below.
 
 ```bash
@@ -211,19 +213,10 @@ sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driv
 ```
 
 ### 3.3 Intel:
-Same for intel as well.
+The drivers for Intel are usually installed out of the box since they’re part of the Linux kernel. If you want to make sure you have everything, including the 32-bit libraries and Vulkan, simply run the command below.
 
 ```bash
 sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-intel-driver libva-utils
-```
-
-{% hint style="info" %}
-After installation, wait for the initramfs to be regenerated.
-{% endhint %}
-
-Enable Nvidia services:
-```bash
-sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
 ```
 
 {% endstep %}
@@ -317,25 +310,8 @@ Assign the key combination you want, then click Apply.
 
 {% step %}
 
-# 5. Enable Bluetooth (If it isn't enabled by default)
 
-Install:
-```bash
-sudo pacman -S bluez bluez-utils
-```
-
-Enable service:
-```bash
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
-```
-
-{% endstep %}
-
-{% step %} 
-
-
-# 6. Flatpak
+# 5. Flatpak
 Flatpak is a Linux tool for installing and managing software. It runs applications in a sandboxed environment, keeping them partially separated from the main system. It is a widely used platform that allows software to work across various Linux distributions.
 
 Most Arch-based distributions come with Flatpak, but if it isn’t installed, you can use the following command to install it and add the Flatpak repository.
@@ -349,7 +325,7 @@ sudo pacman -S flatpak && flatpak remote-add --if-not-exists flathub https://dl.
 {% step %} 
 
 
-# 7. Backups:
+# 6. Backups:
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
 
 Installation:
@@ -390,7 +366,7 @@ How to Use Timeshift:
 {% step %} 
 
 
-# 8. Firewall
+# 7. Firewall
 A firewall is a security system that monitors, filters, and controls incoming and outgoing network traffic according to predefined security rules. While it isn't mandatory to have a firewall for a workstation, it is highly recommended to set up some form of firewall. There are two firewall options depending on the netfilter installed:
 
 This covers only the basic things about firewalls. If you want advanced configuration or documentation, please visit the respective page for the firewalls on the Arch Wiki.
@@ -400,7 +376,7 @@ To check which netfilter is installed, run the following command:
 sudo pacman -Q | grep -E 'nftables|iptables'
 ```
 
-## 9.1. Ufw:
+## 7.1. Ufw:
 
 If you have `iptables(legacy)` installed, then it is recommended to use Uncomplicated Firewall (ufw).
 
@@ -425,7 +401,7 @@ The gufw package provides a GUI for ufw, which can be used to configure ufw. For
 sudo ufw allow <port>/<optional: protocol>
 ```
 
-## 9.2. Firewalld:
+## 7.2. Firewalld:
 Firewalld is recommended for systems that have `iptables-nft` installed, which includes most modern distros.
 
 Install the firewalld package:
