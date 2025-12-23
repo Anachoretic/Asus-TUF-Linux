@@ -100,7 +100,7 @@ If you're using an **NVIDIA GPU**, you’ll need to install the required drivers
 
 Unlike Windows, most drivers are already included in the Linux kernel and the rest of the drivers is usually included in the `linux-firmware` package. You usually don’t need to install them manually.
 
-## 3.1 Nvidia Drivers:
+## Nvidia:
 The NVIDIA proprietary driver has been removed from the repositories and replaced by the newer `nvidia-open` driver. For GPUs newer than Pascal, you should install the `nvidia-open` driver. `nvidia-open` does not support the GTX 10series (Pascal) or older cards. 
 
 For Turing and newer GPUs, the `nvidia-open` driver functions largely the same as the older proprietary driver.
@@ -196,14 +196,14 @@ After installation, wait for the initramfs to be regenerated.
 
 Finally, after installation, verify if the driver is installed and working by running `nvidia-smi`.
 
-## 3.2. AMD Drivers:
+## AMD:
 The drivers for AMD are usually installed out of the box since they’re part of the Linux kernel. If you want to make sure you have everything, including the 32-bit libraries and Vulkan, simply run the command below.
 
 ```bash
 sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver libva-utils
 ```
 
-## 3.3 Intel:
+## Intel:
 The drivers for Intel are usually installed out of the box since they’re part of the Linux kernel. If you want to make sure you have everything, including the 32-bit libraries and Vulkan, simply run the command below.
 
 ```bash
