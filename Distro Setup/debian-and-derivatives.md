@@ -339,13 +339,6 @@ To enable playback for formats like MP3, MPEG4, AVI, and more, you’ll need to 
 ```bash
 sudo apt install ubuntu-restricted-extras
 ```
-
-{% endstep %}
-
-{% step %}
-
-## 7. Firewall
-
 {% endstep %}
 
 {% endstepper %}
