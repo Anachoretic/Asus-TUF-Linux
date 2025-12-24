@@ -241,7 +241,7 @@ While rare, there have been instances of [malware in the AUR](https://lists.arch
 {% endstep %}
 {% step %}
 
-# 5. Asus Software Installation:
+# 5. Asus Software:
 There are currently two ways to get asusctl and supergfxctl. You can either add the [g14 repository](https://arch.asus-linux.org/)
 by following the instructions provided by the [asus-linux team](https://asus-linux.org/guides/arch-guide/), which allows you to install these tools along with other software like a custom kernel, or you can simply use the AUR. I highly recommend following the instructions from the `asus-linux` site, but the choice is yours.
 
