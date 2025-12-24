@@ -106,7 +106,7 @@ The NVIDIA proprietary driver has been removed from the repositories and replace
 For Turing and newer GPUs, the `nvidia-open` driver functions largely the same as the older proprietary driver.
 
 
-If your GPU isn’t listed (Pascal and older, or Quadro/Studio cards), please refer to the [Arch Wiki page for NVIDIA drivers]((https://wiki.archlinux.org/title/NVIDIA))
+If your GPU isn’t listed (Pascal and older, or Quadro/Studio cards), please refer to the [Arch Wiki page for NVIDIA drivers](https://wiki.archlinux.org/title/NVIDIA)
 to determine which driver version is supported for your GPU.
 
 
