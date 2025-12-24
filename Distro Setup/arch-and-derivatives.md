@@ -19,7 +19,7 @@ Some updates require manual intervention, so please check the [Arch News page](h
 {% endstep %}
 {% step %}
 
-# 2.Pacman Configuration:
+# 2. Pacman Configuration:
 
 <details><summary>Multilib:</summary> 
 By default on vanilla Arch, the multilib repository is disabled, and you will need to manually enable it in order to install Wine and other 32-bit software.
@@ -159,7 +159,7 @@ sudo pacman -S nvidia-open-lts nvidia-utils lib32-nvidia-utils nvidia-settings l
 ```
 
 ### For other kernels:
-You must install the headers package for your specific kernel before installing the DKMS drivers. The package name varies depending on the kernel. For example, for the Zen kernel it is called linux-zen-headers, and for the Hardened kernel it is called linux-hardened-headers.
+You must install the headers package for your specific kernel before installing the DKMS drivers. The package name varies depending on the kernel. For example, for the Zen kernel it is called `linux-zen-headers`, and for the Hardened kernel it is called `linux-hardened-headers`.
 
 ```bash
 sudo pacman -S dkms nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings libva-nvidia-driver vulkan-icd-loader lib32-vulkan-icd-loader
