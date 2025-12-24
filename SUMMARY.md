@@ -34,6 +34,9 @@
 
 *  [**KDE**](Customization/KDE.md)
 
+*  [**Terminal**](Customization/Terminal.md)
+
+
 ##  Optimizations & Daily Use:
 
 * [**Gaming on Linux**](optimization-and-troubleshooting/gaming-on-linux.md)  
