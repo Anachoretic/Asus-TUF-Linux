@@ -171,8 +171,7 @@ Enter the password for the root account.
  ![](/Images/Debian/Username.png)\
 Enter your name and username.
 
-![](/Images/Debian/Password-User.png)\
-Enter the password for your user account.
+![Enter the password for your user account.](/Images/Debian/Password-User.png)\
 
 ![](/Images/Debian/Time.png)\
 Select your time zone. If your time zone doesn’t appear, you may have selected the wrong region. You can either go back and change it in the previous section or change it after the installation; it doesn’t matter.
