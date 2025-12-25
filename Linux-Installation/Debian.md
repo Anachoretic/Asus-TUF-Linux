@@ -136,6 +136,84 @@ Finally, the installer will show a summary of the selected options and the chang
 
  <details>
   <summary>Debian: </summary>
+ Begin by choosing your language, region, and keyboard layout.
+ 
+ 
+ ![language](/Images/Debian/Language.png/)
+ 
+ ![region](/Images/Debian/Region.png/)  
+ 
+ ![keyboard layout.](/Images/Debian/Layout.png)
+ 
+ ![](/Images/Debian/Network.png)
+ 
+If you are using Ethernet, the installer will automatically detect it and configure the connection for use during installation. If you plan to use Wi-Fi instead, the installer will prompt you to select your wireless card, which will look something like this:
+
+```bash
+eno1: Realtek Semiconductor Co., Ltd. RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller
+wlo1: Intel Corporation Wi-Fi 6E AX210/AX211/AX411 160MHz
+```
+On this page, select your Wi-Fi card (it is generally named `wlo1`). Simply choose the name of your Wi-Fi  card and click Next.
+
+On the next page, you will see a list of all the networks detected by the Wi-Fi card. Simply select your network and enter its passphrase to connect. If your network does not appear, try manually entering the ESSID (the network name), click Continue, and then enter the passphrase.
+
+**Once connected, the installer will simply proceed to the next step.**
+
+ ![](/Images/Debian/Hostname.png)\
+ Enter a hostname (the name for your device).
+ 
+ ![](/Images/Debian/Domain.png)\
+You can leave this blank, as it isn’t something a home user typically needs. If you understand what this means and require it, enter your domain.
+
+ ![](/Images/Debian/Password.png)\
+Enter the password for the root account.
+
+ ![](/Images/Debian/Username.png)\
+Enter your name and username.
+
+![](/Images/Debian/Password-User.png)\
+Enter the password for your user account.
+
+![](/Images/Debian/Time.png)\
+Select your time zone. If your time zone doesn’t appear, you may have selected the wrong region. You can either go back and change it in the previous section or change it after the installation; it doesn’t matter.
+
+![](/Images/Debian/Disks.png)\
+If you are planning on dual booting Debian, choose `Guided - use the largest continuous free space.` This will allocate only the unassigned space to Debian, and the rest will remain unchanged.
+
+If you are planning to use only Debian, choose `Guided - use entire disk.` This will wipe the drive and install Debian on it. If you want to partition the disk manually, choose Manual.
+
+![](/Images/Debian/Partitions.png)\
+It is recommended for beginners to use a single partition for both root and home.
+
+![](/Images/Debian/Partitions-2.png)\
+This will show a summary of the changes that will be made to the disk. After making sure everything is correct, including the drive you are installing to, scroll to the bottom and choose `Finish partitioning and write changes to disk.`
+
+![](/Images/Debian/Disk-Summary.png)\
+It will show the summary again, including the partitions that will be created and deleted. If everything is correct, simply accept and continue.
+
+![](/Images/Debian/Base.png)\
+In this step, the installer will install the base system packages. Simply let it run and wait for it to complete.
+
+{% hint style="info" %}
+You may be asked to take part in the popularity-contest survey. This step is completely optional; you can choose whether or not to participate.
+![](/Images/Debian/Survey.png)
+{% endhint %}
+
+![](/Images/Debian/Desktop-Environment.png)\
+The installer will ask which desktop environment to install and present you with several options. GNOME or KDE are recommended, but you may choose whichever option you prefer.
+
+
+![Test??](/Images/Debian/Final.png)\
+Finally, the installer will install everything. This step may take some time, so be patient and let it complete. Once the installation finishes, you will be prompted to reboot into the installed system; simply continue.
+
+By default, Debian excludes the user from the `sudo` group, so you won’t be able to run commands with sudo, including `apt`. To fix this, log in as root and add your user to the sudo group.
+```bash
+su -
+
+usermod -aG sudo <username>
+```
+
+After that, simply reboot and you will be able to use sudo normally.
  </details>
 
 {% step %}
