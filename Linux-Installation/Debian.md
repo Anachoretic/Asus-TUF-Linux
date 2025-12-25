@@ -134,6 +134,10 @@ Finally, the installer will show a summary of the selected options and the chang
 
 </details> 
 
+ <details>
+  <summary>Debian: </summary>
+ </details>
+
 {% step %}
 {% endstep %}
 
