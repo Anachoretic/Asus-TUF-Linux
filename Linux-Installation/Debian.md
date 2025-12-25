@@ -159,50 +159,66 @@ On the next page, you will see a list of all the networks detected by the Wi-Fi 
 
 **Once connected, the installer will simply proceed to the next step.**
 
- ![](/Images/Debian/Hostname.png)\
+ ![](/Images/Debian/Hostname.png)
+ 
  Enter a hostname (the name for your device).
  
- ![](/Images/Debian/Domain.png)\
+ ![](/Images/Debian/Domain.png)
+
 You can leave this blank, as it isn’t something a home user typically needs. If you understand what this means and require it, enter your domain.
 
- ![](/Images/Debian/Password.png)\
+ ![](/Images/Debian/Password.png)
+
 Enter the password for the root account.
 
- ![](/Images/Debian/Username.png)\
+![](/Images/Debian/Username.png)
+
 Enter your name and username.
 
-![Enter the password for your user account.](/Images/Debian/Password-User.png)\
+![](/Images/Debian/Password-User.png)
 
-![](/Images/Debian/Time.png)\
+Enter the password for your user account.
+
+![](/Images/Debian/Time.png)
+
 Select your time zone. If your time zone doesn’t appear, you may have selected the wrong region. You can either go back and change it in the previous section or change it after the installation; it doesn’t matter.
 
-![](/Images/Debian/Disks.png)\
+![](/Images/Debian/Disks.png)
+
 If you are planning on dual booting Debian, choose `Guided - use the largest continuous free space.` This will allocate only the unassigned space to Debian, and the rest will remain unchanged.
 
 If you are planning to use only Debian, choose `Guided - use entire disk.` This will wipe the drive and install Debian on it. If you want to partition the disk manually, choose Manual.
 
-![](/Images/Debian/Partitions.png)\
+![](/Images/Debian/Partitions.png)
+
 It is recommended for beginners to use a single partition for both root and home.
 
-![](/Images/Debian/Partitions-2.png)\
+![](/Images/Debian/Partitions-2.png)
+
 This will show a summary of the changes that will be made to the disk. After making sure everything is correct, including the drive you are installing to, scroll to the bottom and choose `Finish partitioning and write changes to disk.`
 
-![](/Images/Debian/Disk-Summary.png)\
+![](/Images/Debian/Disk-Summary.png)
+
 It will show the summary again, including the partitions that will be created and deleted. If everything is correct, simply accept and continue.
 
-![](/Images/Debian/Base.png)\
+![](/Images/Debian/Base.png)
+
 In this step, the installer will install the base system packages. Simply let it run and wait for it to complete.
 
 {% hint style="info" %}
 You may be asked to take part in the popularity-contest survey. This step is completely optional; you can choose whether or not to participate.
+
 ![](/Images/Debian/Survey.png)
+
 {% endhint %}
 
-![](/Images/Debian/Desktop-Environment.png)\
+![](/Images/Debian/Desktop-Environment.png)
+
 The installer will ask which desktop environment to install and present you with several options. GNOME or KDE are recommended, but you may choose whichever option you prefer.
 
 
-![Test??](/Images/Debian/Final.png)\
+![Test??](/Images/Debian/Final.png)
+
 Finally, the installer will install everything. This step may take some time, so be patient and let it complete. Once the installation finishes, you will be prompted to reboot into the installed system; simply continue.
 
 By default, Debian excludes the user from the `sudo` group, so you won’t be able to run commands with sudo, including `apt`. To fix this, log in as root and add your user to the sudo group.
