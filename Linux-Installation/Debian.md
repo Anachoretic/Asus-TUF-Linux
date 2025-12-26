@@ -238,6 +238,8 @@ After that, simply reboot and you will be able to use sudo normally.
 
 ## 5.1 For Dual Boot Users
 
+<details>
+ <summary>Ubuntu/Mint:</summary>
 Open Disk Management in Windows, delete the Linux partitions, and then extend the partition from which the space was taken.
 
 When Linux is installed alongside Windows, its bootloader files are copied to the Windows EFI system partition. To fully remove Linux, you’ll need to delete those files. If you skip this step, you might get an error on boot from the Linux bootloader saying it can’t find the Linux system.
@@ -278,6 +280,50 @@ remove letter=Z
 
 After that, you can close both windows and use Windows normally.
 
+</details>
+
+<details>
+  <summary>Debian: </summary>
+Debian creates its own EFI System Partition (ESP), so you don’t need to manually remove the bootloader first. You can open Disk Management in Windows and delete all additional partitions created by Debian. Once those partitions are removed, Debian will be completely removed from your system.
+
+Note that the Debian EFI partition cannot be deleted using Disk Management. To remove it, you’ll need to use diskpart manually.
+
+Open PowerShell or Command Prompt as Administrator, then run the following commands:
+
+```bash
+diskpart
+
+list disk
+```
+Identify the drive where Windows and Debian are installed, then run the following commands:
+
+```bash
+select disk X # Replace X with the correct drive.
+```
+
+Then list all partitons with
+```bash
+list partitons
+```		
+The following are the default partitions created by Windows and should not be removed.
+If you are using an OEM installation, a MyASUS partition may also appear in the list.
+
+|  Partiton ###      |  Type              |  Size              |
+|--------------------|--------------------|--------------------|
+| Partition 1        |  System            |    100MB           | 
+| Partition 2        |  Reserved          |    16MB            | 
+| Partition 3        |  Primary           |    C:              |
+| Partition 4        |  Recovery          |    591MB           |
+
+
+The default partition created by Debian will usually appear as a `977 MB` partition in Windows if you didn’t change the partition layout. You can identify it by comparing the partitions shown in Disk Management.
+
+Once identified, simply remove it using the following command:
+```bash
+delete partition X override
+```
+After that, extend the C: drive, and Debian should be completely removed from your system.
+</details>
 
 ## 5.2 For Standalone Linux Installation:
 
@@ -287,7 +333,7 @@ If you want to return to Windows after using Linux, open DiskPart, select the Li
 
 diskpart
 
-select disk X  # Replace X with the correct drive
+select disk X  # Replace X with the correct drive.
 
 clean
 
