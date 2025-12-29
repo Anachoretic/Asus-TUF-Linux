@@ -3,192 +3,94 @@ title: Troubleshooting
 icon: wrench
 ---
 
-
-# Troubleshooting Guide
-This guide contains some issues that one might face while using Linux, along with the solutions and resources to get help.
-
 {% stepper %}
-
 {% step %}
 
-## 1. GRUB is Broken
+# 1. Black Screen
+<details><summary>Live Installer:</summary>
+A black screen during installation is often caused by graphics driver conflicts. In such cases, the installer may get stuck before the graphical interface launches.
 
-**Problem:** GRUB stopped working due to a Windows update or another issue.
+Adding the `nomodeset` kernel parameter disables early graphics mode setting and can allow the installer to boot successfully.
 
-**Fix:** Reinstall GRUB using a live ISO.
+During boot, select the live ISO entry and press <kbd>e</kbd> to edit it.
+Locate the line that starts with `linux` and add `nomodeset` to the end of that line, then press <kbd>F10</kbd> to boot.
 
-### Steps
+![](/Images/openSUSE/Troubleshoot2.png)
 
-1. Boot from the same ISO you used to install your OS.
-2. Open a terminal and identify your **root** (`/`) and **EFI** (`/boot`) partitions:
-   ```bash
-   lsblk
-   ```
-- Lists all block devices and partitions. Identify the root and EFI partitions.
-- Example: `/dev/nvme0n1p2` (root) and `/dev/nvme0n1p1` (EFI)
+</details>
 
-4. Follow the commands for your distro:
+<details><summary>Installed System:</summary>
+This depends on what you did right before it occurred. The drivers might not be installed properly, or something in the system may have broken.
 
-#### Arch
-```bash
-mount /dev/X /mnt               # Mount root partition to /mnt
-mount /dev/Y /mnt/boot          # Mount EFI partition to /mnt/boot
-arch-chroot /mnt                # Change root into the mounted system
-pacman -S grub efibootmgr os-prober  # Install GRUB and related tools
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub  # Install GRUB to EFI
-grub-mkconfig -o /boot/grub/grub.cfg  # Generate GRUB configuration
-```
-
-#### Ubuntu
-```bash
-sudo su                         # Become root
-mount /dev/X /mnt               # Mount root partition
-mount /dev/Y /mnt/boot          # Mount EFI partition
-for i in /dev /dev/pts /proc /sys /run; do mount -B $i /mnt$i; done  # Bind system dirs to chroot
-chroot /mnt                     # Enter mounted system
-
-# Install GRUB to the disk
-grub-install /dev/nvme0n1
-
-# If EFI variables cannot be set, mount efivarfs and retry
-mount -t efivarfs none /sys/firmware/efi/efivars
-grub-install /dev/nvme0n1
-```
-```bash
-update-grub                     # Generate GRUB configuration
-```
-
-#### Fedora
-```bash
-mount /dev/X /mnt               # Mount root partition
-mount /dev/Y /mnt/boot          # Mount EFI partition
-sudo systemd-nspawn -D /mnt     # Enter mounted system via systemd-nspawn
-grub2-install /dev/sda          # Install GRUB to the disk
-grub2-mkconfig -o /boot/grub2/grub.cfg  # Generate GRUB configuration
-exit                             # Leave systemd-nspawn
-sudo umount /mnt/boot /mnt      # Unmount partitions
-```
-Reboot without the live media.
+Switch to TTY3 by pressing <kbd>Ctrl + Alt + F3 </kbd>, log in, and figure it out from there.
+</details>
 
 {% endstep %}
-
 {% step %}
 
-## 2. NTFS Drive Can't Be Opened
-**Problem:** NTFS is proprietary, some distros lack built-in support.
+# 2. Dual boot:
+<details><summary>System Clock Mismatch:</summary>
+Windows uses local time to track the system clock, while Linux defaults to UTC. Because of this, when you boot back into Windows, the time may appear incorrect or ahead. You can fix this by either configuring Linux to use local time or making Windows use UTC.
 
-**Fix:** Install `ntfs-3g` (adds NTFS read/write support).
+## Windows:
+Open Settings, go to Date & Time, and make sure 'Set time automatically' is turned off. Then, open the Registry Editor and navigate to the following path:
 
-- **Arch:**
 ```bash
-sudo pacman -S ntfs-3g
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation
 ```
-- **Debian/Ubuntu:**
+
+Then, within that folder, add a new `DWORD (32-bit)` value named `RealTimeIsUniversal`, set its value to `1`, and reboot your system. After that, correct your time, and you're done.
+
+
+## Linux:
 ```bash
-sudo apt install ntfs-3g
+timedatectl set-local-rtc 1 --adjust-system-clock
 ```
-- **Fedora:**
-```bash
-sudo dnf install ntfs-3g
-```
-{% hint style="warning" %} Running Steam or other games from an NTFS partition will not work, you will need to reinstall them on a Linux filesystem. {% endhint %}
+After running this, run `timedatectl` and make sure it shows `RTC in local TZ: yes`.
+
+</details>
+
+<details><summary>NTFS</summary>
+NTFS is a proprietary format, and while it’s supported on Linux, it isn’t ideal. You should generally prefer a native Linux filesystem or another well-supported format and avoid NTFS unless necessary. If you have games on an NTFS partition and plan to play them on Linux, it’s better to install them on a Linux-compatible filesystem, as you may run into several issues trying to run them from NTFS, if they run at all.
+
+If you can’t access NTFS partitions on Linux, make sure the `ntfs-3g` package is installed and that Fast Startup is turned off in Windows.
+
+</details>
+
 {% endstep %}
-
 {% step %}
 
-## 3. Brightness Doesn’t Work in Hybrid Mode
+# 3. Hotkeys:
+<details><summary>Brightness:</summary>
+On some laptops, the brightness hotkeys or the brightness slider in your desktop environment may not work, particularly on systems with hybrid graphics and a MUX switch. In these cases, the kernel’s default ACPI backlight driver might not expose the correct backlight interface. You can try adding `acpi_backlight=native` (or other variants like vendor or video) to your bootloader’s kernel command line, which may restore brightness control.
 
-**Fix:** Add kernel parameters.
-```bash
-sudo nano /etc/default/grub     # Edit GRUB configuration file
-```
-Replace:
-```
-GRUB_CMDLINE_LINUX="rhgb quiet"
-```
-With:
-```
-GRUB_CMDLINE_LINUX_DEFAULT="rhgb quiet pcie_aspm=force acpi_backlight=native"
-```
-Update GRUB:
-- Arch:
-```bash
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-- Fedora:
-```bash
-grub2-mkconfig -o /boot/grub2/grub.cfg
-```
-- Ubuntu:
-```bash
-sudo update-grub
-```
-Reboot.
+[For instructions on adding kernel parameters, refer to the Arch Wiki.](https://wiki.archlinux.org/title/Kernel_parameters)
+
+</details>
+
+<details><summary>Other Hotkeys:</summary>
+Some hotkeys are not mapped to any action in Linux, so pressing them will have no effect. To enable these hotkeys or configure additional ones, refer to the hotkey section of your distribution’s installation guide. You can follow the same steps there to add custom hotkeys as well.
+</details>
 
 {% endstep %}
-
 {% step %}
 
-## 4. Apps Not Using dGPU in Hybrid Mode
-**Fix:** Install and enable `switcheroo-control` (GPU switching service).
+# 4. dGPU:
+<details><summary>dGPU Not Utilized:</summary>
+First, make sure the `switcheroo-control` package is installed and enabled. After that, reboot the system and try launching any game. By default, it should handle hybrid GPUs automatically by offloading games to the discrete GPU (dGPU).
+
 ```bash
-sudo pacman -S switcheroo-control                
-sudo systemctl enable --now switcheroo-control
+systemctl enable switcheroo-control
 ```
-{% hint style="info" %} Most distributions like Fedora, Ubuntu, and many others include a GPU switching service by default, but many Arch Linux-based distributions do not. This guide is mainly for Arch-based distros. {% endhint %}
+
+If `switcheroo-control` does not work for certain games or applications, you can add `prime-run %command%` as a launch option. This will force the game or application to use the discrete GPU (dGPU). For this to work, the `nvidia-prime` package must be installed.
+</details>
 
 {% endstep %}
-
 {% step %}
 
-## 5. Fn Keys Not Working
-Certain keys like **Fn+F5**, **Fn+F4**, or the Armoury Crate key may not work. Check the post-install guide for steps to enable them.
+# Other:
+It’s not possible to include solutions for every problem that can occur. If you run into an issue that isn’t listed here, try searching online or checking the forum for your specific distro. A similar issue may already have been solved by someone else. If not, ask for help and be sure to include your system specifications along with relevant details such as logs.
 
 {% endstep %}
-
-{% step %}
-
-
-## 6. Black Screen After Installing NVIDIA Drivers
-**Possible Fix:**
-
-1. **Enable Secure Boot in BIOS temporarily**: This will block unsigned NVIDIA drivers from loading, allowing the system to boot so you can fix the drivers.
-2. Once booted, either:
-   - **Reinstall the NVIDIA drivers**
-   - **Force rebuild the NVIDIA kernel module**:
-     - Arch:
-     ```bash
-     sudo mkinitcpio -P   # Regenerate initramfs for all kernels
-     ```
-     - Fedora:
-     ```bash
-     sudo dracut --force  # Rebuild initramfs
-     ```
-
-- After that, **disable Secure Boot** in BIOS so the signed/working drivers can load normally.
-
-
-{% endstep %}
-
-{% step %}
-
-## 7. Live ISO Freezes Before Installer Loads
-**Possible Cause:** GPU driver conflict.
-**Workaround:** Disable the dGPU in Windows, then re-enable it after completing the setup and installing supergfxctl.
-
-{% endstep %}
-
-{% step %}
-
-## 8. Help Resources
-I can’t include every possible problem and solution here. If you encounter an issue not listed, it’s best to search online, many issues have already been solved on Reddit, distro-specific forums, or other Linux communities. Here are some recommended resources.
-
-- [r/linux4noobs](https://www.reddit.com/r/linux4noobs)
-- [r/linux_gaming](https://www.reddit.com/r/linux_gaming)
-- [LinuxQuestions](https://www.linuxquestions.org/)
-- Distro-specific subreddits (`r/arch`, `r/fedora`, `r/ubuntu`)
-- [Asus Linux Discord Server](https://discord.com/invite/B8GftRW2Hd)
-
-{% endstep %}
-
 {% endstepper %}
