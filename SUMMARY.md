@@ -43,7 +43,7 @@
 
 * [**Maintenance**](optimization-and-troubleshooting/maintenance.md)  
 
-* [**Monitoring Tools**](Advanced-Configuration/monitoring-tools.md)
+* [**Monitoring Tools**](optimization-and-troubleshooting/monitoring-tools.md)
 
 * [**Advanced Configuration**](Advanced-Configuration/Advanced-Configuration.md)
 
