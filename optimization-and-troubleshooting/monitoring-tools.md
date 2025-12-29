@@ -27,15 +27,7 @@ Just open the app from your applications menu or run:
  ```
  
 ### Btop
-Btop is a terminal-based resource monitor showing usage and stats for processor, memory, disks, network, and running processes.
-
-Installation
-```bash
-sudo pacman -S btop	# Arch Linux
-sudo apt install btop	# Debian/Ubuntu
-sudo dnf install btop	# Fedora
-sudo zypper in btop # openSUSE Tumbleweed
-```
+Btop is a terminal-based resource monitor showing usage and stats for processor, memory, disks, network, and running processes. Install the `btop` package using your distro's package manager.
 
 Usage:   
 Type btop in the terminal to launch the monitor or use the app.
@@ -45,17 +37,10 @@ Overlay monitors show system stats directly on top of games or GPU-heavy apps, s
 
 
 ### Mangohud
-MangoHud is an overlay for Vulkan and OpenGL games that displays FPS, temps, CPU/GPU load, VRAM usage, and other useful stats. Since RivaTuner isn’t available on Linux, MangoHud is the go-to alternative , it looks and works similarly.
+MangoHud is an overlay for Vulkan and OpenGL games that displays FPS, temps, CPU/GPU load, VRAM usage, and other useful stats. Since RivaTuner isn’t available on Linux, MangoHud is the go-to alternative , it looks and works similarly. To install MangoHud, install the `mangohud` package along with the `goverlay` package to customize what MangoHud displays.
 
-Installtion:
-```bash
-sudo pacman -S mangohud goverlay	#Arch Linux
-sudo apt install mangohud goverlay	#Debian
-sudo dnf install mangohud goverlay	#Fedora
-sudo zypper in mangohud goverlay # openSUSE Tumbleweed
-```
+### Usage:   
 
-Usage:   
 For steam games:
 Steam:
 1. Right-click the game in your library.
@@ -76,4 +61,4 @@ Herioic game laucher:
 3. Toggle Enable MangoHud on.
 
 Customizing the Overlay:   
-Open Goverlay , it has a simple, intuitive UI organized into sections. You can easily navigate and enable the stats you want.
+Open Goverlay, it has a simple, intuitive UI organized into sections. You can easily navigate and enable the stats you want.
