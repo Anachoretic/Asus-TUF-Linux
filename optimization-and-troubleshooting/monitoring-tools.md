@@ -7,7 +7,7 @@ icon: monitor-waveform
 
 Performance monitors are tools designed to track and analyze your system’s performance in real-time. They provide detailed insights into CPU usage, memory consumption, disk activity, network traffic, and more. With customizable options and clear graphical displays, performance monitors help you identify bottlenecks, troubleshoot issues, and optimize system performance effectively. Whether you’re a casual user or a system administrator, these tools are great for keeping your system running smoothly.
 
-## 1. General System Monitoring
+## 1. System Monitoring:
 
 This is used to monitor normal system and resource usage, similar to the Task Manager on Windows. It lets you see all resource usage at a glance and ensures everything is working as it should.
 
@@ -32,7 +32,7 @@ Btop is a terminal-based resource monitor showing usage and stats for processor,
 Usage:   
 Type btop in the terminal to launch the monitor or use the app.
 
-## 2. In-Game / Overlay Performance Monitor
+## 2. In-Game / Overlay Performance Monitor:
 Overlay monitors show system stats directly on top of games or GPU-heavy apps, so you can track FPS, temperatures, CPU/GPU load, and more without leaving your game. This helps you spot performance issues right away.
 
 
