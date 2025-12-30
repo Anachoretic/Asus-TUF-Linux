@@ -120,7 +120,7 @@ You can compare your GPU architecture in the chart below:
 ### 4.1. Open Kernel Module:
 
 ```bash
-sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-utils-G06
+sudo zypper in nvidia-open-driver-G06-signed-kmp-meta
 ```
 
 ### 4.2. Proprietary Drivers:
