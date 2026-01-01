@@ -8,7 +8,7 @@ icon: g
 {% stepper %}
 {% step %}
 
-## 1. Extensions
+# 1. Extensions:
 Extensions add extra features to GNOME and are one of the easiest ways to customize your experience. They allow you to add functionality that isn’t present by default, such as a clipboard manager, app indicators, and more.
 To install and manage extensions, install Extension Manager from Flatpak. It lets you browse, install, and manage extensions directly from the app, without needing a browser add-on like the default GNOME extension app.
 ```bash
@@ -55,7 +55,7 @@ Launch **Extension Manager** after installation and install the extension that y
 {% endstep %}
 {% step %}
 
-## 2. Shell Themes
+# 2. Shell Themes:
 GNOME Shell themes let you customize the look of the shell interface itself, including the top bar, overview, notifications, and other system elements, independent of application styling.
 
 {% hint style="info" %}
@@ -63,36 +63,32 @@ If you like having titlebar button for minimize and maximize then open gnome twe
 {% endhint %}
 
 
-### Installing a Shell Theme:
+## Installation:
 
 1. Visit: [gnome-look.org](https://www.gnome-look.org/browse?cat=135&ord=rating) and download a theme you like.
 
-2. Extract the theme, then open the theme folder. Its contents should look like this :
+2. Extract the theme, then open the theme folder. Its contents should look something like this :
 
 ![](/Images/GNOME/Index.png)
 
 3. Copy the theme folder into the `.themes` folder in your home directory. If the `.themes` folder doesn’t exist, create it. Press <kbd>Ctrl+H</kbd> to show hidden files, then copy your theme into `.themes` folder. (Make sure the theme itself isn’t nested inside any subfolders, or it won’t be detected.)
 
-4. Now open gnome-tweaks and go to the Appearance tab. Select your downloaded theme for both Shell and Legacy Applications. (If the Shell option is greyed out, make sure the User Themes extension is installed, then relaunch gnome-tweaks.)
+4. Now open `gnome-tweaks` and go to the Appearance tab. Select your downloaded theme for both Shell and Legacy Applications. (If the Shell option is greyed out, make sure the User Themes extension is installed, then relaunch gnome-tweaks.)
 
 ![](/Images/GNOME/Styles.png)
 
-
-### Additional Step for GTK4 Themes:
-GTK 4 themes require an additional step to display properly:
-
-1. Copy the assets folder from the theme into ~/.config/. The assets folder is usually inside the theme folder, but sometimes it may be located in the theme’s gtk-4.0 directory.
-
-2. Copy `gtk.css` and `gtk-dark.css` from the theme’s `gtk-4.0` folder into `~/.config/gtk-4.0/` (create the folder if it doesn’t exist).
+{% hint style="warning" %}
+GTK4 themes require an extra step to work correctly. If you skip it, some elements, such as titlebar buttons, may not display or function properly. To fix this, copy the theme’s `assets` folder, usually in the theme root or inside `gtk-4.0`, to `~/.config/`, then copy the `gtk.css` and `gtk-dark.css` files from the theme’s `gtk-4.0` folder to `~/.config/gtk-4.0/`. After this, reapply the theme and it should display correctly.
+{% endhint %}
 
 {% endstep %}
 {% step %}
 
-## 3. Icon Themes
+# 3. Icon Themes:
 
 Icon themes change the look of system and app icons.
 
-### Installing an Icon Theme:
+## Installation:
 
 1. Download an icon from: [gnome-look.org](https://www.gnome-look.org/browse?cat=132&ord=rating)
 
@@ -105,21 +101,23 @@ Icon themes change the look of system and app icons.
 {% endstep %}
 {% step %}
 
-## 4. Cursor Themes
+## 4. Cursor Themes:
 
 Cursor themes are installed the same way as icon themes.
 
 ### Installing a Cursor Theme:
 
-1. Download a cursor pack from gnome-look.org.
+1. Download a cursor pack from [gnome-look.org](https://www.gnome-look.org/browse?cat=107).
+
 2. Extract it and copy the cursor theme into the `.icons` folder.
-3. Open GNOME Tweaks, go to the Appearance tab, and select the cursor theme to apply it.
+
+3. Open `gnome-tweaks`, go to the Appearance tab, and select the cursor theme to apply it.
 
 {% endstep %}
 {% step %}
 
 <details>
- <summary>Examples:</summary>
+<summary>Examples:</summary>
 
  ![](/Images/GNOME/Example-1.png)
 
