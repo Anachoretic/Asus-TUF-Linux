@@ -29,14 +29,6 @@
 
 *  [**OpenSUSE Tumbleweed**](<Distro Setup/openSUSE%20Tumbleweed.md>)
 
-## Customization:
-*  [**GNOME**](<Customization/GNOME.md>)
-
-*  [**KDE**](Customization/KDE.md)
-
-*  [**Terminal**](Customization/Terminal.md)
-
-
 ##  Optimizations & Daily Use:
 
 * [**Gaming on Linux**](optimization-and-troubleshooting/gaming-on-linux.md)  
