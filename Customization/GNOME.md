@@ -5,17 +5,12 @@ icon: g
 
 # GNOME Customization:
 
-This guide covers the basics of GNOME customization, including extensions, the shell theme, and icon and cursor themes.
-
 {% stepper %}
 {% step %}
 
 ## 1. Extensions
-
-Extensions add extra features to GNOME and are one of the easiest ways to customize your experience.
-
-To install and manage extensions, install the Extension Manager (recommended Flatpak version):
-
+Extensions add extra features to GNOME and are one of the easiest ways to customize your experience. They allow you to add functionality that isn’t present by default, such as a clipboard manager, app indicators, and more.
+To install and manage extensions, install Extension Manager from Flatpak. It lets you browse, install, and manage extensions directly from the app, without needing a browser add-on like the default GNOME extension app.
 ```bash
 flatpak install flathub com.mattjakeman.ExtensionManager
 ```
@@ -24,39 +19,51 @@ Launch **Extension Manager** after installation and install the extension that y
 
 ![](/Images/GNOME/Extension-Manager.png)
 
+<details><summary> Recommended Extensions:</summary>
 
-### Recommended Extensions:
+[**User Themes**](https://extensions.gnome.org/extension/19/user-themes/)
+   - Adds support for custom GNOME Shell themes.
 
-1. [**Places Status Indicator**](https://extensions.gnome.org/extension/8/places-status-indicator/)
- 
-2. [**Apps Menu**](https://extensions.gnome.org/extension/6/applications-menu/)
+[**Dash to Dock**](https://extensions.gnome.org/extension/307/dash-to-dock/)
+  - Adds a dock to the desktop.
 
-3. [**User Themes**](https://extensions.gnome.org/extension/19/user-themes/) 
+[**Just Perfection**](https://extensions.gnome.org/extension/3843/just-perfection/)
+  - Allows you to individually tweak elements of the top bar.
 
-4. [**AppIndicator and KStatusNotifierItem Support**](https://extensions.gnome.org/extension/615/appindicator-support/) 
+[**AppIndicator and KStatusNotifierItem Support**](https://extensions.gnome.org/extension/615/appindicator-support/) 
+  - Adds support for AppIndicator, KStatusNotifierItem, and tray icons in GNOME Shell. 
 
-5. [**Dash to Dock**](https://extensions.gnome.org/extension/307/dash-to-dock/) 
+[**Blur My Shell**](https://extensions.gnome.org/extension/3193/blur-my-shell/)
+  - Adds a translucent blur effect to panels, menus, and the overview.
 
-6. [**Blur My Shell**](https://extensions.gnome.org/extension/3193/blur-my-shell/)
+[**Caffeine**](https://extensions.gnome.org/extension/517/caffeine/)
+  - Allows you to temporarily disable suspend or sleep for a set duration.
 
-7. [**Caffeine**](https://extensions.gnome.org/extension/517/caffeine/)
+[**Clipboard Indicator**](https://extensions.gnome.org/extension/779/clipboard-indicator/) 
+  - Adds a clipboard manager.
 
-8. [**Clipboard Indicator**](https://extensions.gnome.org/extension/779/clipboard-indicator/) 
+[**Vitals**](https://extensions.gnome.org/extension/1460/vitals/) 
+  - Displays CPU, GPU, memory, and other system usage in the top bar.
 
-9. [**Vitals**](https://extensions.gnome.org/extension/1460/vitals/) 
+[**Places Status Indicator**](https://extensions.gnome.org/extension/8/places-status-indicator/) and [**Apps Menu**](https://extensions.gnome.org/extension/6/applications-menu/)
+  -  Adds a menu for Places and Applications.
 
-10. [**Just Perfection**](https://extensions.gnome.org/extension/3843/just-perfection/)
+[**DING**](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/)
+  - Adds support for desktop icons.
+</details>
 
 {% endstep %}
 {% step %}
 
 ## 2. Shell Themes
+GNOME Shell themes let you customize the look of the shell interface itself, including the top bar, overview, notifications, and other system elements, independent of application styling.
 
-GNOME uses the GTK toolkit to draw interface elements. Shell themes change the appearance of GNOME Shell itself (top bar, overview, notifications).
-
+{% hint style="info" %}
 If you like having titlebar button for minimize and maximize then open gnome tweaks and head over to the Windows section and Below the Titlebar Button turn on Maximize and minimize.
+{% endhint %}
 
-### Installing a Shell Theme
+
+### Installing a Shell Theme:
 
 1. Visit: [gnome-look.org](https://www.gnome-look.org/browse?cat=135&ord=rating) and download a theme you like.
 
@@ -64,7 +71,7 @@ If you like having titlebar button for minimize and maximize then open gnome twe
 
 ![](/Images/GNOME/Index.png)
 
-3. Copy the theme folder into the .themes folder in your home directory. If the `.themes` folder doesn’t exist, create it. Press Ctrl+H to show hidden files, then copy your theme into .themes. (Make sure the theme folder isn’t nested inside any subfolders, or it won’t be detected.)
+3. Copy the theme folder into the `.themes` folder in your home directory. If the `.themes` folder doesn’t exist, create it. Press <kbd>Ctrl+H</kbd> to show hidden files, then copy your theme into `.themes` folder. (Make sure the theme itself isn’t nested inside any subfolders, or it won’t be detected.)
 
 4. Now open gnome-tweaks and go to the Appearance tab. Select your downloaded theme for both Shell and Legacy Applications. (If the Shell option is greyed out, make sure the User Themes extension is installed, then relaunch gnome-tweaks.)
 
