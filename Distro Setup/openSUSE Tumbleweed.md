@@ -18,6 +18,8 @@ sudo zypper refresh && sudo zypper dup
 
 While you can update the system using `gnome-software` or `discover`, it’s not recommended. These tools can’t reliably handle conflicts or errors, so it’s better to perform updates through the terminal instead.
 
+{% hint style="info" %} On Tumbleweed, the correct way to update the system is by running `zypper dup` (or dist-upgrade), as it upgrades your system to the latest snapshot, replacing, adding, or removing packages as needed. In contrast, `zypper up` (or update) only updates already installed packages without performing a full snapshot upgrade. {% endhint %}
+
 {% endstep %}
 
 {% step %}
