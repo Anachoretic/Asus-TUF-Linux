@@ -91,6 +91,7 @@ snapper rollback 12
 {% step %}
 
 ## 4. Drivers:
+
 All drivers are included in the kernel, so you generally don’t need to install anything extra like you do on Windows. The only exception is if you have an NVIDIA dGPU, since those drivers aren’t included by default and must be installed manually. Drivers for AMD and Intel GPUs are baked into the kernel, so you typically won’t need to do anything for them.
 
 First, add the repository for the NVIDIA drivers:
@@ -130,6 +131,10 @@ sudo zypper in nvidia-open-driver-G06-signed-kmp-meta
 sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-utils-G06
 ```
 After installing the drivers, simply reboot the system and verify that they’re being used by running `nvidia-smi`.
+
+
+{% hint style="info" %} For Secure Boot setup and driver troubleshooting, refer to the [openSUSE Tumbleweed wiki page](https://en.opensuse.org/SDB:NVIDIA_drivers). {% endhint %}
+
 
 {% endstep %}
 
