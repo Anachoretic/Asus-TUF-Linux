@@ -89,6 +89,22 @@ If `switcheroo-control` does not work for certain games or applications, you can
 {% endstep %}
 {% step %}
 
+# 5. Wifi Issues:
+<details><summary>Wi-Fi Randomly Disappearing:</summary>
+If you have a MediaTek or Realtek Wi-Fi card, you should consider replacing it with an Intel or another vendor’s Wi-Fi card. These cards are notoriously known for randomly disappearing in TUF series laptops. If you’re experiencing this issue, replacing the Wi-Fi card is highly recommended, as the drivers for MediaTek and Realtek cards are often unreliable and can cause additional problems.
+
+
+If your Wi-Fi card randomly disappears, you can replace it with an Intel AX210 (works with both Intel and AMD systems) or an AX211 (requires 11th-gen Intel CPUs or newer), or an equivalent model. As a temporary fix, you can try reconnecting the Wi-Fi card.
+
+{% hint style="warning" %}
+Due to how drivers are integrated in Linux, a Wi-Fi card randomly disappearing or becoming non-functional can also trigger a kernel panic.
+{% endhint %}
+
+</details>
+
+{% endstep %}
+{% step %}
+
 # Other:
 It’s not possible to include solutions for every problem that can occur. If you run into an issue that isn’t listed here, try searching online or checking the forum for your specific distro. A similar issue may already have been solved by someone else. If not, ask for help and be sure to include your system specifications along with relevant details such as logs.
 
