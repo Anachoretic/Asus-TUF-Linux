@@ -39,5 +39,14 @@
 
 * [**Advanced Configuration**](Advanced-Configuration/Advanced-Configuration.md)
 
+## Customization:
+
+
+*  [**GNOME**](<Customization/GNOME.md>)
+
+*  [**KDE**](Customization/KDE.md)
+
+*  [**Terminal**](Customization/Terminal.md)
+
 ## Troubleshooting
 * [**Troubleshooting**](optimization-and-troubleshooting/troubleshooting.md)
