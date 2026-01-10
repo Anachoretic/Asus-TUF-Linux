@@ -21,8 +21,8 @@ After downloading the ISO of your preferred distro, you will need to flash it to
 
 If you haven’t downloaded the ISOs yet, here’s where you can get them.
 - [Debian 13](https://www.debian.org/distrib/)
-- [Ubuntu GNOME](https://ubuntu.com/download/desktop)
-- [Ubuntu KDE](https://kubuntu.org/download/)
+- [Ubuntu GNOME](https://Ubuntu.com/download/desktop)
+- [Ubuntu KDE](https://kUbuntu.org/download/)
 
 {% tabs %}
 
@@ -85,50 +85,50 @@ Assuming you have disabled Secure Boot, if you have not, hold the F2 key and pre
 
 Once Ubuntu has booted, wait a few seconds and the installer should open automatically after a chime. If it doesn’t, click on the installer icon in the dock on the left side of the screen.
 
-![](/Images/UBUNTU/Language.png)
+![](/Images/Ubuntu/Language.png)
 
 The installer will open on the language tab. Simply choose your preferred language and click 'Next'.
 
-![](/Images/UBUNTU/Accessibility.png)
+![](/Images/Ubuntu/Accessibility.png)
 
 On the second tab, you’ll be asked if you want to enable any accessibility features. Enable any you need, or simply click 'Next' if you don’t want to use any.
 
-![](/Images/UBUNTU/Keyboard-Layout.png)
+![](/Images/Ubuntu/Keyboard-Layout.png)
 
 On this screen, select your keyboard layout.
 
-![](/Images/UBUNTU/Internet.png)
+![](/Images/Ubuntu/Internet.png)
 
 The installer will ask if you want to connect to the internet. It is recommended to do so in order to download updates and additional software.
 
 If you connect to the internet, the installer may prompt you to update. Simply update it and continue with the setup.
 
-![](/Images/UBUNTU/Type.png)
+![](/Images/Ubuntu/Type.png)
 
 For this step, choose 'Interactive Installation' and click 'Next'.
 
-![](/Images/UBUNTU/Applications.png)
+![](/Images/Ubuntu/Applications.png)
 
 The default selection will install the basic set of apps, while the extended selection will include additional apps like LibreOffice and others. You can choose either option according to your preference.
 
-![](/Images/UBUNTU/Software.png)
+![](/Images/Ubuntu/Software.png)
 
 You will be prompted to install third-party software and multimedia codecs. Simply enable both options to have them downloaded.
 
-![](/Images/UBUNTU/Disk-Setup.png)
+![](/Images/Ubuntu/Disk-Setup.png)
 
 If you are dual-booting Ubuntu with Windows and have already done the partitioning in Windows, you will see the option to 'Install alongside Windows.' Simply select that and continue.
 For a standalone installation, select 'Erase disk and install Ubuntu,' making sure to choose the correct disk.
 
-![](/Images/UBUNTU/User.png)
+![](/Images/Ubuntu/User.png)
 
 Simply enter your username, device name, set a password, and click 'Continue.
 
-![](/Images/UBUNTU/Timezone.png)
+![](/Images/Ubuntu/Timezone.png)
 
 Select a timezone and click 'Next.'
 
-![](/Images/UBUNTU/Summary.png)
+![](/Images/Ubuntu/Summary.png)
 
 Finally, the installer will show a summary of the selected options and the changes it will make. Make sure everything is correct, then click 'Install' and wait for the installation to complete.
 
@@ -217,7 +217,7 @@ You may be asked to take part in the popularity-contest survey. This step is com
 The installer will ask which desktop environment to install and present you with several options. GNOME or KDE are recommended, but you may choose whichever option you prefer.
 
 
-![Test??](/Images/Debian/Final.png)
+![](/Images/Debian/Final.png)
 
 Finally, the installer will install everything. This step may take some time, so be patient and let it complete. Once the installation finishes, you will be prompted to reboot into the installed system; simply continue.
 
@@ -230,6 +230,11 @@ usermod -aG sudo <username>
 
 After that, simply reboot and you will be able to use sudo normally.
  </details>
+
+
+{% hint style="info" %}
+Before installation, please check that basic functionality such as Wi-Fi, Bluetooth, keyboard, and trackpad works in the live installer. If not, the distro you selected may not yet support your hardware.
+{% endhint %}
 
 {% step %}
 {% endstep %}
@@ -267,10 +272,10 @@ cd EFI
 
 dir
 
-rd /s /q ubuntu  
+rd /s /q Ubuntu  
 ```
 
-**For both Mint and Ubuntu, the folder is named ubuntu, but it may be different for other distributions, so check the listed names.**
+**For both Mint and Ubuntu, the folder is named Ubuntu, but it may be different for other distributions, so check the listed names.**
 
 Return to the previous window and run:
 
