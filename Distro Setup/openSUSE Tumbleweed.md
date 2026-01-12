@@ -166,7 +166,7 @@ enabled_metadata=1
 
 Then download the following packages:
 ```bash
-sudo zypper in asusctl rog-control-center supergfxctl switcheroo-control 
+sudo zypper in asusctl asusctl-rog-gui supergfxctl switcheroo-control 
 ```
 
 Then enable the services with:
