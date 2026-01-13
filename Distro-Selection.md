@@ -5,7 +5,7 @@ icon: check
 # Choosing a Distro:
 Linux suffers from fragmentation, which is why there are hundreds of distros out there, with roughly 600 being actively maintained. When choosing a distro, it’s easy to feel overwhelmed by the sheer number of options, but realistically you only need to know about four major families: Debian, Fedora, openSUSE, and Arch. Most other distros originate from one of these. 
 
-There are also some unique distros you might find interesting, but that’s for you to explore as you get more comfortable with Linux.For now, stick to these four. On top of that, there are plenty of derivatives based on them, they’re mostly the same under the hood, with the major difference usually being the [DE](https://en.wikipedia.org/wiki/Desktop_environment) (desktop environment, in short: it handles the GUI of the system).
+There are also some unique distros you might find interesting, but that’s for you to explore as you get more comfortable with Linux. For now, stick to these four. On top of that, there are plenty of derivatives based on them, they’re mostly the same under the hood, with the major difference usually being the [DE](https://en.wikipedia.org/wiki/Desktop_environment) (desktop environment, in short: it handles the GUI of the system).
 
 Also, on the topic of desktop environments: when you’re starting out, stick to either [KDE](https://kde.org/) (it resembles Windows) or [GNOME](https://www.gnome.org/) (it resembles macOS). These are the most popular options, they’re beginner-friendly, and they’re pretty great in terms of customization.
 
