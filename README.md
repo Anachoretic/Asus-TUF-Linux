@@ -25,7 +25,7 @@ There is no official Armory Crate software for Linux. The closest options with a
 These tools are officially supported on Fedora, Arch, and openSUSE Tumbleweed. On Debian-based systems, you will need to build and install them manually. You can also try alternatives or use no software at all.
 
 # License & Credits
-THe current iteration of the guide is licensed under CC by SA 4.0. The lisence can be viewed [here](https://creativecommons.org/licenses/by-sa/4.0/).
+The current iteration of the guide is licensed under CC by SA 4.0. The lisence can be viewed [here](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Almost all the resources and information used to create this guide are freely accessible on the web. Each section for a specific distribution follows the recommended approach according to that distro’s official wiki. Many topics covered here can also be found on the Arch Wiki, especially for material that is not specific to a particular distribution.
 
