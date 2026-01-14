@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-* [**Welcome**](README.md)
+* [**Introduction**](README.md)
 
 * [**Choosing a Distro**](Distro-Selection.md)
 
