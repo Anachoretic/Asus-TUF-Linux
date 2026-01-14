@@ -1,4 +1,6 @@
-# Welcome to the ASUS TUF Linux guide!
+# Welcome!
+
+**Welcome to the ASUS TUF Linux guide!**
 
 The idea behind this guide is to simplify the process of running Linux on ASUS TUF laptops for beginners. It covers most of the basic steps you would normally follow, such as updating your system, installing drivers, and setting up specific software. Everything is condensed and kept in one place so you do not get overwhelmed or lost along the way.
 
@@ -6,7 +8,7 @@ This guide is by no means perfect. It is intended as a basic introduction to hel
 
 There are several limitations. Some topics are not explored as deeply as they probably should be, especially in areas where more explanation would be useful. Since a single person is writing everything, it is easy to run out of ways to present certain topics clearly, which means some sections are very straightforward and lack detailed explanations. Despite these shortcomings, this guide is a starting point, and it will continue to improve over time through updates and suggestions from others who use it.
 
-Whether you find it helpful or annoying, or incomplete, thank you for taking the time to visit this guide. :)
+**Whether you find it helpful or annoying, or incomplete, thank you for taking the time to visit this guide. :)**
 
 # Compatibility:
 The components used in TUF laptops are fairly standard and similar to those found in other laptops from different manufacturers. There are no proprietary parts known to cause major issues on Linux. Older models should have no compatibility problems since they have been around for a while and support has matured over the years. Any distribution that does not ship with an extremely old kernel should work fine on these laptops.
