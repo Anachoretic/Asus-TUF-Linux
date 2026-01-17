@@ -9,6 +9,7 @@ On KDE, the easiest way to install themes, widgets, cursors, and more is through
 Before proceeding, note that all content in both locations is user-generated and may be outdated or cause issues if improperly used. Proceed at your own risk.
 {% endhint %}
 
+<details><summary>Global Themes:</summary>
 # Discover:
 Discover is KDE’s default application store. If it is not installed, you can install it by installing the `discover` package. It allows you to download applications and themes for system components such as cursors, icons, the login manager (SDDM), and more.
 
@@ -26,3 +27,6 @@ Open System Settings and go to the Global Themes section. Navigate to the conten
 ![](/Images/KDE/Settings.png)
 
 Once the content is downloaded, you can apply it directly from the `“Get New”` window. After installation, the <kbd>Apply</kbd> button will appear next to it. Alternatively, you can close the window and apply the content from the `Global Themes` tab. Simply select the downloaded item and click <kbd>Apply</kbd>.
+</details>
+
+<details><summary>Widgets:</summary>
