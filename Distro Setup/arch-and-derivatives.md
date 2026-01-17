@@ -193,11 +193,6 @@ nvidia-inst
 ```
 </details> 
 
-<details>
-<summary></summary>
-</details> 
-
-
 {% hint style="info" %}
 After installation, wait for the initramfs to be regenerated.
 {% endhint %}
