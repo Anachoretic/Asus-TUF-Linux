@@ -109,6 +109,9 @@ For Turing and newer GPUs, the `nvidia-open` driver functions largely the same a
 If your GPU isn’t listed (Pascal and older, or Quadro/Studio cards), please refer to the [Arch Wiki page for NVIDIA drivers](https://wiki.archlinux.org/title/NVIDIA)
 to determine which driver version is supported for your GPU.
 
+{% hint style="info" %}
+The earliest TUF models came with 10XX series GPUs, and those laptops are now quite old. Most of them are likely no longer in use, so they are excluded from this guide. However, the steps to install the drivers can still be found in the Arch Wiki linked above.
+{% endhint %}
 
 You can compare your gpu architecture in the chart below:
 
@@ -189,6 +192,11 @@ yay -S nvidia-inst
 nvidia-inst
 ```
 </details> 
+
+<details>
+<summary></summary>
+</details> 
+
 
 {% hint style="info" %}
 After installation, wait for the initramfs to be regenerated.
