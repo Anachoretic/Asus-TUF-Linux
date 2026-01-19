@@ -13,7 +13,7 @@ Fastfetch is a CLI application that displays system information when run. It can
 
 To install Fastfetch, install the fastfetch package using your system’s package manager, then generate its configuration file with:
 ```bash
-fastfetch --gen-configg
+fastfetch --gen-config
 ```
 
 After it is generated, the configuration file is located in `~/.config/fastfetch/config.jsonc`.
