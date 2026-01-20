@@ -46,24 +46,21 @@ Then, edit the sources file:
 sudo nano /etc/apt/sources.list
 ```
 
--  deb http://deb.debian.org/debian/ trixie <span style="color:red">main contrib non-free non-free-firmware</span>
+```bash
+deb http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
 
-- deb-src http://deb.debian.org/debian/ trixie <span style="color:red">main contrib non-free non-free-firmware</span>
+deb http://deb.debian.org/debian-security/ trixie-security main contrib non-free non-free-firmware deb-src
+deb-src http://deb.debian.org/debian-security/ trixie-security main contrib non-free non-free-firmware deb
 
-- deb http://deb.debian.org/debian-security/ trixie-security <span style="color:red">main contrib non-free non-free-firmware</span> 
+deb http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware deb-src
+deb-src http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware
+``` 
 
-- deb-src http://deb.debian.org/debian-security/ trixie-security <span style="color:red">main contrib non-free non-free-firmware</span>
-
-- deb http://deb.debian.org/debian/ trixie-updates <span style="color:red">main contrib non-free non-free-firmware</span> 
-
-- deb-src http://deb.debian.org/debian/ trixie-updates <span style="color:red">main contrib non-free non-free-firmware</span>
-
- 
-
-**The following links already exist in the sources section, but components like `non-free` and `non-free-firmware` may be missing. Simply compare the existing entries with the ones highlighted in red and add any missing components, nothing else needs to be changed. If that’s unclear, you can instead comment out the existing sources and copy these updated ones to the end of the file.**
+**The following links already exist in the sources section, but components like `non-free` and `non-free-firmware` may be missing. Simply compare the existing entries and add any missing components, nothing else needs to be changed. If that’s unclear, you can instead comment out the existing sources and copy these updated ones to the end of the file.**
 
 
- After editing the file update your system with
+ After editing the file update your system with:
 ```bash
 sudo apt update
 ```
@@ -131,7 +128,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 ## 4. Asus Software:
 
 {% hint style="warning" %}
-**Note:** These tools need to be built from source. Follow steps carefully.
+These tools need to be built from source. Follow steps carefully.
 {% endhint %}
 
 ### 4.1 Build Dependencies**
@@ -332,13 +329,7 @@ flatpak install flathub org.gnome.World.PikaBackup
 
 {% step %}
 
-## 6. Multimedia Support
-
-To enable playback for formats like MP3, MPEG4, AVI, and more, you’ll need to install the necessary media codecs. Ubuntu doesn’t include them out of the box due to licensing restrictions.
-
-```bash
-sudo apt install ubuntu-restricted-extras
-```
+## 6.
 {% endstep %}
 
 {% endstepper %}
