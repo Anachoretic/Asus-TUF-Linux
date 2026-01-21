@@ -30,7 +30,7 @@ sudo apt update && sudo apt upgrade
 By default, most drivers (e.g., for Intel, AMD, and other hardware) are included in the Linux kernel. However, **Nvidia dGPU drivers must be installed separately.**
 
 <details>
-<summary><strong>Debian(Trixie):</strong></summary>
+<summary>Debian(Trixie):</summary>
 
 To install the NVIDIA driver on Debian, you’ll need to add the non-free  sources.
 
@@ -90,7 +90,7 @@ sudo apt install switcheroo-control && systemctl enable switcheroo-control --now
 
 <details>
 
-<summary><strong>Ubuntu/Mint</strong></summary>
+<summary>Ubuntu/Mint:</summary>
 
 Use the built-in **Driver Manager** or **Software & Updates > Additional Drivers**. Ensure that proprietary drivers (not Nouveau) are selected.
 
@@ -261,12 +261,12 @@ Assign the key combination you want, then click Apply.
 {% step %}
 
 ## 5. Backup's:
-
-### 1. System Settings Backup:
+<details>
+<summary>System Backup:</summary>
 
 Timeshift is a powerful Linux backup tool that functions similarly to System Restore on Windows or Time Machine on macOS. It protects your system by creating incremental snapshots of your file system at regular intervals. These snapshots allow you to restore your system to a previous state, undoing any system changes or issues.
 
-Installation:
+### Installation:
 ```bash
 sudo apt install timeshift
 ```
@@ -298,7 +298,10 @@ How to Use Timeshift:
 
 {% hint style="warning" %} Timeshift does not back up personal user files such as documents, pictures, or downloads. It focuses exclusively on system files and settings. {% endhint %}
 
-### 2.Backup Personal Files with Pika Backup:
+</details>
+
+<details>
+<summary>Personal File Backup:</summary>
 
 Pika Backup is a user-friendly tool designed for personal data backup. It leverages the BorgBackup engine for secure and efficient backups. Note that Pika Backup does **not** support full system restoration.
 
@@ -325,11 +328,45 @@ flatpak install flathub org.gnome.World.PikaBackup
 5. A file browser will open showing the backed-up contents.
 6. Manually Copy the desired files or folders to your main directory or another location.
 
+</details>
+
 {% endstep %}
 
 {% step %}
 
-## 6.
+## 6. Firewall
+
+A firewall is a security system that monitors, filters, and controls incoming and outgoing network traffic according to predefined security rules. While it is not mandatory, it is highly recommended to set up some form of firewall, as it adds an extra layer of security.
+
+UFW (Uncomplicated Firewall) is recommended because it is relatively easy to set up and use. Begin by installing UFW:
+
+```bash
+sudo apt install ufw gufw
+```
+
+{% hint style="info" %}
+GUFW provides a GUI for UFW. It is not required for UFW to function, but if you prefer managing the firewall through a GUI, you may find it useful.
+{% endhint %}
+
+Then enable the UFW service so it launches at startup:
+
+```bash
+sudo systemctl enable ufw --now
+```
+
+To confirm whether UFW is running, run the following command:
+
+```bash
+sudo ufw status verbose
+
+#The ouput should look like this:
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing)
+New profiles: skip
+```
+
+For most users, the default profile should be fine, but you may need to enable a port or service. [You can do this by following the UFW documentation.](https://help.ubuntu.com/community/UFW)
 {% endstep %}
 
 {% endstepper %}
