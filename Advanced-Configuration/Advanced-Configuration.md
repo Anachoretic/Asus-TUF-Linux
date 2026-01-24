@@ -23,3 +23,22 @@ AMD GPUs expose voltage controls through the Linux kernel and driver stack, so p
 
 The installation steps are available on [LACT’s GitHub page](https://github.com/ilya-zlobintsev/LACT).
 For supported GPUs, the undervolting process is essentially the same as on Windows, start by lowering the voltage by 50 mV and test for stability. If it becomes unstable or there’s a noticeable performance drop, increase the voltage in 20 mV steps until it’s stable, then repeat as needed.
+
+
+## 3. Secure Boot:
+Secure Boot is a security feature in UEFI (BIOS) that prevents unsigned software from loading during the boot process, potentially stopping malicious programs from running when the system first starts. Secure Boot isn’t mandatory on Linux and can be left disabled in most cases. In fact, some distributions require Secure Boot to be disabled because they won’t boot normally with it enabled. This is because their bootloaders or kernels are not signed, or the required keys are not present in the firmware. If you’re only running Linux, you can keep Secure Boot disabled, or enable it if you want the "extra security".
+
+If you’re dual booting Windows, disabling Secure Boot and switching it on/off every time you switch OS can be annoying. In that case, it’s usually better to leave Secure Boot enabled so both operating systems boot normally.
+
+The steps to enable Secure Boot vary depending on your distro’s implementation, so the relevant wiki pages for enabling Secure Boot are linked below.
+* [Debian](https://wiki.debian.org/SecureBoot)
+
+* [Fedora](https://rpmfusion.org/Howto/Secure%20Boot)
+
+* [openSUSE Tumbleweed](https://en.opensuse.org/openSUSE:UEFI#How_to_enable_or_disable_Secure_Boot_support)
+
+* [Arch](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)
+    
+    *  [CachyOS](https://wiki.cachyos.org/configuration/secure_boot_setup/)
+ 
+    *  [EndeavourOS](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)
