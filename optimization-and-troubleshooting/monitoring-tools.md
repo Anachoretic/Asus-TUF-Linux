@@ -32,7 +32,7 @@ Btop is a terminal-based resource monitor showing usage and stats for processor,
 Usage:   
 Type btop in the terminal to launch the monitor or use the app.
 
-## 2. In-Game / Overlay Performance Monitor:
+## 2. Performance Overlay:
 Overlay monitors show system stats directly on top of games or GPU-heavy apps, so you can track FPS, temperatures, CPU/GPU load, and more without leaving your game. This helps you spot performance issues right away.
 
 
