@@ -51,7 +51,7 @@ The package name for Steam is `steam`; it’s the same across all distributions,
 On Arch, you will need to enable the `multilib` repository to install Steam, while on Fedora, you will need to enable the `RPM Fusion` repository.
 {% endhint %}
 
-### Proton Support:
+### Enabling Proton:
 Once Steam is installed and updated, you will need to enable Proton for all games in order to play them. Go to Steam > Settings > Compatibility, enable Steam Play for all other titles, and set it to use Proton Experimental.
 
 ![](/Images/Steam/Compatibility.png)
@@ -61,7 +61,7 @@ If a game has a native Linux port, you should use that instead of running it thr
 {% endhint %}
 
 
-### Adding Non-Steam Games to Steam:
+### Adding Non-Steam Games:
 Go to Games > Add a Non-Steam Game to My Library and browse to the game’s executable to add it. If the game is installed using Lutris or other launchers, you can usually play it through Steam without doing anything extra.
 
 However, if you are trying to add an executable directly through Steam, you will also need to enable Proton for that specific game by going to Properties > Compatibility.
@@ -77,21 +77,22 @@ You can enable Steam to start in Big Picture mode for a Steam Deck like experien
 
 Lutris is a game manager that lets you install and manage games from different stores and platforms all in one place. It works with Steam, GOG, Epic Games Store, emulators, and even standalone Windows and Linux games, so you can keep all your games organized in a single library. You can also manage and launch your Steam games through Lutris, making everything much easier to access.
 
-### Installation:
+{% hint style="info" %}
 You can install it either through Flatpak or your distribution's package manager; it is available on all distributions.
+```bash
+flatpak install net.lutris.Lutris
+```
+The package name is `lutris` on all distributions, so you can install it using your distro's package manager. Make sure to also install `wine` to run Windows apps.{% endhint %}
 
-```flatpak install net.lutris.Lutris```
-
-The package name is `lutris` on all distributions, so you can install it using your distro's package manager. Make sure to also install `wine` to run Windows apps.
-
-## Games:
+{% hint style="info" %}
 Before proceeding, make sure to create a folder with any name you like inside your home directory to install the apps there. This isn’t mandatory, but it makes managing your apps and games much easier.
-
 ```bash
 Desktop    Downloads  Music     Public     Videos      yay
 Documents  **Games**      Pictures  Templates  Wallpapers
 ```
 Here, the folder that will be used is called **Games**. You can name it anything, the name doesn’t matter, but make sure to remember it so you can select it later.
+{% endhint %}
+
 
 <details>
   <summary>Installing Games via Lutris:</summary>
