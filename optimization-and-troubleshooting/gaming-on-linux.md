@@ -77,12 +77,12 @@ You can enable Steam to start in Big Picture mode for a Steam Deck like experien
 
 Lutris is a game manager that lets you install and manage games from different stores and platforms all in one place. It works with Steam, GOG, Epic Games Store, emulators, and even standalone Windows and Linux games, so you can keep all your games organized in a single library. You can also manage and launch your Steam games through Lutris, making everything much easier to access.
 
-{% hint style="info" %}
 You can install it either through Flatpak or your distribution's package manager; it is available on all distributions.
 ```bash
 flatpak install net.lutris.Lutris
 ```
-The package name is `lutris` on all distributions, so you can install it using your distro's package manager. Make sure to also install `wine` to run Windows apps.{% endhint %}
+The package name is `lutris` on all distributions, so you can install it using your distro's package manager. Make sure to also install `wine` to run Windows apps.
+
 
 {% hint style="info" %}
 Before proceeding, make sure to create a folder with any name you like inside your home directory to install the apps there. This isn’t mandatory, but it makes managing your apps and games much easier.
