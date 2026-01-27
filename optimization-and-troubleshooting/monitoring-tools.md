@@ -41,21 +41,19 @@ MangoHud is an overlay for Vulkan and OpenGL games that displays FPS, temps, CPU
 
 ### Usage:   
 
-For steam games:
-Steam:
+For Steam:
 1. Right-click the game in your library.
 2. Select Properties.
 3. Go to Launch Options.
 4. Add this command: `mangohud %command%`.
 
-For lutris and Herioc game laucher:
-Lutris:
+For Lutris:
 1. Right-click the game.
 2. Select Configure.
 3. Go to the System options tab.
 4. Check the box for Enable MangoHud.
 
-Herioic game laucher:
+For Herioic game laucher:
 1. Select the game.
 2. Go to the Game settings.
 3. Toggle Enable MangoHud on.
