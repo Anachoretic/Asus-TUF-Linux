@@ -109,8 +109,13 @@ In the first step, choose your language and keyboard layout.
 
 First, make sure the installer has chosen the correct disk. If not, click <kbd> Change Destination </kbd> and select the correct disk. If you have a single drive, you don’t need to worry about this.
 
-Next, if you are planning to dual boot with Windows and have completed the previous partitioning steps, you should see an option called <kbd> Share disk with other operating system </kbd>. Select it and continue to the next step.
+<details><summary>Linux Only:</summary>
+If you are planning to use Linux only, choose <kbd>Use entire disk</kbd>. This will erase Windows and all existing data on the disk and install Fedora.
+</details>
 
+<details><summary> Dual Boot:</summary>
+If you are planning to dual boot with Windows and have completed the previous partitioning steps, you should see an option called <kbd>Share disk with other operating system</kbd>. Select it and continue to the next step.
+</details>
 
 ![](/Images/Fedora/Encryption.png)
 
