@@ -81,12 +81,8 @@ Assuming you have disabled Secure Boot, if you have not, hold the F2 key and pre
 
 ## 4.2 Installation:
  
-<details>
-<summary><strong>EndeavourOS/CachyOs Installation:</strong> </summary>
-
-
+### EndeavourOS/CachyOs Installation:
 **CachyOS and EndeavourOS use the same Calamares installer. While CachyOS is included in the title, it isn’t covered specifically in the installation steps. There are no images showing the CachyOS installation process, since the steps are largely the same, with only a few appearing in a different order. Following the EndeavourOS steps will work for CachyOS as well.**
-
 
 Once you’re in the live session, connect to the internet using Wi-Fi or Ethernet. Then launch the installer from the taskbar and choose the Online Installation method.
 
@@ -144,7 +140,6 @@ Now enter your username, hostname, and password, then click Next.
 ![Summary](/Images/EndeavourOS/Summary.png)
 
 Review all settings. If everything looks correct, click **Install**. Then wait for the installation to complete, and reboot.
-</details>
 
 <details><summary>Arch:</summary>
 
