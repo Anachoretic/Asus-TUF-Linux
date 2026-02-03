@@ -92,15 +92,11 @@ Once you’re in the live session, connect to the internet using Wi-Fi or Ethern
 
 {% hint style="info" %} An internet connection is required for updating the system, and some options, like selecting a desktop environment or bootloader, are not available in the offline installer. {% endhint %}
 
-
-
 ![Installer](/Images/EndeavourOS/Installer.png)
-
 
 ![Language](/Images/EndeavourOS/Language.png)
 
 Choose your language.
-
 
 ![Region and Timezone](/Images/EndeavourOS/Region.png)
 
@@ -126,11 +122,20 @@ Select GRUB as the bootloader.
 
 ![Disk Setup](/Images/EndeavourOS/Partitions.png)
 
-For a single-boot setup, select Erase Disk and enable Swap with Hibernate if you plan on using suspend to disk instead of swap on zram. For a dual-boot setup, select Replace a Partition and choose the unallocated space.
+<details><summary>Linux Only:</summary>
+For a single-boot setup, select Erase Disk and enable Swap with Hibernate if you plan to use suspend-to-disk (hibernation), which requires a disk-based swap partition or swap file, instead of zram.
+(zram creates a compressed block device in RAM, allowing more data to be stored in memory and providing much faster access than disk-based swap.)
+Hibernation and zram cannot be used together, because hibernation requires disk-backed swap. However, zram can be used alongside traditional swap as long as hibernation is not used.</details>
+
+{% hint style="danger" %}
+This will wipe the disk and remove all existing data, so be warned.{% endhint %}
+
+<details><summary>Dual Boot:</summary>
+For dual boot, select Replace a partition and choose the unallocated space (do not select your existing windows partition).
 
 ![An example of dual boot.](/Images/EndeavourOS/Partitions-DB.png)
-
 This is an example of a dual-boot setup. The disk size is irrelevant because it is running in a virtual machine.
+</details>
 
 ![User Setup](/Images/EndeavourOS/Username.png)
 
@@ -139,7 +144,6 @@ Now enter your username, hostname, and password, then click Next.
 ![Summary](/Images/EndeavourOS/Summary.png)
 
 Review all settings. If everything looks correct, click **Install**. Then wait for the installation to complete, and reboot.
-
 </details>
 
 <details><summary>Arch:</summary>
