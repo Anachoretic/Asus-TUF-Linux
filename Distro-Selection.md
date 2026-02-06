@@ -32,27 +32,25 @@ If you’re not sure which desktop environment is right for you, you can try the
 ## Recommended Linux Distributions:
 This is just a list, not a ranking.
 
-<pre>
-1. <a href="https://www.fedoraproject.org/">Fedora</a>
-   |
-   |-- <a href="https://bazzite.gg/">Bazzite</a>
-   |
-   |__ <a href="https://nobaraproject.org/download.html">Nobara</a>
+1. [Fedora](https://www.fedoraproject.org/)
+   
+   - [Bazzite](https://bazzite.gg/)
+   
+   - [Nobara](https://nobaraproject.org/download.html)
 
 2. Arch
-   |
-   |-- <a href="https://endeavouros.com/">EndeavourOS</a>
-   |
-   |__ <a href="https://cachyos.org/">CachyOS</a>
+   
+   - [EndeavourOS](https://endeavouros.com/)
+   
+   - [CachyOS:](https://cachyos.org/)
 
-3. <a href="https://get.opensuse.org/tumbleweed/">openSUSE Tumbleweed</a>
+3. [openSUSE Tumbleweed](https://get.opensuse.org/tumbleweed/)
 
 4. Debian
-   |
-   |-- <a href="https://ubuntu.com/desktop">Ubuntu</a>
-   |
-   |-- <a href="https://linuxmint.com/">Linux Mint</a>
-</pre>
+   
+   - [Ubuntu](https://ubuntu.com/desktop)
+   
+   - [Linux Mint](https://linuxmint.com/)
 
 {% hint style="warning" %}
 For Debian-based distributions, there isn’t any Armoury Crate alternative readily available. Asusctl and supergfxctl are considered unsupported on Debian-based distros. While they can be installed by compiling them manually, they may not work properly or may not be usable at all. Alternatively, you can install different applications to control different functions, but this can quickly become annoying.
