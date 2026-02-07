@@ -136,9 +136,26 @@ After that, wait for the installation to complete, then shut down the laptop, re
 {% step %}
 {% endstep %}
 
-# 5. Uninstalling Linux
+# 5. Quick Start
+Now that Fedora is installed, you should become familiar with dnf, the package manager.
 
-## 5.1 For Dual Boot Users
+On Linux, software is installed and managed using a package manager. Instead of visiting a website to download an `.exe` file, you search for and install applications directly from the terminal.
+This might sound complicated at first, but for most tasks you can simply use the Software Store (Discover or GNOME Software). However, there may be times when you need to install something through the terminal. When that happens, these are the only commands you need to know for now:
+
+```bash
+sudo dnf search <package-name>
+sudo dnf install <package-name>
+sudo dnf remove <package-name>
+```
+You can probably already guess this, but <package-name> is where you enter the name of the application, such as firefox, libreoffice, or obs. If you don’t remember the exact name, you can use the search command to find it.
+
+If you’d like to learn more, you can check out [this page](https://docs.fedoraproject.org/en-US/quick-docs/dnf/).
+
+{% hint style="info" %} You can also run `man dnf` from your terminal to view an offline manual. This works for most commands. Just run `man` followed by the command, and it will give you a manual for it. {% endhint %}
+
+# 6. Uninstalling Linux
+
+## 6.1 For Dual Boot Users
 
 Open Disk Management in Windows, delete the Linux partitions, and then extend the partition from which the space was taken.
 
