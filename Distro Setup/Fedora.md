@@ -52,6 +52,8 @@ sudo dnf install \
 
 ### 3.1 NVIDIA Driver Setup
 
+While it’s possible to download and install NVIDIA drivers directly from NVIDIA’s website, you should avoid doing so unless you have a specific reason. Drivers installed manually cannot be updated through `dnf` and are likely to break with future system updates. For this reason, you should install NVIDIA drivers only through `dnf`.
+
 {% hint style="warning" %}Make sure Secure Boot is turned off or the Nvidia driver won’t load. {% endhint %}
 
 
