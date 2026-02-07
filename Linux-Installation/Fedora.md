@@ -218,7 +218,7 @@ remove letter=Z
 After that, you can close both windows and use Windows normally.
 
 
-## 5.2 For Standalone Linux Installation:
+## 6.2 For Standalone Linux Installation:
 
 If you want to return to Windows after using Linux, open DiskPart, select the Linux drive, and remove its filesystem by returning it to an uninitialized state using the `clean` command in DiskPart.
 
