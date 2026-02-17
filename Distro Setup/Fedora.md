@@ -33,9 +33,8 @@ fastestmirror=true
 
 ## 2. RPM Fusion:
 
-Fedora doesn't ship certain stuff like proprietary drivers and codecs out of the box. RPM Fusion adds that in. You’ll need both **free** and **nonfree** versions.
-
-### Enable RPM Fusion Free and Non-Free repositories
+Fedora doesn’t provide certain software due to legal restrictions, patents, or because it is proprietary. This includes the NVIDIA driver, media codecs, Steam, and similar software.
+RPM Fusion provides this software through its repositories: **Free (software that is restricted in Fedora due to legal reasons or patents)** and **Nonfree (proprietary software).**
 
 ```bash
 
@@ -74,14 +73,30 @@ Install Nvidia packages:
 sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda
 ```
 
-{% hint style="info" %} After installing, wait 3–6 minutes for the kernel module to build in the background. {% endhint %}
+After installing the driver, wait about 5 minutes for the kernel module to be built. Once that’s done, reboot the system. You can then test whether the driver is working by running nvidia-smi in the terminal. If it produces an output, the driver is installed and functioning correctly. If you see an error such as NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver, the driver isn’t working properly, and you may need to rebuild it.
 
-Enable Nvidia power management:
+<details><summary>Troubleshooting:</summary>
 
+### Rebuilding Kernel Modules  
+If you end up with a black screen after installing the drivers, or if `nvidia-smi` fails with the error `NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver`, it usually means the NVIDIA kernel module didn’t build properly. In such cases, you might be stuck at a black screen on boot, or the system may boot normally but the driver won’t work.
+If you’re stuck at a black screen, press <kbd>Ctrl + Alt + F3</kbd> to switch to a TTY, log in, and try rebuilding the kernel module. If that still doesn’t fix the issue, reinstall the drivers and try again.
+
+If you can still access your desktop, you can run the required commands directly without switching to a TTY.
 ```bash
-sudo systemctl enable nvidia-hibernate.service nvidia-suspend.service nvidia-resume.service nvidia-powerd.service
+sudo akmods --force
 ```
+After running this command, wait about 5 minutes for it to finish, then run `sudo dracut -f --regenerate-all` and reboot your device.
 
+### Uninstallation:
+If rebuilding the kernel module didn’t work, you might need to uninstall the current drivers and reinstall them.
+```bash
+sudo dnf remove xorg-x11-drv-nvidia\* && sudo dracut -f --regenerate-all
+```
+{% hint style="info" %} 
+If you get the error message "Nvidia kernel module missing, falling back to nouveau", it usually means one of three things: the NVIDIA kernel module was not built or installed properly, the dedicated GPU (dGPU) is disabled, or Secure Boot is enabled and is preventing the NVIDIA kernel module from loading. {% endhint %}
+
+
+</details>
 
 {% endstep %}
 
