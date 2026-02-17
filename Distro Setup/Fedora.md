@@ -73,7 +73,7 @@ Install Nvidia packages:
 sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda
 ```
 
-After installing the driver, wait about 5 minutes for the kernel module to be built. Once that’s done, reboot the system. You can then test whether the driver is working by running nvidia-smi in the terminal. If it produces an output, the driver is installed and functioning correctly. If you see an error such as NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver, the driver isn’t working properly, and you may need to rebuild it.
+After installing the driver, wait about 5 minutes for the kernel module to be built. Once that’s done, reboot the system. You can then test whether the driver is working by running `nvidia-smi` in the terminal. If it produces an output, the driver is installed and functioning correctly. If you see an error such as `NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver`, the driver isn’t working properly, and you may need to rebuild it.
 
 <details><summary>Troubleshooting:</summary>
 
