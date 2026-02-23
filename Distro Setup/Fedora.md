@@ -144,6 +144,8 @@ On the next boot, you may see the message `Nvidia kernel module missing, falling
 ```bash
 sudo akmods --force --rebuild
 ```
+**You can check the Secure Boot status by running mokutil --sb-state. If it says SecureBoot enabled, then Secure Boot is active.**
+
 </details>
 
 ## 4. Asus Software:
