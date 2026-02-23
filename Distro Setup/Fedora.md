@@ -102,6 +102,49 @@ If you get the error message "Nvidia kernel module missing, falling back to nouv
 
 {% step %}
 
+### 3.2 AMD/Intel:
+The drivers are already installed as part of the kernel, no further steps are required.
+
+<details><summary>Secure Boot:</summary>
+Secure Boot is a security feature in UEFI (BIOS) that prevents unsigned software from loading during the boot process, potentially stopping malicious programs from running when the system first starts. Secure Boot isn’t mandatory on Linux and can be left disabled in most cases. In fact, some distributions require Secure Boot to be disabled because they won’t boot normally with it enabled. This is because their bootloaders or kernels are not signed, or the required keys are not present in the firmware. If you’re only running Linux, you can keep Secure Boot disabled, or enable it if you want the "extra security".
+
+If you’re dual booting Windows, disabling Secure Boot and switching it on/off every time you switch OS can be annoying. In that case, it’s usually better to leave Secure Boot enabled so both operating systems boot normally.
+
+If you don’t have an NVIDIA GPU, you can simply enable Secure Boot in the firmware and Fedora should boot normally. **However, if you have NVIDIA drivers installed (or any other third-party kernel modules), you’ll need to follow the steps below to enable Secure Boot. [These steps are based on the RPM Fusion Secure Boot guide.](https://rpmfusion.org/Howto/Secure%20Boot)** 
+
+**Before proceeding, make sure Secure Boot is currently disabled and that the NVIDIA drivers are already installed.**
+
+Install the following packages in order to generate and import the keys:
+```bash
+sudo dnf in sudo dnf install kmodtool akmods mokutil openssl
+```
+
+First, generate a key:
+```bash
+sudo kmodgenca -a
+```
+Then, import it into the firmware:
+```bash
+sudo mokutil --import /etc/pki/akmods/certs/public_key.der
+```
+{% hint style="info" %}
+After a BIOS update, you will need to reimport the key, which can be done by running the command above.
+{% endhint %}
+
+You will be asked to create a password, which will be required later to complete the key enrollment, so make sure to remember it. After creating the password, reboot the system using `systemctl reboot`.
+
+During reboot, the **MOK management** screen will appear; press any key to start **MOK management**, then select <kbd>Enroll MOK</kbd> and enter the password you created. After that, you will be prompted to reboot; press <kbd>Enter</kbd>, and while the system restarts, hold the <kbd>F2</kbd> key to enter the Bios, enable Secure Boot, save the changes, and exit.
+
+{% hint style="warning" %}
+The keyboard layout on the MOK management screen defaults to QWERTY regardless of your physical keyboard layout.
+{% endhint %}
+
+On the next boot, you may see the message `Nvidia kernel module missing, falling back to nouveau`, which is normal because Secure Boot prevents the unsigned NVIDIA module from loading. Once Fedora boots, open a terminal and run the command to regenerate the kernel module, wait for it to complete, then reboot again. After this, the NVIDIA driver should load and work properly.
+
+```bash
+sudo akmods --force --rebuild
+```
+</details>
 
 ## 4. Asus Software:
 
