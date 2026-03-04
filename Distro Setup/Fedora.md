@@ -321,6 +321,7 @@ If you don't have an NVIDIA GPU, you can simply enable Secure Boot in the UEFI(B
 </details>
 
 <details><summary>Nvidia</summary>
+
 **If you have NVIDIA drivers installed (or any other third-party kernel modules), you'll need to follow the steps below to enable Secure Boot. [These steps are based on the RPM Fusion Secure Boot guide.](https://rpmfusion.org/Howto/Secure%20Boot)** 
 
 **Before proceeding, make sure Secure Boot is currently disabled and that the NVIDIA drivers are already installed.**
