@@ -46,7 +46,7 @@ If you've never used Linux before, there are a few behaviors that might confuse 
 {% step %}
 
 
-## 1.Updates:
+## 1. Updates:
 Start by updating all installed packages. You can do this through the App Store (Discover/GNOME Software) or via the terminal. **A reboot is required to complete the updates.**
 
 ```bash
