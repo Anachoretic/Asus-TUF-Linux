@@ -8,6 +8,7 @@ icon: suse
 {% stepper %}
 
 {% step %}
+
 ## 1. Update: 
 
 After installation, perform an update to ensure you’re on the latest version of Tumbleweed.
@@ -141,27 +142,10 @@ After installing the drivers, simply reboot the system and verify that they’re
 {% step %}
 
 ## 5. Asus Software:
-The ASUS-specific software for Tumbleweed is hosted on the COPR repository, so you will need to add the COPR repo to download it. 
-
-To add the repository, we need to create a `.repo` file. Simply create a file called asus-linux using the following command:
+The ASUS-specific software for Tumbleweed is hosted on the COPR repository, so you will need to add the COPR repo to download it. Add the repository using the following command. If you are prompted to accept the GPG key for the repository, accept it.
 
 ```bash
-sudo nano /etc/zypp/repos.d/asus-linux.repo
-```
-
-Then paste the following into the asus-linux.repo file, save it with  <kbd> Ctrl+S </kbd>, exit with  <kbd> Ctrl+X </kbd>, and refresh Zypper using `zypper ref`.
-
-```bash
-[asus-linux]
-name=asus-linux
-baseurl=https://download.copr.fedorainfracloud.org/results/lukenukem/asus-linux/opensuse-tumbleweed-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://download.copr.fedorainfracloud.org/results/lukenukem/asus-linux/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1
+sudo zypper ar -f https://copr.fedorainfracloud.org/coprs/lukenukem/asus-linux/repo/opensuse-tumbleweed/lukenukem-asus-linux-opensuse-tumbleweed.repo
 ```
 
 Then download the following packages:
