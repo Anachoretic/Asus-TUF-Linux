@@ -12,14 +12,16 @@ icon: fedora
 
 |    Steps      |    Fedora     |    Bazzite    |    Nobara     |
 |---------------|---------------|---------------|---------------|
-| Updates       |    [x]        |    [x]*       |   [x]*        |
-| Rpm Fusion    |    [x]        |     x         |    x          |
-| Gpu Drivers   |    [x]        |     x         |    x          |
-| Asus Software |    [x]        |    [x]        |   [x]         |
+| Updates       |    ✓        |    ✓*       |   ✓*        |
+| Rpm Fusion    |    ✓        |     x         |    x          |
+| Gpu Drivers   |    ✓        |     x         |    x          |
+| Asus Software |    ✓        |    ✓        |   ✓         |
 | Multimedia    |    Opt        |     x         |    Opt        |
-| Game Launcher |    [x]        |     x         |   x			 |
+| Game Launcher |    ✓        |     x         |   x			 |
 |  Fonts        |    Opt        |     x         |    Opt        |
 |  Secure Boot  |    Opt        |     x         |   Unsupported |
+
+
 **Update Bazzite and Nobara using their own system updater app.**
 
 To install asus software on bazzite follow this instead:
