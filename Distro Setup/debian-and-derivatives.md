@@ -126,14 +126,30 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 {% step %}
 
 ## 4. Asus Software:
+`asusctl` is not officially supported or distributed for Debian-based distributions, so you have two options: use ghelper-linux, a project that brings G-Helper to Linux, or manually compile and install asusctl. I recommend the former, as it is significantly easier and more straightforward.
 
-{% hint style="warning" %}
-These tools need to be built from source. Follow steps carefully.
+<details><summary>Ghelper-Linux</summary>
+
+`ghelper-linux` is a recreation of `ghelper`, but for Linux. It looks and ‘functions’ like ghelper. It was created for Debian-based distros, as they are not supported by `asusctl`, but it can be used on other distros as well. To install `ghelper-linux`, run the following command in the terminal.
+
+This project is relatively new; use at your own risk.
 {% endhint %}
 
-### 4.1 Build Dependencies**
+```bash
+ curl -sL https://raw.githubusercontent.com/utajum/g-helper-linux/master/install/install.sh | sudo bash
+ ```
 
-Install required development tools and libraries:
+It will download it and set it to run on boot. After that, you can run `helper` in the terminal at any time, and it will also appear as a tray icon.
+{ % hint style="warning" %}
+This project **was not** created by or affiliated with [seerge/g-helper](https://github.com/seerge/g-helper). It is maintained by [utajum](https://github.com/utajum/g-helper-linux). If you encounter any issues, please report them to [utajum](https://github.com/utajum/).
+
+</details>
+
+<details>
+ 
+<summary>Manual Asusctl/Supergfxctl Build</summary>
+
+Install the following build dependencies.
 
 ```bash
 sudo apt install -y build-essential git cmake pkg-config libpci-dev libsysfs-dev libudev-dev \
@@ -189,26 +205,8 @@ make && sudo make install
 sudo systemctl enable supergfxd
 sudo systemctl start supergfxd
 ```
+</details>
 
-### 4.4 GUI Support
-
-* **GNOME:** Install the [`supergfxctl-gex`](https://extensions.gnome.org/extension/5344/supergfxctl-gex) extension.
-
-* **Other DEs (e.g., Cinnamon, MATE,XFCE):** Use CLI commands.
-
-**4.5 Switching GPU Modes via CLI**
-
-```bash
-supergfxctl --mode Integrated   # Use integrated GPU only
-supergfxctl --mode Hybrid       # Use both integrated and discrete GPU
-supergfxctl --mode AsusMuxDgpu  # Use discrete GPU only
-```
-
-To check available options:
-
-```bash
-supergfxctl --help
-```
 ### 4.5. Hotkeys:
 
 {% hint style="info" %}
