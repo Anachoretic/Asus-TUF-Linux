@@ -132,16 +132,16 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 `ghelper-linux` is a recreation of `ghelper`, but for Linux. It looks and ‘functions’ like ghelper. It was created for Debian-based distros, as they are not supported by `asusctl`, but it can be used on other distros as well. To install `ghelper-linux`, run the following command in the terminal.
 
-This project is relatively new; use at your own risk.
-{% endhint %}
-
 ```bash
  curl -sL https://raw.githubusercontent.com/utajum/g-helper-linux/master/install/install.sh | sudo bash
  ```
 
 It will download it and set it to run on boot. After that, you can run `helper` in the terminal at any time, and it will also appear as a tray icon.
+
 { % hint style="warning" %}
 This project **was not** created by or affiliated with [seerge/g-helper](https://github.com/seerge/g-helper). It is maintained by [utajum](https://github.com/utajum/g-helper-linux). If you encounter any issues, please report them to [utajum](https://github.com/utajum/).
+This project is relatively new; use at your own risk.
+{% endhint %}
 
 </details>
 
