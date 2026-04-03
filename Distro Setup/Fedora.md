@@ -52,6 +52,8 @@ Start by updating all installed packages. You can do this through the App Store 
 ```bash
  sudo dnf upgrade --offline && sudo dnf offline reboot -y
 ```
+{% hint style="warning" %} The above command downloads the packages and automatically reboots to install them. To wait for your input before rebooting, remove `-y` [sudo dnf update --offline && sudo dnf reboot] from the end. This will prevent auto-reboot and prompt you to confirm before restarting.{% endhint %}
+
  
 ### DNF Configuration:
 
@@ -167,25 +169,8 @@ sudo systemctl enable --now supergfxd.service
 {% hint style="info" %} The asus-armoury driver was added in kernel version 6.19. If you are using a kernel older than that, you will get a warning indicating that the asus-armoury driver is not present. {% endhint %}
 
 ### 4.2 GPU Switching:
+You can switch GPU modes from within the rog-control-center app.
 
-- GNOME users: [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/)
-
-- KDE users:Install the supergfxctl-plasmoid:
-
-```bash
-sudo dnf copr enable jhyub/supergfxctl-plasmoid
-sudo dnf install supergfxctl-plasmoid
-```
-
-Reload Plasma:
-
-Reboot for the changes to take effect.
-
-Set Hybrid GPU mode:
-
-```bash
-supergfxctl --mode Hybrid
-```
 {% hint style="info" %} Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
 
 ## 4.3. Hotkeys:
@@ -251,6 +236,7 @@ sudo dnf group install -y multimedia sound-and-video
 ```
 
 ### 5.2 Hardware Acceleration:
+
 **Intel:**
 ```bash
 sudo dnf install intel-media-driver
@@ -293,16 +279,31 @@ sudo dnf in steam lutris
 
 {% step %}
 
-## 7. Fonts:
-If you need the Microsoft fonts, you can install them using the following command. Otherwise, you can skip this step.
+## 7. Flatpak:
+Fedora uses its own Flatpak repo by default, which is more restricted than Flathub, so you might not find all the apps you want. To fix that, just enable Flathub and you’ll get access to all the Flatpak apps.
 
 ```bash
-# Microsoft and emoji fonts
-sudo dnf install msttcore-fonts-installer
-sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-sudo dnf install google-noto-emoji-color-fonts
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
-Rebuild font cache
+{% endstep %}
+
+{% step %}
+
+## 8. Fonts:
+If you need Microsoft fonts (Arial, Times New Roman, etc.), you can install them using the following commands. This will install the classic core fonts as well as the newer ClearType fonts. If you don’t need MS fonts, you can skip this step.
+
+First, install all the required dependencies.
+
+```bash
+sudo dnf install curl cabextract xorg-x11-font-utils fontconfig
+```
+Then download and install the fonts. Once installed, you can confirm they’re available by searching for their names in a font viewer.
+
+```bash
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+```
+
+Rebuild font cache:
 ```bash
 fc-cache -f
 ```
@@ -311,7 +312,7 @@ fc-cache -f
 
 {% step %}
 
-## 8. Secure Boot:
+## 9. Secure Boot:
 Secure Boot is a security feature in UEFI (BIOS) that prevents unsigned software from loading during the boot process, potentially stopping malicious programs from running when the system first starts. Secure Boot isn't mandatory on Linux and can be left disabled in most cases. In fact, some distributions require Secure Boot to be disabled because they won't boot normally with it enabled. This is because their bootloaders or kernels are not signed, or the required keys are not present in the firmware. If you're only running Linux, you can keep Secure Boot disabled, or enable it if you want the "extra security".
 
 If you're dual booting Windows, disabling Secure Boot and switching it on/off every time you switch OS can be annoying. In that case, it's usually better to leave Secure Boot enabled so both operating systems boot normally.
