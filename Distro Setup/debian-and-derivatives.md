@@ -128,7 +128,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 ## 4. Asus Software:
 `asusctl` is not officially supported or distributed for Debian-based distributions, so you have two options: use ghelper-linux, a project that brings G-Helper to Linux, or manually compile and install asusctl. I recommend the former, as it is significantly easier and more straightforward.
 
-<details><summary>Ghelper-Linux</summary>
+<details><summary>ghelper-Linux</summary>
 
 `ghelper-linux` is a recreation of `ghelper`, but for Linux. It looks and ‘functions’ like ghelper. It was created for Debian-based distros, as they are not supported by `asusctl`, but it can be used on other distros as well. To install `ghelper-linux`, run the following command in the terminal.
 
