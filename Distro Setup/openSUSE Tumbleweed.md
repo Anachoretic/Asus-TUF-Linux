@@ -124,13 +124,14 @@ You can compare your GPU architecture in the chart below:
 ### 4.1. Open Kernel Module:
 
 ```bash
-sudo zypper in nvidia-open-driver-G06-signed-kmp-meta
+zypper in nvidia-open-driver-G07-signed-kmp-meta
 ```
 
 ### 4.2. Proprietary Drivers:
 ```bash
-sudo zypper in nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 nvidia-compute-utils-G06
+sudo zypper in nvidia-driver-G06-kmp-default
 ```
+
 After installing the drivers, simply reboot the system and verify that they’re being used by running `nvidia-smi`.
 
 
@@ -158,25 +159,8 @@ Then enable the services with:
 ```bash
 systemctl enable switcheroo-control supergfxd --now
 ```
-{% hint style="info" %} Ignore the "Asus kernel isn't loaded" message in rog-control-center. It’s safe. {% endhint %}
 
-### 5.1 GPU Switching:
-
-- GNOME users: [supergfxctl-gex](https://extensions.gnome.org/extension/5344/supergfxctl-gex/)
-- KDE users: Install the supergfxctl-plasmoid:
-
-There is no official Tumbleweed package for supergfxctl-plasmoid, but you can still compile it yourself or install it from an OBS (openSUSE Build Service ), just make sure to verify the packages before installing them.
-
-Set Hybrid GPU mode:
-
-```bash
-supergfxctl --mode Hybrid
-```
-
-
-{% hint style="info" %} Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
-
-### 5.2 Fix Hotkeys (Asus Only)
+### 5.1 Fix Hotkeys (Asus Only)
 
 Some hotkeys are BIOS-level and can’t be remapped.
 
@@ -222,13 +206,12 @@ Assign the key combination you want, then click Apply.
 - `asusctl aura -n`: Toggle Aura lighting
 - `asusctl profile -n`: Change power profile
 
-### 5.3 Groups:
+### 5.2 Groups:
 
 For asusctl and supergfxctl to work properly, you need to be a member of the wheel and video groups. Run the following command to add yourself:
 
 ```bash
-sudo su
-usermod -a -G wheel,video yourusername
+sudo usermod -aG wheel,video $USER
 ```
 
 {% endstep %}
@@ -303,6 +286,7 @@ Due to licensing restrictions, Tumbleweed does not ship with proprietary codecs.
 sudo zypper in opi 
 sudo opi
 ```
+{% hint style="info" %} If you only need codecs to play or record videos, consider getting the Flatpak version of VLC or OBS instead of adding this repository.{% endhint %}
 
 {% endstep %}
 
@@ -320,6 +304,8 @@ Then reinstall Firefox with the upstream branding:
 ```bash
 sudo zypper in firefox MozillaFirefox-branding-upstream
 ```
+
+
 
 ### 9.2 Package Kit:
 Sometimes when you try to use `zypper`, you might get a popup saying it is being used by `PackageKit` and asking if you want to quit PackageKit. This popup is harmless, and zypper will usually become available after a short time. However, if it’s annoying, you can remove PackageKit, but note that doing so will disable the ability to download packages from other repositories (excluding Flatpak) using software stores like GNOME Software or Discover.
