@@ -100,13 +100,12 @@ Assuming you have disabled Secure Boot, if you have not, hold the <kbd>F2</kbd> 
 <details>
 <summary><strong> Agama Installer</strong> </summary>
 
+The installer requires an active internet connection before you select Tumbleweed from the product selection screen. If you are using an Ethernet connection, make sure the cable is plugged in and proceed to the next step. If you are using Wi-Fi, press <kbd>Ctrl + Alt + F2</kbd> to open a TTY terminal, then log in with the username root and the password shown above the login prompt. After logging in, type `nmtui`, select <kbd>Activate a connection</kbd> and connect to your Wi-Fi network. Once connected, press <kbd>Esc</kbd> to exit `nmtui`, type exit to log out, and then press <kbd>Ctrl + Alt + F1</kbd> to return to the installer screen and continue with the installation.
+
+
 ![](/Images/openSUSE/Product-Selection.png)
 
-First, select openSUSE Tumbleweed as the operating system you want to install. Then select it and wait for the system to detect everything. This may take a few seconds, so be patient.
-
-![](/Images/openSUSE/Network.png)
-
-By default, it will open in the Overview tab. Since the installer requires network access to download necessary files, you need to connect to a network. If you don’t have a network, you can skip this step. However, if you plan on using Wi-Fi, go to the Network tab. On the right side, it will list all available networks, simply select and connect to your network.
+Select openSUSE Tumbleweed as the operating system you want to install. Then select it and wait for the system to detect everything. This may take a few seconds, so be patient.
 
 ![Hostname](/Images/openSUSE/Hostname.png)
 
@@ -121,7 +120,6 @@ Use the Localization section to select your timezone, language, and keyboard lay
 On the Authentication tab, add a user by entering a username and password. Also, set a password for the root account.
 
 ![Partitioning](/Images/openSUSE/Partitioning.png)
-
 
 **By default, openSUSE will delete all existing partitions and create new ones. If you have Windows or another OS installed, make sure to select “Use Available Space”.** If you don’t have anything installed and want to use the entire disk, select “Delete Current Content”. Agama defaults to a 2 GB swap, but if you want to enable suspend-to-disk, choose Custom Partitioning and set the swap size to 1.5× your installed RAM. If you plan to use ZRAM exclusively, you may want to remove the swap partition.
 
