@@ -265,10 +265,6 @@ Enable GPU switching daemon:
 sudo systemctl enable supergfxd.service --now
 ```
 
-{% hint style="info" %}
-After installation, you may see the following message in `rog-control-center` "Asus kernel isn’t loaded." You will get this warning if you don’t use the custom kernel. You can choose not to use the custom kernel, and the app will still function normally for all other features, but you won’t have access to power limits.
-{% endhint %}
-
 ## GUI:
 `rog-control-center` Center is the GUI for asusctl. You can also use asusctl without the GUI if you prefer. The same applies to supergfxctl , it’s a terminal only tool by default, but you can install the GNOME extension or KDE applet to get a graphical interface.
 
