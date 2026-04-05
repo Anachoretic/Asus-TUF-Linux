@@ -1,3 +1,7 @@
+---
+icon: hand-wave
+---
+
 # Welcome!
 
 **Welcome to the ASUS TUF Linux guide!**
