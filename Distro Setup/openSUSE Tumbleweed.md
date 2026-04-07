@@ -200,11 +200,12 @@ Assign the key combination you want, then click Apply.
 ![](/Images/KDE/KBD-4.png)
 </details>
 
+| Command:                        | Action:
+|---------------------------------|-----------------------------|
+| rog-control-center              | Launch the GUI for asusctl. |
+| asusctl aura effect --next-mode | Toggle Aura Effect.         |
+| asusctl profile next            | Change power profile.       |
 
-### Commands:
-- `rog-control-center`: Launch GUI
-- `asusctl aura -n`: Toggle Aura lighting
-- `asusctl profile -n`: Change power profile
 
 ### 5.2 Groups:
 
