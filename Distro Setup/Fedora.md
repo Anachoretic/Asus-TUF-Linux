@@ -20,7 +20,7 @@ icon: fedora
 | Game Launcher |    ✓        |     x         |   x			 |
 |  Fonts        |    Opt        |     x         |    Opt        |
 |  Secure Boot  |    Opt        |     x         |   Unsupported |
-
+|Miscellaneous  |    Opt        |     x         |   x |
 
 **Update Bazzite and Nobara using their own system updater app.**
 
@@ -41,10 +41,8 @@ sudo systemctl enable --now supergfxd.service
 If you've never used Linux before, there are a few behaviors that might confuse you while following this guide. When entering your password in the terminal, it will be completely hidden for security purposes, so it may look like your keyboard is not working. Additionally, while downloading packages or adding repositories, you may be prompted to accept a GPG key. Unless otherwise stated, review the prompt and accept the key.
 {% endhint %}
 
-
 {% stepper %}
 {% step %}
-
 
 ## 1. Updates:
 Start by updating all installed packages. You can do this through the App Store (Discover/GNOME Software) or via the terminal. **A reboot is required to complete the updates.**
@@ -52,7 +50,7 @@ Start by updating all installed packages. You can do this through the App Store 
 ```bash
  sudo dnf upgrade --offline && sudo dnf offline reboot -y
 ```
-{% hint style="warning" %} The above command downloads the packages and automatically reboots to install them. To wait for your input before rebooting, remove `-y` [sudo dnf update --offline && sudo dnf reboot] from the end. This will prevent auto-reboot and prompt you to confirm before restarting.{% endhint %}
+{% hint style="warning" %}This command downloads all updates and immediately reboots without confirmation. Remove -y if you want to be prompted before rebooting.{% endhint %}
 
  
 ### DNF Configuration:
@@ -122,6 +120,7 @@ If you can still access your desktop, you can run the required commands directly
 ```bash
 sudo akmods --force
 ```
+
 After running this command, wait about 5 minutes for it to finish, then run `sudo dracut -f --regenerate-all` and reboot your device.
 
 ### Uninstallation:
@@ -129,6 +128,7 @@ If rebuilding the kernel module didn't work, you might need to uninstall the cur
 ```bash
 sudo dnf remove xorg-x11-drv-nvidia\* && sudo dracut -f --regenerate-all
 ```
+
 {% hint style="info" %} 
 If you get the error message "Nvidia kernel module missing, falling back to nouveau", it usually means one of three things: the NVIDIA kernel module was not built or installed properly, the dedicated GPU (dGPU) is disabled, or Secure Boot is enabled and is preventing the NVIDIA kernel module from loading. {% endhint %}
 
@@ -143,11 +143,9 @@ The drivers are already installed as part of the kernel, no further steps are re
 
 ## 4. Asus Software:
 
-### 4.1 Asus Linux Tools:
+Install asusctl, rog-control-center, and supergfxctl to control various functions such as GPU modes, fan curves, and power limits. These are not available in the main Fedora repository, so you will need to enable an external COPR repository to install them.
 
-These give you access to GPU modes, fan profiles, and Aura lighting control.
-
-First, add the repository.
+First, add the repository:
 
 ```bash
 sudo dnf copr enable lukenukem/asus-linux
@@ -159,27 +157,24 @@ Then install the following packages:
 sudo dnf install asusctl supergfxctl rog-control-center
 ```
 
-Finally, enable the supergfxd service.
+Finally, enable the supergfxd service:
 ```bash
 sudo systemctl enable --now supergfxd.service
 ```
 
-**After installing everything reboot the system.**
+**`rog-control-center` will not launch until the system is rebooted, so make sure you restart your device after enabling the supergfxd service.**
 
-{% hint style="info" %} The asus-armoury driver was added in kernel version 6.19. If you are using a kernel older than that, you will get a warning indicating that the asus-armoury driver is not present. {% endhint %}
 
-### 4.2 GPU Switching:
-You can switch GPU modes from within the rog-control-center app.
+<details><summary>Hotkeys:</summary>
+Some hotkeys, such as Aura and Armoury Crate (AC) keys, which are controlled by software like Armoury Crate or G-Helper, need to be remapped in Linux in order to function.
 
-{% hint style="info" %} Switching to/from Hybrid mode needs logout. Ultimate mode requires a reboot. {% endhint %}
+{% hint style="info" %}Some hotkeys are BIOS-level and can't be remapped. To test remap capability: press the key while adding a shortcut. If nothing registers, it can't be reassigned.
 
-## 4.3. Hotkeys:
+**There is no on-screen display (OSD) in Linux to show mode changes such as profiles, Aura, or backlight adjustments, but these settings still change in the background.**
+{% endhint %}
 
-Some hotkeys are BIOS-level and can't be remapped.
 
-{% hint style="info" %} To test remap capability: press the key while adding a shortcut. If nothing registers, it can't be reassigned. {% endhint %}
-
-<details><summary>GNOME</summary>
+## GNOME:
 Go the following:
 Settings > Keyboard > View and Customize Shortcuts > Custom Shortcuts
 
@@ -192,9 +187,10 @@ Then, click Add a Shortcut.
 ![](/Images/GNOME/KBD-3.png)
 
 Next, enter the command in the Command field. For the shortcut, click Set Shortcut and press the hotkey you want to assign. After that, give your shortcut a name, and finally, click Add. The shortcut should now work normally.
-</details>
 
-<details><summary>KDE</summary>
+
+
+## KDE:
 
 Go to Settings > Keyboard > Shortcuts and click Add New (Command or Script).
 
@@ -211,13 +207,16 @@ Locate the command you just added in the Command section, then click Add under C
 Assign the key combination you want, then click Apply.
 
 ![](/Images/KDE/KBD-4.png)
+
 </details>
 
-Commands:
 
-- `rog-control-center`: Launch GUI
-- `asusctl aura -n`: Toggle Aura lighting
-- `asusctl profile -n`: Change power profile
+| Command:                        | Action:
+|---------------------------------|-----------------------------|
+| rog-control-center              | Launch the GUI for asusctl. |
+| asusctl aura effect --next-mode | Toggle Aura Effect.         |
+| asusctl profile next            | Change power profile.       |
+
 
 {% endstep %}
 
@@ -270,7 +269,7 @@ sudo dnf install libva-nvidia-driver.{i686,x86_64}
 If all your games are on Steam, you can just install Steam and play them. However, if your games are on other launchers like Epic or GOG, you'll need to install Lutris, Bottles, or Heroic Game Launcher to play them, as they don't have native Linux clients.
 
 ```bash
-sudo dnf in steam lutris
+sudo dnf install steam lutris wine
 ```
 
 [You can learn about game compatibility and the steps to add a GOG game installer here.](https://asus-tuf-linux.gitbook.io/introduction/optimizations-and-daily-use/gaming-on-linux)
@@ -358,8 +357,23 @@ On the next boot, you may see the message `Nvidia kernel module missing, falling
 sudo akmods --force --rebuild
 ```
 **You can check the Secure Boot status by running `mokutil --sb-state` If it says `SecureBoot enabled`, then Secure Boot is active.**
-
 </details>
 
+{% endstep %}
+
+{% step %}
+
+## 10. Miscellaneous:
+## Hostname:
+Hostname is the name given to your device. By default, it is fedora, but you can change it to whatever you want.
+```bash
+sudo hostnamectl set-hostname Hostname
+```
+
+## APP Image Support:
+Install `fuse` and `fuse-libs` to enable support for AppImages (portable executable packages).
+```bash
+sudo dnf install fuse fuse-libs
+```
 {% endstep %}
 {% endstepper %}
