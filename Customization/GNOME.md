@@ -84,6 +84,21 @@ GTK4 themes require an extra step to work correctly. If you skip it, some elemen
 {% endstep %}
 {% step %}
 
+{% hint style="info" %}
+Themes are disabled on apps installed from Flatpak because they are sandboxed. You can run the following command to force them to use the installed theme, but it may break certain apps.
+
+```bash
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --env=GTK_THEME=my-theme
+```
+
+To reset everything to default, you can run the following command. This will remove all overrides.
+```bash
+sudo flatpak override --reset
+```
+{% endhint %}
+
+
 # 3. Icon Themes:
 
 Icon themes change the look of system and app icons.
