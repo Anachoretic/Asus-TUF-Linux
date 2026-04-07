@@ -250,9 +250,12 @@ Assign the key combination you want, then click Apply.
 
 ### Commands:
 
-* Armoury Crate: `rog-control-center`
-* Aura Mode: `asusctl aura -n`
-* Performance Mode: `asusctl profile -n`
+| Command:                        | Action:
+|---------------------------------|-----------------------------|
+| rog-control-center              | Launch the GUI for asusctl. |
+| asusctl aura effect --next-mode | Toggle Aura Effect.         |
+| asusctl profile next            | Change power profile.       |
+
 
 {% endstep %}
 
